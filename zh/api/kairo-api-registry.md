@@ -60,12 +60,12 @@ getApiNames(): ReadonlyArray<string>
 ### getHookDeclarations {#gethookdeclarations}
 
 ```typescript
-getHookDeclarations(): readonly InternalHookDeclaration[]
+getHookDeclarations(): readonly HookDeclaration[]
 ```
 
 返回所有已注册的 hook 声明。
 
-**返回值：** `readonly InternalHookDeclaration[]`
+**返回值：** `readonly HookDeclaration[]`
 
 ---
 

@@ -43,7 +43,6 @@ before イベントの購読。
 - [clearRun](#clearrun)
 - [emit](#emit)
 - [getAddonId](#getaddonid)
-- [getHookDeclarations](#gethookdeclarations)
 - [init](#init)
 - [request](#request)
 - [runInterval](#runinterval)
@@ -102,17 +101,6 @@ getAddonId(): string | undefined
 
 ---
 
-### getHookDeclarations {#gethookdeclarations}
-
-```typescript
-getHookDeclarations(): readonly InternalHookDeclaration[]
-```
-
-登録済みフック宣言の一覧を返します。
-
-**返り値:** `readonly InternalHookDeclaration[]`
-
----
 
 ### init {#init}
 

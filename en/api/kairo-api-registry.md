@@ -60,12 +60,12 @@ Returns all registered API names.
 ### getHookDeclarations {#gethookdeclarations}
 
 ```typescript
-getHookDeclarations(): readonly InternalHookDeclaration[]
+getHookDeclarations(): readonly HookDeclaration[]
 ```
 
 Returns all registered hook declarations.
 
-**Returns:** `readonly InternalHookDeclaration[]`
+**Returns:** `readonly HookDeclaration[]`
 
 ---
 

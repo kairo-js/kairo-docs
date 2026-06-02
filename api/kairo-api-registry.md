@@ -60,12 +60,12 @@ getApiNames(): ReadonlyArray<string>
 ### getHookDeclarations {#gethookdeclarations}
 
 ```typescript
-getHookDeclarations(): readonly InternalHookDeclaration[]
+getHookDeclarations(): readonly HookDeclaration[]
 ```
 
 登録済みフック宣言の一覧を返します。
 
-**返り値:** `readonly InternalHookDeclaration[]`
+**返り値:** `readonly HookDeclaration[]`
 
 ---
 

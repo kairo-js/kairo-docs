@@ -43,7 +43,6 @@
 - [clearRun](#clearrun)
 - [emit](#emit)
 - [getAddonId](#getaddonid)
-- [getHookDeclarations](#gethookdeclarations)
 - [init](#init)
 - [request](#request)
 - [runInterval](#runinterval)
@@ -102,17 +101,6 @@ getAddonId(): string | undefined
 
 ---
 
-### getHookDeclarations {#gethookdeclarations}
-
-```typescript
-getHookDeclarations(): readonly InternalHookDeclaration[]
-```
-
-返回所有已注册的 hook 声明。
-
-**返回值：** `readonly InternalHookDeclaration[]`
-
----
 
 ### init {#init}
 

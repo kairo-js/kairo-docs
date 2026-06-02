@@ -43,7 +43,6 @@ before 이벤트를 구독합니다.
 - [clearRun](#clearrun)
 - [emit](#emit)
 - [getAddonId](#getaddonid)
-- [getHookDeclarations](#gethookdeclarations)
 - [init](#init)
 - [request](#request)
 - [runInterval](#runinterval)
@@ -102,17 +101,6 @@ getAddonId(): string | undefined
 
 ---
 
-### getHookDeclarations {#gethookdeclarations}
-
-```typescript
-getHookDeclarations(): readonly InternalHookDeclaration[]
-```
-
-등록된 모든 훅 선언을 반환합니다.
-
-**반환값:** `readonly InternalHookDeclaration[]`
-
----
 
 ### init {#init}
 

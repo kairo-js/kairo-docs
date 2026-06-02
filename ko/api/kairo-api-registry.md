@@ -60,12 +60,12 @@ getApiNames(): ReadonlyArray<string>
 ### getHookDeclarations {#gethookdeclarations}
 
 ```typescript
-getHookDeclarations(): readonly InternalHookDeclaration[]
+getHookDeclarations(): readonly HookDeclaration[]
 ```
 
 등록된 모든 훅 선언을 반환합니다.
 
-**반환값:** `readonly InternalHookDeclaration[]`
+**반환값:** `readonly HookDeclaration[]`
 
 ---
 

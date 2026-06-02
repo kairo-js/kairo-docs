@@ -43,7 +43,6 @@ Addon context info (getter).
 - [clearRun](#clearrun)
 - [emit](#emit)
 - [getAddonId](#getaddonid)
-- [getHookDeclarations](#gethookdeclarations)
 - [init](#init)
 - [request](#request)
 - [runInterval](#runinterval)
@@ -102,17 +101,6 @@ Returns the addonId of this addon. Returns `undefined` before the addon is regis
 
 ---
 
-### getHookDeclarations {#gethookdeclarations}
-
-```typescript
-getHookDeclarations(): readonly InternalHookDeclaration[]
-```
-
-Returns all registered hook declarations.
-
-**Returns:** `readonly InternalHookDeclaration[]`
-
----
 
 ### init {#init}
 
