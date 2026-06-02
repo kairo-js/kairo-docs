@@ -78,7 +78,7 @@ function makeSidebar(
 }
 
 export default defineConfig({
-  base: '/kairo-docs/',
+  base: '/',
 
   locales: {
     root: {
