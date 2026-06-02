@@ -40,18 +40,18 @@ Addon context info (getter).
 
 ## Methods
 
-- [clearRun(runId)](#clearrun)
-- [emit(eventName, payload?)](#emit)
-- [getAddonId()](#getaddonid)
-- [getHookDeclarations()](#gethookdeclarations)
-- [init(properties)](#init)
-- [request(targetAddonId, apiName, args?, options?)](#request)
-- [runInterval(callback, tickInterval?)](#runinterval)
-- [runTimeout(callback, tickDelay?)](#runtimeout)
-- [send(targetAddonId, apiName, args?)](#send)
-- [waitForWorldLoad()](#waitforworldload)
+- [clearRun](#clearrun)
+- [emit](#emit)
+- [getAddonId](#getaddonid)
+- [getHookDeclarations](#gethookdeclarations)
+- [init](#init)
+- [request](#request)
+- [runInterval](#runinterval)
+- [runTimeout](#runtimeout)
+- [send](#send)
+- [waitForWorldLoad](#waitforworldload)
 
-### clearRun(runId) {#clearrun}
+### clearRun {#clearrun}
 
 ```typescript
 clearRun(runId: number): void
@@ -67,7 +67,7 @@ Cancels a scheduled run created by `runInterval()` or `runTimeout()`.
 
 ---
 
-### emit(eventName, payload?) {#emit}
+### emit {#emit}
 
 ```typescript
 emit(eventName: string, payload?: unknown): void
@@ -84,7 +84,7 @@ Emits a custom event. Delivered to handlers subscribed via `AddonEventRegistry.o
 
 ---
 
-### getAddonId() {#getaddonid}
+### getAddonId {#getaddonid}
 
 ```typescript
 getAddonId(): string | undefined
@@ -96,7 +96,7 @@ Returns the addonId of this addon. Returns `undefined` before the addon is regis
 
 ---
 
-### getHookDeclarations() {#gethookdeclarations}
+### getHookDeclarations {#gethookdeclarations}
 
 ```typescript
 getHookDeclarations(): readonly InternalHookDeclaration[]
@@ -108,7 +108,7 @@ Returns all registered hook declarations.
 
 ---
 
-### init(properties) {#init}
+### init {#init}
 
 ```typescript
 init(properties: AddonProperties): void
@@ -124,7 +124,7 @@ Initializes the addon.
 
 ---
 
-### request(targetAddonId, apiName, args?, options?) {#request}
+### request {#request}
 
 ```typescript
 request<TReturn>(
@@ -162,7 +162,7 @@ if ('cancelled' in result) {
 
 ---
 
-### runInterval(callback, tickInterval?) {#runinterval}
+### runInterval {#runinterval}
 
 ```typescript
 runInterval(callback: () => void, tickInterval?: number): number
@@ -179,7 +179,7 @@ Schedules a recurring callback at the given tick interval. Returns a runId to pa
 
 ---
 
-### runTimeout(callback, tickDelay?) {#runtimeout}
+### runTimeout {#runtimeout}
 
 ```typescript
 runTimeout(callback: () => void, tickDelay?: number): number
@@ -196,7 +196,7 @@ Schedules a one-shot callback after the given tick delay. Returns a runId to pas
 
 ---
 
-### send(targetAddonId, apiName, args?) {#send}
+### send {#send}
 
 ```typescript
 send(targetAddonId: string, apiName: string, args?: unknown): void
@@ -218,7 +218,7 @@ router.send('economy-addon', 'onTransaction', { amount: 50 })
 
 ---
 
-### waitForWorldLoad() {#waitforworldload}
+### waitForWorldLoad {#waitforworldload}
 
 ```typescript
 waitForWorldLoad(): Promise<void>

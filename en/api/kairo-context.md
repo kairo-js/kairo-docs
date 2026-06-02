@@ -32,10 +32,10 @@ Registry info for this addon. Throws before registration.
 
 ## Methods
 
-- [isActive()](#isactive)
-- [isRegistered()](#isregistered)
+- [isActive](#isactive)
+- [isRegistered](#isregistered)
 
-### isActive() {#isactive}
+### isActive {#isactive}
 
 ```typescript
 isActive(): boolean
@@ -47,7 +47,7 @@ Returns `true` if the addon is in ACTIVE state.
 
 ---
 
-### isRegistered() {#isregistered}
+### isRegistered {#isregistered}
 
 ```typescript
 isRegistered(): boolean

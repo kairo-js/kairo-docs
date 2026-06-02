@@ -6,16 +6,16 @@
 
 ## メソッド
 
-- [dispose()](#dispose)
-- [getApiHandler(apiName)](#getapihandler)
-- [getApiNames()](#getapinames)
-- [getHookDeclarations()](#gethookdeclarations)
-- [hook(targetAddonId, apiName, options)](#hook)
-- [register(apiName, handler)](#register)
-- [seal()](#seal)
-- [setDeclaringAddonId(addonId)](#setdeclaringaddonid)
+- [dispose](#dispose)
+- [getApiHandler](#getapihandler)
+- [getApiNames](#getapinames)
+- [getHookDeclarations](#gethookdeclarations)
+- [hook](#hook)
+- [register](#register)
+- [seal](#seal)
+- [setDeclaringAddonId](#setdeclaringaddonid)
 
-### dispose() {#dispose}
+### dispose {#dispose}
 
 ```typescript
 dispose(): void
@@ -27,7 +27,7 @@ dispose(): void
 
 ---
 
-### getApiHandler(apiName) {#getapihandler}
+### getApiHandler {#getapihandler}
 
 ```typescript
 getApiHandler(apiName: string): ApiHandler | undefined
@@ -43,7 +43,7 @@ getApiHandler(apiName: string): ApiHandler | undefined
 
 ---
 
-### getApiNames() {#getapinames}
+### getApiNames {#getapinames}
 
 ```typescript
 getApiNames(): ReadonlyArray<string>
@@ -55,7 +55,7 @@ getApiNames(): ReadonlyArray<string>
 
 ---
 
-### getHookDeclarations() {#gethookdeclarations}
+### getHookDeclarations {#gethookdeclarations}
 
 ```typescript
 getHookDeclarations(): readonly InternalHookDeclaration[]
@@ -67,7 +67,7 @@ getHookDeclarations(): readonly InternalHookDeclaration[]
 
 ---
 
-### hook(targetAddonId, apiName, options) {#hook}
+### hook {#hook}
 
 ```typescript
 hook<TArgs, TReturn>(
@@ -105,7 +105,7 @@ ev.api.hook('economy-addon', 'economy/getBalance', {
 
 ---
 
-### register(apiName, handler) {#register}
+### register {#register}
 
 ```typescript
 register<TArgs, TReturn>(
@@ -138,7 +138,7 @@ ev.api.register<{ playerId: string }, { balance: number }>(
 
 ---
 
-### seal() {#seal}
+### seal {#seal}
 
 ```typescript
 seal(): void
@@ -150,7 +150,7 @@ API 登録を終了します。フレームワーク内部から呼ばれます�
 
 ---
 
-### setDeclaringAddonId(addonId) {#setdeclaringaddonid}
+### setDeclaringAddonId {#setdeclaringaddonid}
 
 ```typescript
 setDeclaringAddonId(addonId: string): void

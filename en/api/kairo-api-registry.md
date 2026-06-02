@@ -6,16 +6,16 @@ The class accessed via `ev.api`. Only operable inside the `router.beforeEvents.s
 
 ## Methods
 
-- [dispose()](#dispose)
-- [getApiHandler(apiName)](#getapihandler)
-- [getApiNames()](#getapinames)
-- [getHookDeclarations()](#gethookdeclarations)
-- [hook(targetAddonId, apiName, options)](#hook)
-- [register(apiName, handler)](#register)
-- [seal()](#seal)
-- [setDeclaringAddonId(addonId)](#setdeclaringaddonid)
+- [dispose](#dispose)
+- [getApiHandler](#getapihandler)
+- [getApiNames](#getapinames)
+- [getHookDeclarations](#gethookdeclarations)
+- [hook](#hook)
+- [register](#register)
+- [seal](#seal)
+- [setDeclaringAddonId](#setdeclaringaddonid)
 
-### dispose() {#dispose}
+### dispose {#dispose}
 
 ```typescript
 dispose(): void
@@ -27,7 +27,7 @@ Releases resources held by this registry.
 
 ---
 
-### getApiHandler(apiName) {#getapihandler}
+### getApiHandler {#getapihandler}
 
 ```typescript
 getApiHandler(apiName: string): ApiHandler | undefined
@@ -43,7 +43,7 @@ Returns the registered handler for the given API name. Returns `undefined` if no
 
 ---
 
-### getApiNames() {#getapinames}
+### getApiNames {#getapinames}
 
 ```typescript
 getApiNames(): ReadonlyArray<string>
@@ -55,7 +55,7 @@ Returns all registered API names.
 
 ---
 
-### getHookDeclarations() {#gethookdeclarations}
+### getHookDeclarations {#gethookdeclarations}
 
 ```typescript
 getHookDeclarations(): readonly InternalHookDeclaration[]
@@ -67,7 +67,7 @@ Returns all registered hook declarations.
 
 ---
 
-### hook(targetAddonId, apiName, options) {#hook}
+### hook {#hook}
 
 ```typescript
 hook<TArgs, TReturn>(
@@ -105,7 +105,7 @@ ev.api.hook('economy-addon', 'economy/getBalance', {
 
 ---
 
-### register(apiName, handler) {#register}
+### register {#register}
 
 ```typescript
 register<TArgs, TReturn>(
@@ -138,7 +138,7 @@ Use slash-separated namespaces like `economy/getBalance` to avoid collisions and
 
 ---
 
-### seal() {#seal}
+### seal {#seal}
 
 ```typescript
 seal(): void
@@ -150,7 +150,7 @@ Closes the registry. Called internally by the framework. Calling `register()` or
 
 ---
 
-### setDeclaringAddonId(addonId) {#setdeclaringaddonid}
+### setDeclaringAddonId {#setdeclaringaddonid}
 
 ```typescript
 setDeclaringAddonId(addonId: string): void

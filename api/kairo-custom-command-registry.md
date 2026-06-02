@@ -6,10 +6,10 @@
 
 ## メソッド
 
-- [registerCommand(customCommand, callback)](#registercommand)
-- [registerEnum(name, values)](#registerenum)
+- [registerCommand](#registercommand)
+- [registerEnum](#registerenum)
 
-### registerCommand(customCommand, callback) {#registercommand}
+### registerCommand {#registercommand}
 
 ```typescript
 registerCommand(
@@ -29,7 +29,7 @@ Minecraft カスタムコマンドを登録します。
 
 ---
 
-### registerEnum(name, values) {#registerenum}
+### registerEnum {#registerenum}
 
 ```typescript
 registerEnum(name: string, values: string[]): void

@@ -6,11 +6,11 @@ The class accessed via `ev.events`. Used inside the `router.beforeEvents.startup
 
 ## Methods
 
-- [deliver(emitterAddonId, eventName, payload)](#deliver)
-- [getSubscriptions()](#getsubscriptions)
-- [on(emitterAddonId, eventName, handler)](#on)
+- [deliver](#deliver)
+- [getSubscriptions](#getsubscriptions)
+- [on](#on)
 
-### deliver(emitterAddonId, eventName, payload) {#deliver}
+### deliver {#deliver}
 
 ```typescript
 deliver(emitterAddonId: string, eventName: string, payload: unknown): void
@@ -28,7 +28,7 @@ Delivers an event to registered handlers. Called internally by the framework.
 
 ---
 
-### getSubscriptions() {#getsubscriptions}
+### getSubscriptions {#getsubscriptions}
 
 ```typescript
 getSubscriptions(): EventSubscription[]
@@ -40,7 +40,7 @@ Returns all registered subscriptions.
 
 ---
 
-### on(emitterAddonId, eventName, handler) {#on}
+### on {#on}
 
 ```typescript
 on<TPayload = unknown>(
