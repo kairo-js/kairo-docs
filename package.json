@@ -1,0 +1,16 @@
+{
+  "name": "kairo-docs",
+  "private": true,
+  "packageManager": "pnpm@10.31.0",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild"]
+  }
+}
