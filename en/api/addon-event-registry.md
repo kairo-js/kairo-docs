@@ -20,17 +20,9 @@ Delivers an event to registered handlers. Called internally by the framework.
 
 **Parameters**
 
-**emitterAddonId:** `string`
-
-The ID of the addon that emitted the event.
-
-**eventName:** `string`
-
-The name of the event.
-
-**payload:** `unknown`
-
-The event payload.
+- **emitterAddonId:** `string` — The ID of the addon that emitted the event.
+- **eventName:** `string` — The name of the event.
+- **payload:** `unknown` — The event payload.
 
 **Returns:** `void`
 
@@ -62,17 +54,9 @@ Subscribes to an event emitted by another addon.
 
 **Parameters**
 
-**emitterAddonId:** `string`
-
-The ID of the addon that emits the event.
-
-**eventName:** `string`
-
-The name of the event to subscribe to.
-
-**handler:** `EventHandler<TPayload>`
-
-Handler invoked when the event is received.
+- **emitterAddonId:** `string` — The ID of the addon that emits the event.
+- **eventName:** `string` — The name of the event to subscribe to.
+- **handler:** `EventHandler<TPayload>` — Handler invoked when the event is received.
 
 **Returns:** `void`
 

@@ -18,17 +18,11 @@ deliver(emitterAddonId: string, eventName: string, payload: unknown): void
 
 등록된 핸들러에 이벤트를 전달합니다. 프레임워크 내부에서 호출됩니다.
 
-**emitterAddonId:** `string`
+**매개변수**
 
-이벤트를 발행한 애드온의 ID.
-
-**eventName:** `string`
-
-이벤트의 이름.
-
-**payload:** `unknown`
-
-이벤트 페이로드.
+- **emitterAddonId:** `string` — 이벤트를 발행한 애드온의 ID.
+- **eventName:** `string` — 이벤트의 이름.
+- **payload:** `unknown` — 이벤트 페이로드.
 
 **반환값:** `void`
 
@@ -58,17 +52,11 @@ on<TPayload = unknown>(
 
 다른 애드온이 발행하는 이벤트를 구독합니다.
 
-**emitterAddonId:** `string`
+**매개변수**
 
-이벤트를 발행하는 애드온의 ID.
-
-**eventName:** `string`
-
-구독할 이벤트의 이름.
-
-**handler:** `EventHandler<TPayload>`
-
-이벤트를 수신했을 때 호출되는 핸들러.
+- **emitterAddonId:** `string` — 이벤트를 발행하는 애드온의 ID.
+- **eventName:** `string` — 구독할 이벤트의 이름.
+- **handler:** `EventHandler<TPayload>` — 이벤트를 수신했을 때 호출되는 핸들러.
 
 **반환값:** `void`
 

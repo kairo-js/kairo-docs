@@ -45,18 +45,7 @@ constructor(
 
 **パラメーター**
 
-**message:** `string`
-
-エラーメッセージ。
-
-**source:** `"local_parse" | "remote"`
-
-エラー発生箇所。
-
-**protocolStage:** `ProtocolStage`
-
-プロトコルステージ（省略可能）。
-
-**correlationId:** `string`
-
-対象リクエストの correlationId（省略可能）。
+- **message:** `string` — エラーメッセージ。
+- **source:** `"local_parse" | "remote"` — エラー発生箇所。
+- **protocolStage:** `ProtocolStage` — プロトコルステージ（省略可能）。
+- **correlationId:** `string` — 対象リクエストの correlationId（省略可能）。

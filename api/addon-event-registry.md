@@ -20,17 +20,9 @@ deliver(emitterAddonId: string, eventName: string, payload: unknown): void
 
 **パラメーター**
 
-**emitterAddonId:** `string`
-
-イベント送出元のアドオン ID。
-
-**eventName:** `string`
-
-イベント名。
-
-**payload:** `unknown`
-
-イベントのデータ。
+- **emitterAddonId:** `string` — イベント送出元のアドオン ID。
+- **eventName:** `string` — イベント名。
+- **payload:** `unknown` — イベントのデータ。
 
 **返り値:** `void`
 
@@ -62,17 +54,9 @@ on<TPayload = unknown>(
 
 **パラメーター**
 
-**emitterAddonId:** `string`
-
-イベント送出元のアドオン ID。
-
-**eventName:** `string`
-
-購読するイベント名。
-
-**handler:** `EventHandler<TPayload>`
-
-イベント受信時のハンドラ。
+- **emitterAddonId:** `string` — イベント送出元のアドオン ID。
+- **eventName:** `string` — 購読するイベント名。
+- **handler:** `EventHandler<TPayload>` — イベント受信時のハンドラ。
 
 **返り値:** `void`
 

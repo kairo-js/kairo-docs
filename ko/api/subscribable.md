@@ -21,9 +21,9 @@ subscribe(fn: (arg: T) => void): Disposable
 
 이벤트 핸들러를 등록합니다. 반환된 [`Disposable`](/ko/api/disposable)을 사용하여 나중에 구독을 해제할 수 있습니다.
 
-**fn:** `(arg: T) => void`
+**매개변수**
 
-이벤트 발생 시 호출할 핸들러.
+- **fn:** `(arg: T) => void` — 이벤트 발생 시 호출할 핸들러.
 
 **반환값:** [`Disposable`](/ko/api/disposable)
 
@@ -37,9 +37,9 @@ unsubscribe(fn: (arg: T) => void): void
 
 이전에 등록한 이벤트 핸들러를 제거합니다. `subscribe()`에 전달한 것과 동일한 함수 참조를 전달하십시오.
 
-**fn:** `(arg: T) => void`
+**매개변수**
 
-제거할 핸들러.
+- **fn:** `(arg: T) => void` — 제거할 핸들러.
 
 **반환값:** `void`
 

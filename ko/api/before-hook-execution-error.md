@@ -12,6 +12,6 @@
 constructor(cause?: unknown)
 ```
 
-**cause:** `unknown`
+**매개변수**
 
-던져진 원본 예외 (선택 사항).
+- **cause:** `unknown` — 던져진 원본 예외 (선택 사항).

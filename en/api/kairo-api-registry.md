@@ -37,9 +37,7 @@ Returns the registered handler for the given API name. Returns `undefined` if no
 
 **Parameters**
 
-**apiName:** `string`
-
-The name of the API to look up.
+- **apiName:** `string` — The name of the API to look up.
 
 **Returns:** `ApiHandler | undefined`
 
@@ -83,17 +81,9 @@ Registers a hook that intercepts another addon's API calls.
 
 **Parameters**
 
-**targetAddonId:** `string`
-
-The ID of the addon to hook into.
-
-**apiName:** `string`
-
-The name of the API to hook.
-
-**options:** `HookOptions<TArgs, TReturn>`
-
-Hook configuration.
+- **targetAddonId:** `string` — The ID of the addon to hook into.
+- **apiName:** `string` — The name of the API to hook.
+- **options:** `HookOptions<TArgs, TReturn>` — Hook configuration.
 
 **Returns:** `void`
 
@@ -128,13 +118,8 @@ Registers an API handler provided by this addon. Registering the same `apiName` 
 
 **Parameters**
 
-**apiName:** `string`
-
-The name of the API to register.
-
-**handler:** `(args: TArgs) => TReturn | Promise<TReturn>`
-
-The handler to invoke when the API is called.
+- **apiName:** `string` — The name of the API to register.
+- **handler:** `(args: TArgs) => TReturn | Promise<TReturn>` — The handler to invoke when the API is called.
 
 **Returns:** `void`
 
@@ -175,8 +160,6 @@ Sets the addonId of the declaring addon. Called internally by the framework.
 
 **Parameters**
 
-**addonId:** `string`
-
-The declaring addon's ID.
+- **addonId:** `string` — The declaring addon's ID.
 
 **Returns:** `void`

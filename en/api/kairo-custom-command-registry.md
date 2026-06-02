@@ -22,13 +22,8 @@ Registers a Minecraft custom command.
 
 **Parameters**
 
-**customCommand:** `CustomCommand`
-
-The command definition.
-
-**callback:** `(origin: CustomCommandOrigin, ...args: any[]) => CustomCommandResult | undefined`
-
-Handler invoked when the command is executed.
+- **customCommand:** `CustomCommand` — The command definition.
+- **callback:** `(origin: CustomCommandOrigin, ...args: any[]) => CustomCommandResult | undefined` — Handler invoked when the command is executed.
 
 **Returns:** `void`
 
@@ -44,13 +39,8 @@ Registers an enum for use in command arguments. Can be referenced in a `CustomCo
 
 **Parameters**
 
-**name:** `string`
-
-The name of the enum.
-
-**values:** `string[]`
-
-The allowed enum values.
+- **name:** `string` — The name of the enum.
+- **values:** `string[]` — The allowed enum values.
 
 **Returns:** `void`
 

@@ -43,18 +43,9 @@ constructor(
 )
 ```
 
-**message:** `string`
+**매개변수**
 
-오류 메시지.
-
-**source:** `"local_parse" | "remote"`
-
-오류가 발생한 위치.
-
-**protocolStage:** `ProtocolStage`
-
-프로토콜 단계 (선택 사항).
-
-**correlationId:** `string`
-
-관련 요청의 correlationId (선택 사항).
+- **message:** `string` — 오류 메시지.
+- **source:** `"local_parse" | "remote"` — 오류가 발생한 위치.
+- **protocolStage:** `ProtocolStage` — 프로토콜 단계 (선택 사항).
+- **correlationId:** `string` — 관련 요청의 correlationId (선택 사항).
