@@ -1,237 +1,193 @@
-# kairo-router API リファレンス
+# KairoRouter
 
-ゲストアドオンが使用するライブラリの API リファレンスです。すべての宣言（`register` / `hook`）は `router.beforeEvents.startup` 内でのみ有効です。
+`import { router } from '@kairo-js/router'`
 
-## 起動イベント
+`router` シングルトンとして export されるクラスです。アドオンの初期化・API 呼び出し・イベント購読など、kairo-router の主要機能を提供します。
 
-### `router.beforeEvents.startup`
+## プロパティ
 
-Minecraft の `worldLoad` より前に発火するイベントです。API の宣言はすべてここで行います。
+| プロパティ | 型 | 説明 |
+|---|---|---|
+| `afterEvents` | `KairoAfterEvents` | after イベントの購読 |
+| `beforeEvents` | `KairoBeforeEvents` | before イベントの購読 |
+| `currentTick` | `number` | 現在の tick 数（getter） |
+| `systemInfo` | `KairoContext` | アドオンのコンテキスト情報（getter） |
+
+## メソッド
+
+### clearRun()
 
 ```typescript
-router.beforeEvents.startup.subscribe((ev) => {
-  // ev.api.register() / ev.api.hook() / ev.customCommandRegistry.registerCommand()
-})
+clearRun(runId: number): void
 ```
 
-`ev.api` は startup 終了後に seal されます。startup 外から呼ぶとエラーになります。
+`runInterval()` または `runTimeout()` でスケジュールした実行をキャンセルします。
+
+| パラメーター | 型 | 説明 |
+|---|---|---|
+| `runId` | `number` | キャンセルする実行の ID |
+
+**返り値:** `void`
 
 ---
 
-## API の提供
-
-### `ev.api.register()`
-
-自アドオンが提供する API ハンドラを宣言します。
+### emit()
 
 ```typescript
-ev.api.register<TArgs, TReturn>(
-  apiName: string,
-  handler: (args: TArgs) => TReturn | Promise<TReturn>,
-): void
+emit(eventName: string, payload?: unknown): void
 ```
 
-- `addonId` はコンテキストから自動取得されるため指定不要です。
-- 同一 `addonId` 内で同一 `apiName` を重複登録するとエラーになります。
-- ハンドラが実際に呼び出し可能になるのは activation 後です。
+カスタムイベントを送出します。`AddonEventRegistry.on()` で購読しているハンドラに配信されます。
 
-```typescript
-ev.api.register<{ playerId: string }, { balance: number }>(
-  'economy/getBalance',
-  async ({ playerId }) => ({ balance: 100 }),
-)
-```
+| パラメーター | 型 | 説明 |
+|---|---|---|
+| `eventName` | `string` | 送出するイベント名 |
+| `payload` | `unknown` | イベントに添付するデータ（省略可能） |
 
-::: tip API 名の名前空間
-`economy/getBalance` のようにスラッシュ区切りの名前空間を付けることを推奨します。
-:::
+**返り値:** `void`
 
 ---
 
-## API の呼び出し
-
-### `router.send()`
-
-fire-and-forget 形式で API を呼び出します。返答を待ちません。
+### getAddonId()
 
 ```typescript
-router.send(
+getAddonId(): string | undefined
+```
+
+自アドオンの addonId を返します。アドオンが登録される前は `undefined` を返します。
+
+**返り値:** `string | undefined`
+
+---
+
+### getHookDeclarations()
+
+```typescript
+getHookDeclarations(): readonly InternalHookDeclaration[]
+```
+
+登録済みフック宣言の一覧を返します。
+
+**返り値:** `readonly InternalHookDeclaration[]`
+
+---
+
+### init()
+
+```typescript
+init(properties: AddonProperties): void
+```
+
+アドオンを初期化します。
+
+| パラメーター | 型 | 説明 |
+|---|---|---|
+| `properties` | `AddonProperties` | アドオンの設定情報 |
+
+**返り値:** `void`
+
+---
+
+### request()
+
+```typescript
+request<TReturn>(
   targetAddonId: string,
   apiName: string,
   args?: unknown,
-): void
+  options?: { timeout?: number },
+): Promise<TReturn | CancelledResult>
 ```
 
-- 対象 addonId が存在しない・inactive でも無視されます。
-- フックでキャンセルされても呼び出し元には伝わりません。
-- **順序保証なし**: 複数の `send` の到達順は未規定です。
+結果を待つ形式で API を呼び出します。`timeout` は tick 単位で、デフォルトは 20 tick です。
+
+| パラメーター | 型 | 説明 |
+|---|---|---|
+| `targetAddonId` | `string` | 呼び出し先アドオンの ID |
+| `apiName` | `string` | 呼び出す API 名 |
+| `args` | `unknown` | API に渡す引数（省略可能） |
+| `options.timeout` | `number` | タイムアウト（tick 単位、デフォルト 20） |
+
+**返り値:** `Promise<TReturn | CancelledResult>`
+
+```typescript
+const result = await router.request<{ balance: number }>(
+  'economy-addon',
+  'economy/getBalance',
+  { playerId: 'abc123' },
+)
+
+if ('cancelled' in result) {
+  console.warn('キャンセルされました:', result.reason)
+} else {
+  console.log('残高:', result.balance)
+}
+```
+
+---
+
+### runInterval()
+
+```typescript
+runInterval(callback: () => void, tickInterval?: number): number
+```
+
+指定した tick 間隔で callback を定期実行します。`clearRun()` に渡す runId を返します。
+
+| パラメーター | 型 | 説明 |
+|---|---|---|
+| `callback` | `() => void` | 定期実行する処理 |
+| `tickInterval` | `number` | 実行間隔（tick 単位、省略可能） |
+
+**返り値:** `number` — runId
+
+---
+
+### runTimeout()
+
+```typescript
+runTimeout(callback: () => void, tickDelay?: number): number
+```
+
+指定した tick 後に callback を 1 度だけ実行します。`clearRun()` に渡す runId を返します。
+
+| パラメーター | 型 | 説明 |
+|---|---|---|
+| `callback` | `() => void` | 遅延実行する処理 |
+| `tickDelay` | `number` | 遅延時間（tick 単位、省略可能） |
+
+**返り値:** `number` — runId
+
+---
+
+### send()
+
+```typescript
+send(targetAddonId: string, apiName: string, args?: unknown): void
+```
+
+fire-and-forget 形式で API を呼び出します。返答を待ちません。対象アドオンが存在しない・inactive であっても無視されます。
+
+| パラメーター | 型 | 説明 |
+|---|---|---|
+| `targetAddonId` | `string` | 呼び出し先アドオンの ID |
+| `apiName` | `string` | 呼び出す API 名 |
+| `args` | `unknown` | API に渡す引数（省略可能） |
+
+**返り値:** `void`
 
 ```typescript
 router.send('economy-addon', 'onTransaction', { amount: 50 })
 ```
 
-### `router.request()`
-
-結果を待つ形式で API を呼び出します。
-
-```typescript
-router.request<TReturn>(
-  targetAddonId: string,
-  apiName: string,
-  args?: unknown,
-  options?: { timeout?: number }, // tick 単位。デフォルト 20 tick
-): Promise<TReturn | CancelledResult>
-```
-
-```typescript
-const result = await router.request<{ balance: number }>(
-  'economy-addon',
-  'getBalance',
-  { playerId: '...' },
-)
-
-if ('cancelled' in result) {
-  // キャンセルされた場合
-  console.log(result.reason) // "ADDON_NOT_FOUND" | "ADDON_INACTIVE" | ...
-} else {
-  console.log(result.balance)
-}
-```
-
-#### エラー評価順序
-
-| 順序 | チェック内容 | 挙動 |
-|---|---|---|
-| 1 | 対象 addonId がルーティングテーブルに存在しない | `{ cancelled: true, reason: "ADDON_NOT_FOUND" }` |
-| 2 | 対象アドオンが inactive | `{ cancelled: true, reason: "ADDON_INACTIVE" }` |
-| 3 | 対象アドオンが unresolved | `{ cancelled: true, reason: "ADDON_UNRESOLVED" }` |
-| 4 | apiName が存在しない | Promise reject（`ApiNotFoundError`） |
-| 5 | before hook が例外をスロー | Promise reject（`BeforeHookExecutionError`） |
-| 6 | hook がキャンセル | `{ cancelled: true, reason: "CANCELLED_BY_HOOK" }` |
-| 7 | ハンドラが例外をスロー | Promise reject（`HandlerExecutionError`） |
-| 8 | タイムアウト | Promise reject（`RequestTimeoutError`） |
-
 ---
 
-## フック
-
-### `ev.api.hook()`
-
-他アドオンの API 呼び出しをインターセプトします。
+### waitForWorldLoad()
 
 ```typescript
-ev.api.hook<TArgs, TReturn>(
-  targetAddonId: string,
-  apiName: string,
-  options: HookOptions<TArgs, TReturn>,
-): void
+waitForWorldLoad(): Promise<void>
 ```
 
-```typescript
-type HookOptions<TArgs, TReturn> = {
-  priority?: number                // 小さいほど先に実行。デフォルト 0
-  modes?: ReadonlyArray<'send' | 'request'>
-  before?: (ctx: BeforeHookContext<TArgs, TReturn>) => Promise<void>
-  after?: (ctx: AfterHookContext<TArgs, TReturn>) => Promise<void>
-  rollback?: (ctx: HookRollbackContext<TArgs>) => Promise<TArgs | void>
-}
-```
+ワールド読み込みが完了するまで待機します。
 
-`before` / `after` は少なくとも片方が必要です。両方を省略するとエラーになります。
-
-#### 実行順序（オニオンモデル）
-
-```
-before: -10 → 0(B) → 0(C) → 5 → [handler] → after: 5 → 0(C) → 0(B) → -10
-```
-
-`after` の実行順は `before` の実際の実行順の完全逆順です。
-
-#### 使用例
-
-```typescript
-router.beforeEvents.startup.subscribe((ev) => {
-  // 引数の改ざん
-  ev.api.hook('addon-a', 'test', {
-    before: async (ctx) => {
-      ctx.args = { ...ctx.args, injected: true }
-    },
-  })
-
-  // キャッシュ返却（ハンドラをスキップ）
-  ev.api.hook('addon-a', 'economy/getBalance', {
-    before: async (ctx) => {
-      const cached = cache.get(ctx.args.playerId)
-      if (cached) ctx.cancel(cached) // cancel() 後は即 return すること
-    },
-  })
-
-  // 結果の後処理
-  ev.api.hook('addon-a', 'economy/getBalance', {
-    after: async (ctx) => {
-      ctx.result = { ...ctx.result, taxApplied: true }
-    },
-  })
-})
-```
-
-### BeforeHookContext
-
-```typescript
-type BeforeHookContext<TArgs, TReturn> = {
-  args: TArgs                            // 変更可能
-  readonly callerAddonId: string
-  cancel(result?: TReturn): never        // result あり → ショートサーキット / なし → CANCELLED_BY_HOOK
-  setRollbackData(data: unknown): void
-}
-```
-
-### AfterHookContext
-
-```typescript
-type AfterHookContext<TArgs, TReturn> = {
-  readonly args: TArgs   // 変更禁止（deep mutation も仕様違反）
-  result: TReturn        // 変更可能
-  readonly callerAddonId: string
-}
-```
-
-### HookRollbackContext
-
-`before` hook が例外をスローした場合のみ発火します。
-
-```typescript
-type HookRollbackContext<TArgs> = {
-  readonly rollbackData: unknown
-  readonly currentArgsSnapshot: DeepReadonly<TArgs>
-  readonly callerAddonId: string
-}
-```
-
----
-
-## 型定義
-
-### CancelledResult
-
-```typescript
-type CancelledResult = {
-  readonly cancelled: true
-  readonly reason:
-    | 'ADDON_NOT_FOUND'
-    | 'ADDON_INACTIVE'
-    | 'ADDON_UNRESOLVED'
-    | 'CANCELLED_BY_HOOK'
-}
-```
-
-### エラークラス
-
-```typescript
-class ApiNotFoundError         extends Error {} // API 名がルーティングテーブルに存在しない
-class RequestTimeoutError      extends Error {} // タイムアウト
-class BeforeHookExecutionError extends Error {} // before hook が例外をスロー
-class AfterHookExecutionError  extends Error {} // after hook が例外をスロー
-class HandlerExecutionError    extends Error {} // ハンドラが例外をスロー
-class ProtocolError            extends Error {} // メッセージのパース失敗・スキーマ不一致
-```
+**返り値:** `Promise<void>`

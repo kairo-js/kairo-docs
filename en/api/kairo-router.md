@@ -1,236 +1,193 @@
-# kairo-router API Reference
+# KairoRouter
 
-API reference for the library used by guest addons. All declarations (`register` / `hook`) are only valid inside `router.beforeEvents.startup`.
+`import { router } from '@kairo-js/router'`
 
-## Startup Event
+The class exported as the `router` singleton. Provides the core functionality of kairo-router: addon initialization, API calls, event subscriptions, and more.
 
-### `router.beforeEvents.startup`
+## Properties
 
-Fires before Minecraft's `worldLoad`. All API declarations must happen here.
+| Property | Type | Description |
+|---|---|---|
+| `afterEvents` | `KairoAfterEvents` | Subscribe to after events |
+| `beforeEvents` | `KairoBeforeEvents` | Subscribe to before events |
+| `currentTick` | `number` | Current tick count since activation (getter) |
+| `systemInfo` | `KairoContext` | Addon context info (getter) |
+
+## Methods
+
+### clearRun()
 
 ```typescript
-router.beforeEvents.startup.subscribe((ev) => {
-  // ev.api.register() / ev.api.hook() / ev.customCommandRegistry.registerCommand()
-})
+clearRun(runId: number): void
 ```
 
-`ev.api` is sealed after startup ends. Calling it outside startup throws an error.
+Cancels a scheduled run created by `runInterval()` or `runTimeout()`.
+
+| Parameter | Type | Description |
+|---|---|---|
+| `runId` | `number` | The ID of the run to cancel |
+
+**Returns:** `void`
 
 ---
 
-## Registering APIs
-
-### `ev.api.register()`
-
-Declares an API handler provided by your addon.
+### emit()
 
 ```typescript
-ev.api.register<TArgs, TReturn>(
-  apiName: string,
-  handler: (args: TArgs) => TReturn | Promise<TReturn>,
-): void
+emit(eventName: string, payload?: unknown): void
 ```
 
-- `addonId` is derived from context automatically — you don't specify it.
-- Registering the same `apiName` twice within the same `addonId` throws an error.
-- Handlers only become callable after the activation phase.
+Emits a custom event. Delivered to handlers subscribed via `AddonEventRegistry.on()`.
 
-```typescript
-ev.api.register<{ playerId: string }, { balance: number }>(
-  'economy/getBalance',
-  async ({ playerId }) => ({ balance: 100 }),
-)
-```
+| Parameter | Type | Description |
+|---|---|---|
+| `eventName` | `string` | The name of the event to emit |
+| `payload` | `unknown` | Data to attach to the event (optional) |
 
-::: tip API Name Namespacing
-Use slash-separated namespaces like `economy/getBalance` to avoid collisions and improve discoverability.
-:::
+**Returns:** `void`
 
 ---
 
-## Calling APIs
-
-### `router.send()`
-
-Calls an API in fire-and-forget fashion. Does not wait for a response.
+### getAddonId()
 
 ```typescript
-router.send(
+getAddonId(): string | undefined
+```
+
+Returns the addonId of this addon. Returns `undefined` before the addon is registered.
+
+**Returns:** `string | undefined`
+
+---
+
+### getHookDeclarations()
+
+```typescript
+getHookDeclarations(): readonly InternalHookDeclaration[]
+```
+
+Returns all registered hook declarations.
+
+**Returns:** `readonly InternalHookDeclaration[]`
+
+---
+
+### init()
+
+```typescript
+init(properties: AddonProperties): void
+```
+
+Initializes the addon.
+
+| Parameter | Type | Description |
+|---|---|---|
+| `properties` | `AddonProperties` | The addon's configuration |
+
+**Returns:** `void`
+
+---
+
+### request()
+
+```typescript
+request<TReturn>(
   targetAddonId: string,
   apiName: string,
   args?: unknown,
-): void
+  options?: { timeout?: number },
+): Promise<TReturn | CancelledResult>
 ```
 
-- If the target addonId doesn't exist or is inactive, it is silently ignored.
-- If a hook cancels the call, the caller is not notified.
-- **No ordering guarantee**: arrival order of multiple `send` calls is unspecified.
+Calls an API and awaits the result. `timeout` is in ticks; default is 20 ticks.
+
+| Parameter | Type | Description |
+|---|---|---|
+| `targetAddonId` | `string` | The ID of the target addon |
+| `apiName` | `string` | The name of the API to call |
+| `args` | `unknown` | Arguments to pass to the API (optional) |
+| `options.timeout` | `number` | Timeout in ticks (default 20) |
+
+**Returns:** `Promise<TReturn | CancelledResult>`
+
+```typescript
+const result = await router.request<{ balance: number }>(
+  'economy-addon',
+  'economy/getBalance',
+  { playerId: 'abc123' },
+)
+
+if ('cancelled' in result) {
+  console.warn('Request cancelled:', result.reason)
+} else {
+  console.log('Balance:', result.balance)
+}
+```
+
+---
+
+### runInterval()
+
+```typescript
+runInterval(callback: () => void, tickInterval?: number): number
+```
+
+Schedules a recurring callback at the given tick interval. Returns a runId to pass to `clearRun()`.
+
+| Parameter | Type | Description |
+|---|---|---|
+| `callback` | `() => void` | The function to run repeatedly |
+| `tickInterval` | `number` | Interval in ticks (optional) |
+
+**Returns:** `number` — runId
+
+---
+
+### runTimeout()
+
+```typescript
+runTimeout(callback: () => void, tickDelay?: number): number
+```
+
+Schedules a one-shot callback after the given tick delay. Returns a runId to pass to `clearRun()`.
+
+| Parameter | Type | Description |
+|---|---|---|
+| `callback` | `() => void` | The function to run once |
+| `tickDelay` | `number` | Delay in ticks (optional) |
+
+**Returns:** `number` — runId
+
+---
+
+### send()
+
+```typescript
+send(targetAddonId: string, apiName: string, args?: unknown): void
+```
+
+Calls an API in fire-and-forget fashion. Does not wait for a response. Silently ignored if the target addon does not exist or is inactive.
+
+| Parameter | Type | Description |
+|---|---|---|
+| `targetAddonId` | `string` | The ID of the target addon |
+| `apiName` | `string` | The name of the API to call |
+| `args` | `unknown` | Arguments to pass to the API (optional) |
+
+**Returns:** `void`
 
 ```typescript
 router.send('economy-addon', 'onTransaction', { amount: 50 })
 ```
 
-### `router.request()`
-
-Calls an API and awaits the result.
-
-```typescript
-router.request<TReturn>(
-  targetAddonId: string,
-  apiName: string,
-  args?: unknown,
-  options?: { timeout?: number }, // in ticks. Default: 20 ticks
-): Promise<TReturn | CancelledResult>
-```
-
-```typescript
-const result = await router.request<{ balance: number }>(
-  'economy-addon',
-  'getBalance',
-  { playerId: '...' },
-)
-
-if ('cancelled' in result) {
-  console.log(result.reason) // "ADDON_NOT_FOUND" | "ADDON_INACTIVE" | ...
-} else {
-  console.log(result.balance)
-}
-```
-
-#### Error Evaluation Order
-
-| # | Check | Behavior |
-|---|---|---|
-| 1 | Target addonId not in routing table | `{ cancelled: true, reason: "ADDON_NOT_FOUND" }` |
-| 2 | Target addon is inactive | `{ cancelled: true, reason: "ADDON_INACTIVE" }` |
-| 3 | Target addon is unresolved | `{ cancelled: true, reason: "ADDON_UNRESOLVED" }` |
-| 4 | apiName not found | Promise rejects with `ApiNotFoundError` |
-| 5 | before hook throws | Promise rejects with `BeforeHookExecutionError` |
-| 6 | Hook cancels the call | `{ cancelled: true, reason: "CANCELLED_BY_HOOK" }` |
-| 7 | Handler throws | Promise rejects with `HandlerExecutionError` |
-| 8 | Timeout | Promise rejects with `RequestTimeoutError` |
-
 ---
 
-## Hooks
-
-### `ev.api.hook()`
-
-Intercepts another addon's API calls.
+### waitForWorldLoad()
 
 ```typescript
-ev.api.hook<TArgs, TReturn>(
-  targetAddonId: string,
-  apiName: string,
-  options: HookOptions<TArgs, TReturn>,
-): void
+waitForWorldLoad(): Promise<void>
 ```
 
-```typescript
-type HookOptions<TArgs, TReturn> = {
-  priority?: number                        // lower = earlier. Default: 0
-  modes?: ReadonlyArray<'send' | 'request'>
-  before?: (ctx: BeforeHookContext<TArgs, TReturn>) => Promise<void>
-  after?: (ctx: AfterHookContext<TArgs, TReturn>) => Promise<void>
-  rollback?: (ctx: HookRollbackContext<TArgs>) => Promise<TArgs | void>
-}
-```
+Resolves when the world finishes loading.
 
-At least one of `before` / `after` is required. Omitting both throws immediately.
-
-#### Execution Order (Onion Model)
-
-```
-before: -10 → 0(B) → 0(C) → 5 → [handler] → after: 5 → 0(C) → 0(B) → -10
-```
-
-`after` runs in the exact reverse order of `before` execution.
-
-#### Examples
-
-```typescript
-router.beforeEvents.startup.subscribe((ev) => {
-  // Mutate args
-  ev.api.hook('addon-a', 'test', {
-    before: async (ctx) => {
-      ctx.args = { ...ctx.args, injected: true }
-    },
-  })
-
-  // Short-circuit with cached result (skip handler)
-  ev.api.hook('addon-a', 'economy/getBalance', {
-    before: async (ctx) => {
-      const cached = cache.get(ctx.args.playerId)
-      if (cached) ctx.cancel(cached) // must return immediately after cancel()
-    },
-  })
-
-  // Mutate result
-  ev.api.hook('addon-a', 'economy/getBalance', {
-    after: async (ctx) => {
-      ctx.result = { ...ctx.result, taxApplied: true }
-    },
-  })
-})
-```
-
-### BeforeHookContext
-
-```typescript
-type BeforeHookContext<TArgs, TReturn> = {
-  args: TArgs                            // mutable
-  readonly callerAddonId: string
-  cancel(result?: TReturn): never        // with result → short-circuit / without → CANCELLED_BY_HOOK
-  setRollbackData(data: unknown): void
-}
-```
-
-### AfterHookContext
-
-```typescript
-type AfterHookContext<TArgs, TReturn> = {
-  readonly args: TArgs   // read-only (deep mutation is also a spec violation)
-  result: TReturn        // mutable
-  readonly callerAddonId: string
-}
-```
-
-### HookRollbackContext
-
-Fires only when a `before` hook throws.
-
-```typescript
-type HookRollbackContext<TArgs> = {
-  readonly rollbackData: unknown
-  readonly currentArgsSnapshot: DeepReadonly<TArgs>
-  readonly callerAddonId: string
-}
-```
-
----
-
-## Type Definitions
-
-### CancelledResult
-
-```typescript
-type CancelledResult = {
-  readonly cancelled: true
-  readonly reason:
-    | 'ADDON_NOT_FOUND'
-    | 'ADDON_INACTIVE'
-    | 'ADDON_UNRESOLVED'
-    | 'CANCELLED_BY_HOOK'
-}
-```
-
-### Error Classes
-
-```typescript
-class ApiNotFoundError         extends Error {} // API name not found in routing table
-class RequestTimeoutError      extends Error {} // timed out
-class BeforeHookExecutionError extends Error {} // before hook threw
-class AfterHookExecutionError  extends Error {} // after hook threw
-class HandlerExecutionError    extends Error {} // handler threw
-class ProtocolError            extends Error {} // message parse failure / schema mismatch
-```
+**Returns:** `Promise<void>`
