@@ -3,8 +3,8 @@ layout: home
 
 hero:
   name: Kairo
-  text: アドオン間通信フレームワーク
-  tagline: Minecraft Bedrock Edition の ScriptAPI を活用し、複数のビヘイビアーパック間での通信・依存管理を実現するフレームワーク
+  text: アドオン間通信ライブラリ
+  tagline: Minecraft Bedrock Edition で複数のアドオンが互いの API を呼び出せるようにするフレームワーク。kairo-router を組み込むだけで始められます。
   actions:
     - theme: brand
       text: はじめる
@@ -14,12 +14,10 @@ hero:
       link: https://github.com/kairo-js
 
 features:
-  - title: アドオン間 API 通信
-    details: ScriptEvent を使ったルーティング層により、アドオン同士が addonId と API 名だけで互いの関数を呼び出せます。
+  - title: シンプルな API 呼び出し
+    details: router.send() / router.request() で、addonId と API 名を指定するだけで他のアドオンの関数を呼び出せます。
   - title: フック機構
-    details: before / after フックで任意のアドオンの API 呼び出しをインターセプト。引数改ざん・キャッシュ返却・ロールバックをサポートします。
-  - title: 依存関係管理
-    details: semver ベースの依存宣言により、アドオン間の起動順序・競合解決・カスケード停止を自動で処理します。
+    details: before / after フックで他アドオンの API 呼び出しをインターセプト。引数改ざん・キャッシュ返却・ロールバックをサポートします。
   - title: TypeScript サポート
-    details: 型安全なジェネリクス API で、register / hook / send / request の引数・返り値をコンパイル時に検証できます。
+    details: 型安全なジェネリクス API で、引数・返り値をコンパイル時に検証できます。JavaScript からも利用可能です。
 ---
