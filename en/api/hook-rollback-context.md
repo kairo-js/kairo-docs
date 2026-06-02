@@ -14,11 +14,29 @@ type HookRollbackContext<TArgs> = {
 
 ## Fields
 
-| Field | Description |
-|---|---|
-| `rollbackData` | The value stored via `setRollbackData()`. `undefined` if not set. |
-| `currentArgsSnapshot` | Snapshot of args at this rollback's execution point. Do not mutate. Return a new object instead. |
-| `callerAddonId` | The addonId of the caller (read-only). |
+### rollbackData
+
+`readonly rollbackData: unknown`
+
+The value stored via `setRollbackData()`. `undefined` if not set.
+
+---
+
+### currentArgsSnapshot
+
+`readonly currentArgsSnapshot: DeepReadonly<TArgs>`
+
+Snapshot of args at this rollback's execution point. Do not mutate. Return a new object instead.
+
+---
+
+### callerAddonId
+
+`readonly callerAddonId: string`
+
+The addonId of the caller (read-only).
+
+---
 
 ## Return value
 

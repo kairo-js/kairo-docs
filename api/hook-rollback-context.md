@@ -14,11 +14,29 @@ type HookRollbackContext<TArgs> = {
 
 ## フィールド
 
-| フィールド | 説明 |
-|---|---|
-| `rollbackData` | `setRollbackData()` で格納した値。未設定の場合は `undefined` |
-| `currentArgsSnapshot` | この rollback 実行時点の args のスナップショット。mutation 禁止。新しいオブジェクトとして返すこと |
-| `callerAddonId` | 呼び出し元アドオンの addonId（読み取り専用） |
+### rollbackData
+
+`readonly rollbackData: unknown`
+
+`setRollbackData()` で格納した値。未設定の場合は `undefined`。
+
+---
+
+### currentArgsSnapshot
+
+`readonly currentArgsSnapshot: DeepReadonly<TArgs>`
+
+この rollback 実行時点の args のスナップショット。mutation 禁止。新しいオブジェクトとして返すこと。
+
+---
+
+### callerAddonId
+
+`readonly callerAddonId: string`
+
+呼び出し元アドオンの addonId（読み取り専用）。
+
+---
 
 ## 返り値について
 

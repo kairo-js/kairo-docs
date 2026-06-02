@@ -14,11 +14,29 @@ type AfterHookContext<TArgs, TReturn> = {
 
 ## Fields
 
-| Field | Description |
-|---|---|
-| `args` | Read-only. TypeScript enforces this at the shallow level only; deep mutation is also a spec violation. |
-| `result` | Mutable. Perform pure transforms only — no external side effects. |
-| `callerAddonId` | The addonId of the caller (read-only). |
+### args
+
+`readonly args: TArgs`
+
+Read-only. TypeScript enforces this at the shallow level only; deep mutation is also a spec violation.
+
+---
+
+### result
+
+`result: TReturn`
+
+Mutable. Perform pure transforms only — no external side effects.
+
+---
+
+### callerAddonId
+
+`readonly callerAddonId: string`
+
+The addonId of the caller (read-only).
+
+---
 
 ## Usage
 

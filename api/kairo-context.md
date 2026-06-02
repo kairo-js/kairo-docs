@@ -6,11 +6,29 @@
 
 ## プロパティ
 
-| プロパティ | 型 | 説明 |
-|---|---|---|
-| `addonProperties` | `AddonProperties` (readonly) | アドオンの設定情報 |
-| `kairoId` | `string` (getter) | Kairo が割り当てた内部 ID。登録前にアクセスするとエラーをスロー |
-| `kairoRegistry` | `KairoRegistry` (getter) | レジストリ情報。登録前にアクセスするとエラーをスロー |
+### addonProperties
+
+`readonly addonProperties: AddonProperties`
+
+アドオンの設定情報。
+
+---
+
+### kairoId
+
+`readonly kairoId: string`
+
+Kairo が割り当てた内部 ID。登録前にアクセスするとエラーをスロー。
+
+---
+
+### kairoRegistry
+
+`readonly kairoRegistry: KairoRegistry`
+
+レジストリ情報。登録前にアクセスするとエラーをスロー。
+
+---
 
 ## メソッド
 

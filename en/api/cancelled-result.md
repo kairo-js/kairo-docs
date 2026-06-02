@@ -17,10 +17,21 @@ type CancelledResult = {
 
 ## Fields
 
-| Field | Type | Description |
-|---|---|---|
-| `cancelled` | `true` | Always `true`. Use as a type guard. |
-| `reason` | `string` | The reason the call was cancelled. |
+### cancelled
+
+`readonly cancelled: true`
+
+Always `true`. Use as a type guard.
+
+---
+
+### reason
+
+`readonly reason: string`
+
+The reason the call was cancelled.
+
+---
 
 ## reason values
 

@@ -24,16 +24,90 @@ interface KairoRegistry {
 
 ## Fields
 
-| Field | Type | Description |
-|---|---|---|
-| `kairoId` | `string` | Internal ID assigned by Kairo |
-| `addonId` | `string` | The addon's identifier |
-| `version` | `SemVer` | The addon's version |
-| `name` | `string` | The addon's display name |
-| `description` | `string` | A description of the addon |
-| `metadata.authors` | `string[]` | List of authors |
-| `metadata.url` | `string \| undefined` | URL for the addon (optional) |
-| `metadata.license` | `string \| undefined` | License identifier (optional) |
-| `dependencies` | `DependencyMap` | Map of required addon dependencies |
-| `optionalDependencies` | `DependencyMap` | Map of optional addon dependencies |
-| `tags` | `string[]` | Tags associated with the addon |
+### kairoId
+
+`readonly kairoId: string`
+
+Internal ID assigned by Kairo.
+
+---
+
+### addonId
+
+`readonly addonId: string`
+
+The addon's identifier.
+
+---
+
+### version
+
+`readonly version: SemVer`
+
+The addon's version.
+
+---
+
+### name
+
+`readonly name: string`
+
+The addon's display name.
+
+---
+
+### description
+
+`readonly description: string`
+
+A description of the addon.
+
+---
+
+### metadata.authors
+
+`readonly metadata.authors: string[]`
+
+List of authors.
+
+---
+
+### metadata.url
+
+`readonly metadata.url: string | undefined`
+
+URL for the addon (optional).
+
+---
+
+### metadata.license
+
+`readonly metadata.license: string | undefined`
+
+License identifier (optional).
+
+---
+
+### dependencies
+
+`readonly dependencies: DependencyMap`
+
+Map of required addon dependencies.
+
+---
+
+### optionalDependencies
+
+`readonly optionalDependencies: DependencyMap`
+
+Map of optional addon dependencies.
+
+---
+
+### tags
+
+`readonly tags: string[]`
+
+Tags associated with the addon.
+
+---

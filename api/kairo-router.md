@@ -6,12 +6,37 @@
 
 ## プロパティ
 
-| プロパティ | 型 | 説明 |
-|---|---|---|
-| `afterEvents` | `KairoAfterEvents` | after イベントの購読 |
-| `beforeEvents` | `KairoBeforeEvents` | before イベントの購読 |
-| `currentTick` | `number` | 現在の tick 数（getter） |
-| `systemInfo` | `KairoContext` | アドオンのコンテキスト情報（getter） |
+### afterEvents
+
+`readonly afterEvents: KairoAfterEvents`
+
+after イベントの購読。
+
+---
+
+### beforeEvents
+
+`readonly beforeEvents: KairoBeforeEvents`
+
+before イベントの購読。
+
+---
+
+### currentTick
+
+`readonly currentTick: number`
+
+現在の tick 数（getter）。
+
+---
+
+### systemInfo
+
+`readonly systemInfo: KairoContext`
+
+アドオンのコンテキスト情報（getter）。
+
+---
 
 ## メソッド
 

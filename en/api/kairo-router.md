@@ -6,12 +6,37 @@ The class exported as the `router` singleton. Provides the core functionality of
 
 ## Properties
 
-| Property | Type | Description |
-|---|---|---|
-| `afterEvents` | `KairoAfterEvents` | Subscribe to after events |
-| `beforeEvents` | `KairoBeforeEvents` | Subscribe to before events |
-| `currentTick` | `number` | Current tick count since activation (getter) |
-| `systemInfo` | `KairoContext` | Addon context info (getter) |
+### afterEvents
+
+`readonly afterEvents: KairoAfterEvents`
+
+Subscribe to after events.
+
+---
+
+### beforeEvents
+
+`readonly beforeEvents: KairoBeforeEvents`
+
+Subscribe to before events.
+
+---
+
+### currentTick
+
+`readonly currentTick: number`
+
+Current tick count since activation (getter).
+
+---
+
+### systemInfo
+
+`readonly systemInfo: KairoContext`
+
+Addon context info (getter).
+
+---
 
 ## Methods
 

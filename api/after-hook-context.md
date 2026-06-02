@@ -14,11 +14,29 @@ type AfterHookContext<TArgs, TReturn> = {
 
 ## フィールド
 
-| フィールド | 説明 |
-|---|---|
-| `args` | 読み取り専用。TypeScript は shallow のみ強制するが、deep mutation も仕様違反 |
-| `result` | 変更可能。pure transform のみを行うこと（外部副作用は禁止） |
-| `callerAddonId` | 呼び出し元アドオンの addonId（読み取り専用） |
+### args
+
+`readonly args: TArgs`
+
+読み取り専用。TypeScript は shallow のみ強制するが、deep mutation も仕様違反。
+
+---
+
+### result
+
+`result: TReturn`
+
+変更可能。pure transform のみを行うこと（外部副作用は禁止）。
+
+---
+
+### callerAddonId
+
+`readonly callerAddonId: string`
+
+呼び出し元アドオンの addonId（読み取り専用）。
+
+---
 
 ## 使用例
 

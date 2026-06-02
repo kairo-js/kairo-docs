@@ -17,10 +17,21 @@ type CancelledResult = {
 
 ## フィールド
 
-| フィールド | 型 | 説明 |
-|---|---|---|
-| `cancelled` | `true` | 常に `true`。型ガードとして使用する |
-| `reason` | `string` | キャンセルの理由 |
+### cancelled
+
+`readonly cancelled: true`
+
+常に `true`。型ガードとして使用する。
+
+---
+
+### reason
+
+`readonly reason: 'ADDON_NOT_FOUND' | 'ADDON_INACTIVE' | 'ADDON_UNRESOLVED' | 'CANCELLED_BY_HOOK'`
+
+キャンセルの理由。
+
+---
 
 ## reason の説明
 

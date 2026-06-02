@@ -16,13 +16,45 @@ type HookOptions<TArgs, TReturn> = {
 
 ## Fields
 
-| Field | Type | Description |
-|---|---|---|
-| `priority` | `number` | Execution order; lower = earlier. Default `0`. 32-bit signed integer. |
-| `modes` | `ReadonlyArray<'send' \| 'request'>` | Call types to apply this hook to. Defaults to `["request"]` if `after` is present; `["send", "request"]` if `before` only. |
-| `before` | `(ctx: BeforeHookContext<TArgs, TReturn>) => Promise<void>` | Runs before the handler. Can mutate args or cancel the call. |
-| `after` | `(ctx: AfterHookContext<TArgs, TReturn>) => Promise<void>` | Runs after the handler (`request` only). Can mutate result. Perform pure transforms only. |
-| `rollback` | `(ctx: HookRollbackContext<TArgs>) => Promise<TArgs \| void>` | Runs only when a `before` hook throws. Optional. |
+### priority
+
+`priority?: number`
+
+Execution order; lower = earlier. Default `0`. 32-bit signed integer.
+
+---
+
+### modes
+
+`modes?: ReadonlyArray<'send' | 'request'>`
+
+Call types to apply this hook to. Defaults to `["request"]` if `after` is present; `["send", "request"]` if `before` only.
+
+---
+
+### before
+
+`before?: (ctx: BeforeHookContext<TArgs, TReturn>) => Promise<void>`
+
+Runs before the handler. Can mutate args or cancel the call.
+
+---
+
+### after
+
+`after?: (ctx: AfterHookContext<TArgs, TReturn>) => Promise<void>`
+
+Runs after the handler (`request` only). Can mutate result. Perform pure transforms only.
+
+---
+
+### rollback
+
+`rollback?: (ctx: HookRollbackContext<TArgs>) => Promise<TArgs | void>`
+
+Runs only when a `before` hook throws. Optional.
+
+---
 
 ::: warning
 At least one of `before` or `after` is required. Omitting both throws immediately.

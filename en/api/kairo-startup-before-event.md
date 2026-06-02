@@ -8,11 +8,29 @@ Fires before Minecraft's `worldLoad`. Registering APIs, declaring hooks, registe
 
 ## Properties
 
-| Property | Type | Description |
-|---|---|---|
-| `api` | `KairoApiRegistry` | Register APIs and hooks |
-| `customCommandRegistry` | `KairoCustomCommandRegistry` | Register custom commands |
-| `events` | `AddonEventRegistry` | Subscribe to addon events |
+### api
+
+`readonly api: KairoApiRegistry`
+
+Register APIs and hooks.
+
+---
+
+### customCommandRegistry
+
+`readonly customCommandRegistry: KairoCustomCommandRegistry`
+
+Register custom commands.
+
+---
+
+### events
+
+`readonly events: AddonEventRegistry`
+
+Subscribe to addon events.
+
+---
 
 ## Usage
 

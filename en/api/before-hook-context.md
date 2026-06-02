@@ -15,12 +15,37 @@ type BeforeHookContext<TArgs, TReturn> = {
 
 ## Fields
 
-| Field | Description |
-|---|---|
-| `args` | Mutable. Mutations propagate to subsequent hooks and the handler. |
-| `callerAddonId` | The addonId of the caller (read-only). |
-| `cancel(result?)` | With `result`: skip the handler and return `result` (short-circuit). Without `result`: return `CANCELLED_BY_HOOK`. The `never` return type means TypeScript marks code after this call as unreachable. Always `return` immediately after calling `cancel()`. |
-| `setRollbackData(data)` | Stores data for use in `rollback` if this hook later needs to undo side effects. |
+### args
+
+`args: TArgs`
+
+Mutable. Mutations propagate to subsequent hooks and the handler.
+
+---
+
+### callerAddonId
+
+`readonly callerAddonId: string`
+
+The addonId of the caller (read-only).
+
+---
+
+### cancel(result?)
+
+`cancel(result?: TReturn): never`
+
+With `result`: skip the handler and return `result` (short-circuit). Without `result`: return `CANCELLED_BY_HOOK`. The `never` return type means TypeScript marks code after this call as unreachable. Always `return` immediately after calling `cancel()`.
+
+---
+
+### setRollbackData(data)
+
+`setRollbackData(data: unknown): void`
+
+Stores data for use in `rollback` if this hook later needs to undo side effects.
+
+---
 
 ## Usage
 

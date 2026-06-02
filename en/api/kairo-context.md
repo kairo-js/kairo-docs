@@ -6,11 +6,29 @@ The class accessed via `router.systemInfo`. Provides context information about t
 
 ## Properties
 
-| Property | Type | Description |
-|---|---|---|
-| `addonProperties` | `AddonProperties` (readonly) | The addon's configuration |
-| `kairoId` | `string` (getter) | Internal Kairo ID assigned to this addon. Throws before registration. |
-| `kairoRegistry` | `KairoRegistry` (getter) | Registry info for this addon. Throws before registration. |
+### addonProperties
+
+`readonly addonProperties: AddonProperties`
+
+The addon's configuration.
+
+---
+
+### kairoId
+
+`readonly kairoId: string`
+
+Internal Kairo ID assigned to this addon. Throws before registration.
+
+---
+
+### kairoRegistry
+
+`readonly kairoRegistry: KairoRegistry`
+
+Registry info for this addon. Throws before registration.
+
+---
 
 ## Methods
 

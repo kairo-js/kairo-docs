@@ -8,66 +8,417 @@
 
 ### kairo 独自イベント
 
-| プロパティ | 型 | 説明 |
-|---|---|---|
-| `addonActivate` | `Subscribable<AddonActivateAfterEvent>` | アドオンが起動された後に発火 |
+### addonActivate
+
+`readonly addonActivate: Subscribable<AddonActivateAfterEvent>`
+
+アドオンが起動された後に発火。
+
+---
 
 ### Minecraft ScriptAPI pass-through イベント
 
 `@minecraft/server` の `WorldAfterEvents` に対応するイベントです。
 
-| プロパティ | 型 | 説明 |
-|---|---|---|
-| `blockExplode` | `Subscribable<BlockExplodeAfterEvent>` | ブロック爆破後 |
-| `buttonPush` | `Subscribable<ButtonPushAfterEvent>` | ボタン押下後 |
-| `dataDrivenEntityTrigger` | `Subscribable<DataDrivenEntityTriggerAfterEvent>` | データドリブンエンティティトリガー後 |
-| `effectAdd` | `Subscribable<EffectAddAfterEvent>` | エフェクト付与後 |
-| `entityDie` | `Subscribable<EntityDieAfterEvent>` | エンティティ死亡後 |
-| `entityHeal` | `Subscribable<EntityHealAfterEvent>` | エンティティ回復後 |
-| `entityHealthChanged` | `Subscribable<EntityHealthChangedAfterEvent>` | エンティティ体力変化後 |
-| `entityHitBlock` | `Subscribable<EntityHitBlockAfterEvent>` | エンティティがブロックに当たった後 |
-| `entityHitEntity` | `Subscribable<EntityHitEntityAfterEvent>` | エンティティがエンティティに当たった後 |
-| `entityHurt` | `Subscribable<EntityHurtAfterEvent>` | エンティティがダメージを受けた後 |
-| `entityItemDrop` | `Subscribable<EntityItemDropAfterEvent>` | エンティティがアイテムをドロップした後 |
-| `entityItemPickup` | `Subscribable<EntityItemPickupAfterEvent>` | エンティティがアイテムを拾った後 |
-| `entityLoad` | `Subscribable<EntityLoadAfterEvent>` | エンティティ読み込み後 |
-| `entityRemove` | `Subscribable<EntityRemoveAfterEvent>` | エンティティ削除後 |
-| `entitySpawn` | `Subscribable<EntitySpawnAfterEvent>` | エンティティスポーン後 |
-| `explosion` | `Subscribable<ExplosionAfterEvent>` | 爆発後 |
-| `gameRuleChange` | `Subscribable<GameRuleChangeAfterEvent>` | ゲームルール変更後 |
-| `itemCompleteUse` | `Subscribable<ItemCompleteUseAfterEvent>` | アイテム使用完了後 |
-| `itemReleaseUse` | `Subscribable<ItemReleaseUseAfterEvent>` | アイテム使用解除後 |
-| `itemStartUse` | `Subscribable<ItemStartUseAfterEvent>` | アイテム使用開始後 |
-| `itemStartUseOn` | `Subscribable<ItemStartUseOnAfterEvent>` | アイテムをブロックへの使用開始後 |
-| `itemStopUse` | `Subscribable<ItemStopUseAfterEvent>` | アイテム使用停止後 |
-| `itemStopUseOn` | `Subscribable<ItemStopUseOnAfterEvent>` | アイテムをブロックへの使用停止後 |
-| `itemUse` | `Subscribable<ItemUseAfterEvent>` | アイテム使用後 |
-| `leverAction` | `Subscribable<LeverActionAfterEvent>` | レバー操作後 |
-| `pistonActivate` | `Subscribable<PistonActivateAfterEvent>` | ピストン作動後 |
-| `playerBreakBlock` | `Subscribable<PlayerBreakBlockAfterEvent>` | プレイヤーがブロックを破壊した後 |
-| `playerButtonInput` | `Subscribable<PlayerButtonInputAfterEvent>` | プレイヤーのボタン入力後 |
-| `playerDimensionChange` | `Subscribable<PlayerDimensionChangeAfterEvent>` | プレイヤーのディメンション移動後 |
-| `playerEmote` | `Subscribable<PlayerEmoteAfterEvent>` | プレイヤーがエモートを使用した後 |
-| `playerGameModeChange` | `Subscribable<PlayerGameModeChangeAfterEvent>` | プレイヤーのゲームモード変更後 |
-| `playerHotbarSelectedSlotChange` | `Subscribable<PlayerHotbarSelectedSlotChangeAfterEvent>` | プレイヤーのホットバースロット変更後 |
-| `playerInputModeChange` | `Subscribable<PlayerInputModeChangeAfterEvent>` | プレイヤーの入力モード変更後 |
-| `playerInputPermissionCategoryChange` | `Subscribable<PlayerInputPermissionCategoryChangeAfterEvent>` | プレイヤーの入力権限カテゴリ変更後 |
-| `playerInteractWithBlock` | `Subscribable<PlayerInteractWithBlockAfterEvent>` | プレイヤーがブロックにインタラクトした後 |
-| `playerInteractWithEntity` | `Subscribable<PlayerInteractWithEntityAfterEvent>` | プレイヤーがエンティティにインタラクトした後 |
-| `playerInventoryItemChange` | `Subscribable<PlayerInventoryItemChangeAfterEvent>` | プレイヤーのインベントリアイテム変化後 |
-| `playerJoin` | `Subscribable<PlayerJoinAfterEvent>` | プレイヤー参加後 |
-| `playerLeave` | `Subscribable<PlayerLeaveAfterEvent>` | プレイヤー退出後 |
-| `playerPlaceBlock` | `Subscribable<PlayerPlaceBlockAfterEvent>` | プレイヤーがブロックを設置した後 |
-| `playerSpawn` | `Subscribable<PlayerSpawnAfterEvent>` | プレイヤースポーン後 |
-| `playerSwingStart` | `Subscribable<PlayerSwingStartAfterEvent>` | プレイヤーのスイング開始後 |
-| `pressurePlatePop` | `Subscribable<PressurePlatePopAfterEvent>` | 感圧板から離れた後 |
-| `pressurePlatePush` | `Subscribable<PressurePlatePushAfterEvent>` | 感圧板を踏んだ後 |
-| `projectileHitBlock` | `Subscribable<ProjectileHitBlockAfterEvent>` | 飛び道具がブロックに当たった後 |
-| `projectileHitEntity` | `Subscribable<ProjectileHitEntityAfterEvent>` | 飛び道具がエンティティに当たった後 |
-| `scriptEventReceive` | `Subscribable<ScriptEventCommandMessageAfterEvent>` | スクリプトイベント受信後 |
-| `targetBlockHit` | `Subscribable<TargetBlockHitAfterEvent>` | ターゲットブロックに当たった後 |
-| `tripWireTrip` | `Subscribable<TripWireTripAfterEvent>` | 糸が踏まれた後 |
-| `weatherChange` | `Subscribable<WeatherChangeAfterEvent>` | 天気変化後 |
+### blockExplode
+
+`readonly blockExplode: Subscribable<BlockExplodeAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.blockExplode` に対応します。
+
+---
+
+### buttonPush
+
+`readonly buttonPush: Subscribable<ButtonPushAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.buttonPush` に対応します。
+
+---
+
+### dataDrivenEntityTrigger
+
+`readonly dataDrivenEntityTrigger: Subscribable<DataDrivenEntityTriggerAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.dataDrivenEntityTrigger` に対応します。
+
+---
+
+### effectAdd
+
+`readonly effectAdd: Subscribable<EffectAddAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.effectAdd` に対応します。
+
+---
+
+### entityDie
+
+`readonly entityDie: Subscribable<EntityDieAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.entityDie` に対応します。
+
+---
+
+### entityHeal
+
+`readonly entityHeal: Subscribable<EntityHealAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.entityHeal` に対応します。
+
+---
+
+### entityHealthChanged
+
+`readonly entityHealthChanged: Subscribable<EntityHealthChangedAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.entityHealthChanged` に対応します。
+
+---
+
+### entityHitBlock
+
+`readonly entityHitBlock: Subscribable<EntityHitBlockAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.entityHitBlock` に対応します。
+
+---
+
+### entityHitEntity
+
+`readonly entityHitEntity: Subscribable<EntityHitEntityAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.entityHitEntity` に対応します。
+
+---
+
+### entityHurt
+
+`readonly entityHurt: Subscribable<EntityHurtAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.entityHurt` に対応します。
+
+---
+
+### entityItemDrop
+
+`readonly entityItemDrop: Subscribable<EntityItemDropAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.entityItemDrop` に対応します。
+
+---
+
+### entityItemPickup
+
+`readonly entityItemPickup: Subscribable<EntityItemPickupAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.entityItemPickup` に対応します。
+
+---
+
+### entityLoad
+
+`readonly entityLoad: Subscribable<EntityLoadAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.entityLoad` に対応します。
+
+---
+
+### entityRemove
+
+`readonly entityRemove: Subscribable<EntityRemoveAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.entityRemove` に対応します。
+
+---
+
+### entitySpawn
+
+`readonly entitySpawn: Subscribable<EntitySpawnAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.entitySpawn` に対応します。
+
+---
+
+### explosion
+
+`readonly explosion: Subscribable<ExplosionAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.explosion` に対応します。
+
+---
+
+### gameRuleChange
+
+`readonly gameRuleChange: Subscribable<GameRuleChangeAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.gameRuleChange` に対応します。
+
+---
+
+### itemCompleteUse
+
+`readonly itemCompleteUse: Subscribable<ItemCompleteUseAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.itemCompleteUse` に対応します。
+
+---
+
+### itemReleaseUse
+
+`readonly itemReleaseUse: Subscribable<ItemReleaseUseAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.itemReleaseUse` に対応します。
+
+---
+
+### itemStartUse
+
+`readonly itemStartUse: Subscribable<ItemStartUseAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.itemStartUse` に対応します。
+
+---
+
+### itemStartUseOn
+
+`readonly itemStartUseOn: Subscribable<ItemStartUseOnAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.itemStartUseOn` に対応します。
+
+---
+
+### itemStopUse
+
+`readonly itemStopUse: Subscribable<ItemStopUseAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.itemStopUse` に対応します。
+
+---
+
+### itemStopUseOn
+
+`readonly itemStopUseOn: Subscribable<ItemStopUseOnAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.itemStopUseOn` に対応します。
+
+---
+
+### itemUse
+
+`readonly itemUse: Subscribable<ItemUseAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.itemUse` に対応します。
+
+---
+
+### leverAction
+
+`readonly leverAction: Subscribable<LeverActionAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.leverAction` に対応します。
+
+---
+
+### pistonActivate
+
+`readonly pistonActivate: Subscribable<PistonActivateAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.pistonActivate` に対応します。
+
+---
+
+### playerBreakBlock
+
+`readonly playerBreakBlock: Subscribable<PlayerBreakBlockAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.playerBreakBlock` に対応します。
+
+---
+
+### playerButtonInput
+
+`readonly playerButtonInput: Subscribable<PlayerButtonInputAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.playerButtonInput` に対応します。
+
+---
+
+### playerDimensionChange
+
+`readonly playerDimensionChange: Subscribable<PlayerDimensionChangeAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.playerDimensionChange` に対応します。
+
+---
+
+### playerEmote
+
+`readonly playerEmote: Subscribable<PlayerEmoteAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.playerEmote` に対応します。
+
+---
+
+### playerGameModeChange
+
+`readonly playerGameModeChange: Subscribable<PlayerGameModeChangeAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.playerGameModeChange` に対応します。
+
+---
+
+### playerHotbarSelectedSlotChange
+
+`readonly playerHotbarSelectedSlotChange: Subscribable<PlayerHotbarSelectedSlotChangeAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.playerHotbarSelectedSlotChange` に対応します。
+
+---
+
+### playerInputModeChange
+
+`readonly playerInputModeChange: Subscribable<PlayerInputModeChangeAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.playerInputModeChange` に対応します。
+
+---
+
+### playerInputPermissionCategoryChange
+
+`readonly playerInputPermissionCategoryChange: Subscribable<PlayerInputPermissionCategoryChangeAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.playerInputPermissionCategoryChange` に対応します。
+
+---
+
+### playerInteractWithBlock
+
+`readonly playerInteractWithBlock: Subscribable<PlayerInteractWithBlockAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.playerInteractWithBlock` に対応します。
+
+---
+
+### playerInteractWithEntity
+
+`readonly playerInteractWithEntity: Subscribable<PlayerInteractWithEntityAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.playerInteractWithEntity` に対応します。
+
+---
+
+### playerInventoryItemChange
+
+`readonly playerInventoryItemChange: Subscribable<PlayerInventoryItemChangeAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.playerInventoryItemChange` に対応します。
+
+---
+
+### playerJoin
+
+`readonly playerJoin: Subscribable<PlayerJoinAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.playerJoin` に対応します。
+
+---
+
+### playerLeave
+
+`readonly playerLeave: Subscribable<PlayerLeaveAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.playerLeave` に対応します。
+
+---
+
+### playerPlaceBlock
+
+`readonly playerPlaceBlock: Subscribable<PlayerPlaceBlockAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.playerPlaceBlock` に対応します。
+
+---
+
+### playerSpawn
+
+`readonly playerSpawn: Subscribable<PlayerSpawnAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.playerSpawn` に対応します。
+
+---
+
+### playerSwingStart
+
+`readonly playerSwingStart: Subscribable<PlayerSwingStartAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.playerSwingStart` に対応します。
+
+---
+
+### pressurePlatePop
+
+`readonly pressurePlatePop: Subscribable<PressurePlatePopAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.pressurePlatePop` に対応します。
+
+---
+
+### pressurePlatePush
+
+`readonly pressurePlatePush: Subscribable<PressurePlatePushAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.pressurePlatePush` に対応します。
+
+---
+
+### projectileHitBlock
+
+`readonly projectileHitBlock: Subscribable<ProjectileHitBlockAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.projectileHitBlock` に対応します。
+
+---
+
+### projectileHitEntity
+
+`readonly projectileHitEntity: Subscribable<ProjectileHitEntityAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.projectileHitEntity` に対応します。
+
+---
+
+### scriptEventReceive
+
+`readonly scriptEventReceive: Subscribable<ScriptEventCommandMessageAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.scriptEventReceive` に対応します。
+
+---
+
+### targetBlockHit
+
+`readonly targetBlockHit: Subscribable<TargetBlockHitAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.targetBlockHit` に対応します。
+
+---
+
+### tripWireTrip
+
+`readonly tripWireTrip: Subscribable<TripWireTripAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.tripWireTrip` に対応します。
+
+---
+
+### weatherChange
+
+`readonly weatherChange: Subscribable<WeatherChangeAfterEvent>`
+
+`@minecraft/server` の `WorldAfterEvents.weatherChange` に対応します。
+
+---
 
 ## 使用例
 

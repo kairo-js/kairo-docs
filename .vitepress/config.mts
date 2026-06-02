@@ -34,7 +34,7 @@ const typesJa = [
 ]
 
 const apiSidebarJa = [
-  { text: '概要', link: '/api/' },
+  { text: '@kairo-js/router', link: '/api/' },
   { text: 'クラス', items: classesJa },
   { text: 'エラークラス', items: errorsJa },
   { text: '型・インターフェース', items: typesJa },
@@ -54,7 +54,7 @@ const typesEn = typesJa.map(item => ({
 }))
 
 const apiSidebarEn = [
-  { text: 'Overview', link: '/en/api/' },
+  { text: '@kairo-js/router', link: '/en/api/' },
   { text: 'Classes', items: classesEn },
   { text: 'Error Classes', items: errorsEn },
   { text: 'Types & Interfaces', items: typesEn },

@@ -24,16 +24,90 @@ interface KairoRegistry {
 
 ## フィールド
 
-| フィールド | 型 | 説明 |
-|---|---|---|
-| `kairoId` | `string` | Kairo が割り当てた内部 ID |
-| `addonId` | `string` | アドオンの識別子 |
-| `version` | `SemVer` | アドオンのバージョン |
-| `name` | `string` | アドオンの表示名 |
-| `description` | `string` | アドオンの説明 |
-| `metadata.authors` | `string[]` | 作者一覧 |
-| `metadata.url` | `string \| undefined` | アドオンの URL（省略可能） |
-| `metadata.license` | `string \| undefined` | ライセンス（省略可能） |
-| `dependencies` | `DependencyMap` | 必須依存アドオンのマップ |
-| `optionalDependencies` | `DependencyMap` | 任意依存アドオンのマップ |
-| `tags` | `string[]` | アドオンのタグ一覧 |
+### kairoId
+
+`readonly kairoId: string`
+
+Kairo が割り当てた内部 ID。
+
+---
+
+### addonId
+
+`readonly addonId: string`
+
+アドオンの識別子。
+
+---
+
+### version
+
+`readonly version: SemVer`
+
+アドオンのバージョン。
+
+---
+
+### name
+
+`readonly name: string`
+
+アドオンの表示名。
+
+---
+
+### description
+
+`readonly description: string`
+
+アドオンの説明。
+
+---
+
+### metadata.authors
+
+`readonly metadata.authors: string[]`
+
+作者一覧。
+
+---
+
+### metadata.url
+
+`readonly metadata.url: string | undefined`
+
+アドオンの URL（省略可能）。
+
+---
+
+### metadata.license
+
+`readonly metadata.license: string | undefined`
+
+ライセンス（省略可能）。
+
+---
+
+### dependencies
+
+`readonly dependencies: DependencyMap`
+
+必須依存アドオンのマップ。
+
+---
+
+### optionalDependencies
+
+`readonly optionalDependencies: DependencyMap`
+
+任意依存アドオンのマップ。
+
+---
+
+### tags
+
+`readonly tags: string[]`
+
+アドオンのタグ一覧。
+
+---

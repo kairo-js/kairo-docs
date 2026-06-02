@@ -8,30 +8,129 @@ The class accessed via `router.beforeEvents`. Each property implements [`Subscri
 
 ### Kairo-specific events
 
-| Property | Type | Description |
-|---|---|---|
-| `startup` | `Subscribable<KairoStartupBeforeEvent>` | Fires before Minecraft's `worldLoad`. Declare all APIs here. |
-| `addonDeactivate` | `Subscribable<AddonDeactivateBeforeEvent>` | Fires before an addon is deactivated |
+### startup
+
+`readonly startup: Subscribable<KairoStartupBeforeEvent>`
+
+Fires before Minecraft's `worldLoad`. Declare all APIs here.
+
+---
+
+### addonDeactivate
+
+`readonly addonDeactivate: Subscribable<AddonDeactivateBeforeEvent>`
+
+Fires before an addon is deactivated.
+
+---
 
 ### Minecraft ScriptAPI pass-through events
 
 Events corresponding to `WorldBeforeEvents` from `@minecraft/server`.
 
-| Property | Type | Description |
-|---|---|---|
-| `effectAdd` | `Subscribable<EffectAddBeforeEvent>` | Before an effect is added |
-| `entityHeal` | `Subscribable<EntityHealBeforeEvent>` | Before an entity is healed |
-| `entityItemPickup` | `Subscribable<EntityItemPickupBeforeEvent>` | Before an entity picks up an item |
-| `entityRemove` | `Subscribable<EntityRemoveBeforeEvent>` | Before an entity is removed |
-| `explosion` | `Subscribable<ExplosionBeforeEvent>` | Before an explosion |
-| `itemUse` | `Subscribable<ItemUseBeforeEvent>` | Before an item is used |
-| `playerBreakBlock` | `Subscribable<PlayerBreakBlockBeforeEvent>` | Before a player breaks a block |
-| `playerGameModeChange` | `Subscribable<PlayerGameModeChangeBeforeEvent>` | Before a player's game mode changes |
-| `playerInteractWithBlock` | `Subscribable<PlayerInteractWithBlockBeforeEvent>` | Before a player interacts with a block |
-| `playerInteractWithEntity` | `Subscribable<PlayerInteractWithEntityBeforeEvent>` | Before a player interacts with an entity |
-| `playerLeave` | `Subscribable<PlayerLeaveBeforeEvent>` | Before a player leaves |
-| `shutdown` | `Subscribable<ShutdownBeforeEvent>` | Before shutdown |
-| `weatherChange` | `Subscribable<WeatherChangeBeforeEvent>` | Before a weather change |
+### effectAdd
+
+`readonly effectAdd: Subscribable<EffectAddBeforeEvent>`
+
+Corresponds to `WorldBeforeEvents.effectAdd` in `@minecraft/server`.
+
+---
+
+### entityHeal
+
+`readonly entityHeal: Subscribable<EntityHealBeforeEvent>`
+
+Corresponds to `WorldBeforeEvents.entityHeal` in `@minecraft/server`.
+
+---
+
+### entityItemPickup
+
+`readonly entityItemPickup: Subscribable<EntityItemPickupBeforeEvent>`
+
+Corresponds to `WorldBeforeEvents.entityItemPickup` in `@minecraft/server`.
+
+---
+
+### entityRemove
+
+`readonly entityRemove: Subscribable<EntityRemoveBeforeEvent>`
+
+Corresponds to `WorldBeforeEvents.entityRemove` in `@minecraft/server`.
+
+---
+
+### explosion
+
+`readonly explosion: Subscribable<ExplosionBeforeEvent>`
+
+Corresponds to `WorldBeforeEvents.explosion` in `@minecraft/server`.
+
+---
+
+### itemUse
+
+`readonly itemUse: Subscribable<ItemUseBeforeEvent>`
+
+Corresponds to `WorldBeforeEvents.itemUse` in `@minecraft/server`.
+
+---
+
+### playerBreakBlock
+
+`readonly playerBreakBlock: Subscribable<PlayerBreakBlockBeforeEvent>`
+
+Corresponds to `WorldBeforeEvents.playerBreakBlock` in `@minecraft/server`.
+
+---
+
+### playerGameModeChange
+
+`readonly playerGameModeChange: Subscribable<PlayerGameModeChangeBeforeEvent>`
+
+Corresponds to `WorldBeforeEvents.playerGameModeChange` in `@minecraft/server`.
+
+---
+
+### playerInteractWithBlock
+
+`readonly playerInteractWithBlock: Subscribable<PlayerInteractWithBlockBeforeEvent>`
+
+Corresponds to `WorldBeforeEvents.playerInteractWithBlock` in `@minecraft/server`.
+
+---
+
+### playerInteractWithEntity
+
+`readonly playerInteractWithEntity: Subscribable<PlayerInteractWithEntityBeforeEvent>`
+
+Corresponds to `WorldBeforeEvents.playerInteractWithEntity` in `@minecraft/server`.
+
+---
+
+### playerLeave
+
+`readonly playerLeave: Subscribable<PlayerLeaveBeforeEvent>`
+
+Corresponds to `WorldBeforeEvents.playerLeave` in `@minecraft/server`.
+
+---
+
+### shutdown
+
+`readonly shutdown: Subscribable<ShutdownBeforeEvent>`
+
+Corresponds to `WorldBeforeEvents.shutdown` in `@minecraft/server`.
+
+---
+
+### weatherChange
+
+`readonly weatherChange: Subscribable<WeatherChangeBeforeEvent>`
+
+Corresponds to `WorldBeforeEvents.weatherChange` in `@minecraft/server`.
+
+---
 
 ## Usage
 

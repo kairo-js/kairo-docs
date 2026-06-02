@@ -15,12 +15,37 @@ type BeforeHookContext<TArgs, TReturn> = {
 
 ## フィールド
 
-| フィールド | 説明 |
-|---|---|
-| `args` | 変更可能。改ざんすると後続フックおよびハンドラに反映される |
-| `callerAddonId` | 呼び出し元アドオンの addonId（読み取り専用） |
-| `cancel(result?)` | `result` あり: ハンドラをスキップして `result` を返す（ショートサーキット）。`result` なし: `CANCELLED_BY_HOOK` を返す。`never` 型のため TypeScript はこれ以降のコードを unreachable と判定する。呼び出し後は即 `return` すること |
-| `setRollbackData(data)` | before フックが後でロールバックが必要になった場合に保存するデータを格納する |
+### args
+
+`args: TArgs`
+
+変更可能。改ざんすると後続フックおよびハンドラに反映される。
+
+---
+
+### callerAddonId
+
+`readonly callerAddonId: string`
+
+呼び出し元アドオンの addonId（読み取り専用）。
+
+---
+
+### cancel(result?)
+
+`cancel(result?: TReturn): never`
+
+`result` あり: ハンドラをスキップして `result` を返す（ショートサーキット）。`result` なし: `CANCELLED_BY_HOOK` を返す。`never` 型のため TypeScript はこれ以降のコードを unreachable と判定する。呼び出し後は即 `return` すること。
+
+---
+
+### setRollbackData(data)
+
+`setRollbackData(data: unknown): void`
+
+before フックが後でロールバックが必要になった場合に保存するデータを格納する。
+
+---
 
 ## 使用例
 
