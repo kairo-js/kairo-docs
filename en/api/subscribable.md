@@ -23,7 +23,9 @@ Registers an event handler. The returned [`Disposable`](/en/api/disposable) can 
 
 **Parameters**
 
-- **fn:** `(arg: T) => void` — The handler to invoke when the event fires.
+- **fn:** `(arg: T) => void`
+
+  The handler to invoke when the event fires.
 
 **Returns:** [`Disposable`](/en/api/disposable)
 
@@ -39,7 +41,9 @@ Removes a previously registered event handler. Pass the same function reference 
 
 **Parameters**
 
-- **fn:** `(arg: T) => void` — The handler to remove.
+- **fn:** `(arg: T) => void`
+
+  The handler to remove.
 
 **Returns:** `void`
 

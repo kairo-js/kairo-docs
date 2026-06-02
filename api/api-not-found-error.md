@@ -14,4 +14,6 @@ constructor(apiName?: string)
 
 **パラメーター**
 
-- **apiName:** `string` — 見つからなかった API 名（省略可能）。
+- **apiName:** `string`
+
+  見つからなかった API 名（省略可能）。

@@ -61,7 +61,9 @@ Cancels a scheduled run created by `runInterval()` or `runTimeout()`.
 
 **Parameters**
 
-- **runId:** `number` — The ID of the run to cancel.
+- **runId:** `number`
+
+  The ID of the run to cancel.
 
 **Returns:** `void`
 
@@ -77,8 +79,12 @@ Emits a custom event. Delivered to handlers subscribed via `AddonEventRegistry.o
 
 **Parameters**
 
-- **eventName:** `string` — The name of the event to emit.
-- **payload:** `unknown` — Data to attach to the event (optional).
+- **eventName:** `string`
+
+  The name of the event to emit.
+- **payload:** `unknown`
+
+  Data to attach to the event (optional).
 
 **Returns:** `void`
 
@@ -118,7 +124,9 @@ Initializes the addon.
 
 **Parameters**
 
-- **properties:** `AddonProperties` — The addon's configuration.
+- **properties:** `AddonProperties`
+
+  The addon's configuration.
 
 **Returns:** `void`
 
@@ -139,10 +147,18 @@ Calls an API and awaits the result. `timeout` is in ticks; default is 20 ticks.
 
 **Parameters**
 
-- **targetAddonId:** `string` — The ID of the target addon.
-- **apiName:** `string` — The name of the API to call.
-- **args:** `unknown` — Arguments to pass to the API (optional).
-- **options.timeout:** `number` — Timeout in ticks (default 20).
+- **targetAddonId:** `string`
+
+  The ID of the target addon.
+- **apiName:** `string`
+
+  The name of the API to call.
+- **args:** `unknown`
+
+  Arguments to pass to the API (optional).
+- **options.timeout:** `number`
+
+  Timeout in ticks (default 20).
 
 **Returns:** `Promise<TReturn | CancelledResult>`
 
@@ -172,8 +188,12 @@ Schedules a recurring callback at the given tick interval. Returns a runId to pa
 
 **Parameters**
 
-- **callback:** `() => void` — The function to run repeatedly.
-- **tickInterval:** `number` — Interval in ticks (optional).
+- **callback:** `() => void`
+
+  The function to run repeatedly.
+- **tickInterval:** `number`
+
+  Interval in ticks (optional).
 
 **Returns:** `number` — runId
 
@@ -189,8 +209,12 @@ Schedules a one-shot callback after the given tick delay. Returns a runId to pas
 
 **Parameters**
 
-- **callback:** `() => void` — The function to run once.
-- **tickDelay:** `number` — Delay in ticks (optional).
+- **callback:** `() => void`
+
+  The function to run once.
+- **tickDelay:** `number`
+
+  Delay in ticks (optional).
 
 **Returns:** `number` — runId
 
@@ -206,9 +230,15 @@ Calls an API in fire-and-forget fashion. Does not wait for a response. Silently 
 
 **Parameters**
 
-- **targetAddonId:** `string` — The ID of the target addon.
-- **apiName:** `string` — The name of the API to call.
-- **args:** `unknown` — Arguments to pass to the API (optional).
+- **targetAddonId:** `string`
+
+  The ID of the target addon.
+- **apiName:** `string`
+
+  The name of the API to call.
+- **args:** `unknown`
+
+  Arguments to pass to the API (optional).
 
 **Returns:** `void`
 

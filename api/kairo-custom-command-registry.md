@@ -22,8 +22,12 @@ Minecraft カスタムコマンドを登録します。
 
 **パラメーター**
 
-- **customCommand:** `CustomCommand` — コマンドの定義情報。
-- **callback:** `(origin: CustomCommandOrigin, ...args: any[]) => CustomCommandResult | undefined` — コマンド実行時のハンドラ。
+- **customCommand:** `CustomCommand`
+
+  コマンドの定義情報。
+- **callback:** `(origin: CustomCommandOrigin, ...args: any[]) => CustomCommandResult | undefined`
+
+  コマンド実行時のハンドラ。
 
 **返り値:** `void`
 
@@ -39,8 +43,12 @@ registerEnum(name: string, values: string[]): void
 
 **パラメーター**
 
-- **name:** `string` — enum の名前。
-- **values:** `string[]` — enum の選択肢。
+- **name:** `string`
+
+  enum の名前。
+- **values:** `string[]`
+
+  enum の選択肢。
 
 **返り値:** `void`
 

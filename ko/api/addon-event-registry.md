@@ -20,9 +20,15 @@ deliver(emitterAddonId: string, eventName: string, payload: unknown): void
 
 **매개변수**
 
-- **emitterAddonId:** `string` — 이벤트를 발행한 애드온의 ID.
-- **eventName:** `string` — 이벤트의 이름.
-- **payload:** `unknown` — 이벤트 페이로드.
+- **emitterAddonId:** `string`
+
+  이벤트를 발행한 애드온의 ID.
+- **eventName:** `string`
+
+  이벤트의 이름.
+- **payload:** `unknown`
+
+  이벤트 페이로드.
 
 **반환값:** `void`
 
@@ -54,9 +60,15 @@ on<TPayload = unknown>(
 
 **매개변수**
 
-- **emitterAddonId:** `string` — 이벤트를 발행하는 애드온의 ID.
-- **eventName:** `string` — 구독할 이벤트의 이름.
-- **handler:** `EventHandler<TPayload>` — 이벤트를 수신했을 때 호출되는 핸들러.
+- **emitterAddonId:** `string`
+
+  이벤트를 발행하는 애드온의 ID.
+- **eventName:** `string`
+
+  구독할 이벤트의 이름.
+- **handler:** `EventHandler<TPayload>`
+
+  이벤트를 수신했을 때 호출되는 핸들러.
 
 **반환값:** `void`
 

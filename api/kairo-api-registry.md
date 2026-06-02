@@ -37,7 +37,9 @@ getApiHandler(apiName: string): ApiHandler | undefined
 
 **パラメーター**
 
-- **apiName:** `string` — 取得する API 名。
+- **apiName:** `string`
+
+  取得する API 名。
 
 **返り値:** `ApiHandler | undefined`
 
@@ -81,9 +83,15 @@ hook<TArgs, TReturn>(
 
 **パラメーター**
 
-- **targetAddonId:** `string` — フック対象アドオンの ID。
-- **apiName:** `string` — フック対象の API 名。
-- **options:** `HookOptions<TArgs, TReturn>` — フックの設定。
+- **targetAddonId:** `string`
+
+  フック対象アドオンの ID。
+- **apiName:** `string`
+
+  フック対象の API 名。
+- **options:** `HookOptions<TArgs, TReturn>`
+
+  フックの設定。
 
 **返り値:** `void`
 
@@ -118,8 +126,12 @@ register<TArgs, TReturn>(
 
 **パラメーター**
 
-- **apiName:** `string` — 登録する API 名。
-- **handler:** `(args: TArgs) => TReturn | Promise<TReturn>` — API 呼び出し時に実行するハンドラ。
+- **apiName:** `string`
+
+  登録する API 名。
+- **handler:** `(args: TArgs) => TReturn | Promise<TReturn>`
+
+  API 呼び出し時に実行するハンドラ。
 
 **返り値:** `void`
 
@@ -160,6 +172,8 @@ setDeclaringAddonId(addonId: string): void
 
 **パラメーター**
 
-- **addonId:** `string` — 宣言者の addonId。
+- **addonId:** `string`
+
+  宣言者の addonId。
 
 **返り値:** `void`

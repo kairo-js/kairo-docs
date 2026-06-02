@@ -22,8 +22,12 @@ Minecraft 커스텀 커맨드를 등록합니다.
 
 **매개변수**
 
-- **customCommand:** `CustomCommand` — 커맨드 정의.
-- **callback:** `(origin: CustomCommandOrigin, ...args: any[]) => CustomCommandResult | undefined` — 커맨드가 실행될 때 호출되는 핸들러.
+- **customCommand:** `CustomCommand`
+
+  커맨드 정의.
+- **callback:** `(origin: CustomCommandOrigin, ...args: any[]) => CustomCommandResult | undefined`
+
+  커맨드가 실행될 때 호출되는 핸들러.
 
 **반환값:** `void`
 
@@ -39,8 +43,12 @@ registerEnum(name: string, values: string[]): void
 
 **매개변수**
 
-- **name:** `string` — 열거형의 이름.
-- **values:** `string[]` — 허용되는 열거형 값 목록.
+- **name:** `string`
+
+  열거형의 이름.
+- **values:** `string[]`
+
+  허용되는 열거형 값 목록.
 
 **반환값:** `void`
 

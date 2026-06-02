@@ -23,7 +23,9 @@ subscribe(fn: (arg: T) => void): Disposable
 
 **パラメーター**
 
-- **fn:** `(arg: T) => void` — イベント発火時に呼ばれるハンドラ。
+- **fn:** `(arg: T) => void`
+
+  イベント発火時に呼ばれるハンドラ。
 
 **返り値:** [`Disposable`](/api/disposable)
 
@@ -39,7 +41,9 @@ unsubscribe(fn: (arg: T) => void): void
 
 **パラメーター**
 
-- **fn:** `(arg: T) => void` — 解除するハンドラ。
+- **fn:** `(arg: T) => void`
+
+  解除するハンドラ。
 
 **返り値:** `void`
 

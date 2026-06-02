@@ -14,4 +14,6 @@ constructor(cause?: unknown)
 
 **パラメーター**
 
-- **cause:** `unknown` — 元となった例外（省略可能）。
+- **cause:** `unknown`
+
+  元となった例外（省略可能）。

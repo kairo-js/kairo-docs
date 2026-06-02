@@ -37,7 +37,9 @@ getApiHandler(apiName: string): ApiHandler | undefined
 
 **매개변수**
 
-- **apiName:** `string` — 조회할 API의 이름.
+- **apiName:** `string`
+
+  조회할 API의 이름.
 
 **반환값:** `ApiHandler | undefined`
 
@@ -81,9 +83,15 @@ hook<TArgs, TReturn>(
 
 **매개변수**
 
-- **targetAddonId:** `string` — 훅을 연결할 애드온의 ID.
-- **apiName:** `string` — 훅을 연결할 API의 이름.
-- **options:** `HookOptions<TArgs, TReturn>` — 훅 설정.
+- **targetAddonId:** `string`
+
+  훅을 연결할 애드온의 ID.
+- **apiName:** `string`
+
+  훅을 연결할 API의 이름.
+- **options:** `HookOptions<TArgs, TReturn>`
+
+  훅 설정.
 
 **반환값:** `void`
 
@@ -118,8 +126,12 @@ register<TArgs, TReturn>(
 
 **매개변수**
 
-- **apiName:** `string` — 등록할 API의 이름.
-- **handler:** `(args: TArgs) => TReturn | Promise<TReturn>` — API가 호출될 때 실행할 핸들러.
+- **apiName:** `string`
+
+  등록할 API의 이름.
+- **handler:** `(args: TArgs) => TReturn | Promise<TReturn>`
+
+  API가 호출될 때 실행할 핸들러.
 
 **반환값:** `void`
 
@@ -160,6 +172,8 @@ setDeclaringAddonId(addonId: string): void
 
 **매개변수**
 
-- **addonId:** `string` — 선언 애드온의 ID.
+- **addonId:** `string`
+
+  선언 애드온의 ID.
 
 **반환값:** `void`

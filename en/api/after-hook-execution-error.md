@@ -14,4 +14,6 @@ constructor(cause?: unknown)
 
 **Parameters**
 
-- **cause:** `unknown` — The original exception that was thrown (optional).
+- **cause:** `unknown`
+
+  The original exception that was thrown (optional).

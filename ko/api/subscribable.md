@@ -23,7 +23,9 @@ subscribe(fn: (arg: T) => void): Disposable
 
 **매개변수**
 
-- **fn:** `(arg: T) => void` — 이벤트 발생 시 호출할 핸들러.
+- **fn:** `(arg: T) => void`
+
+  이벤트 발생 시 호출할 핸들러.
 
 **반환값:** [`Disposable`](/ko/api/disposable)
 
@@ -39,7 +41,9 @@ unsubscribe(fn: (arg: T) => void): void
 
 **매개변수**
 
-- **fn:** `(arg: T) => void` — 제거할 핸들러.
+- **fn:** `(arg: T) => void`
+
+  제거할 핸들러.
 
 **반환값:** `void`
 
