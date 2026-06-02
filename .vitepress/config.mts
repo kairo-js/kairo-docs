@@ -36,6 +36,9 @@ const errorsJa = [
   { text: 'RequestTimeoutError', link: '/api/request-timeout-error' },
 ]
 
+const toLocale = (items: { text: string; link: string }[], prefix: string) =>
+  items.map(item => ({ text: item.text, link: item.link.replace('/api/', `/${prefix}/api/`) }))
+
 const apiSidebarJa = [
   { text: '@kairo-js/router', link: '/api/' },
   { text: 'クラス', items: classesJa },
@@ -44,15 +47,20 @@ const apiSidebarJa = [
   { text: 'エラー', items: errorsJa },
 ]
 
-const toEn = (items: { text: string; link: string }[]) =>
-  items.map(item => ({ text: item.text, link: item.link.replace('/api/', '/en/api/') }))
-
 const apiSidebarEn = [
   { text: '@kairo-js/router', link: '/en/api/' },
-  { text: 'Classes', items: toEn(classesJa) },
-  { text: 'Interfaces', items: toEn(interfacesJa) },
-  { text: 'Types', items: toEn(typesJa) },
-  { text: 'Errors', items: toEn(errorsJa) },
+  { text: 'Classes', items: toLocale(classesJa, 'en') },
+  { text: 'Interfaces', items: toLocale(interfacesJa, 'en') },
+  { text: 'Types', items: toLocale(typesJa, 'en') },
+  { text: 'Errors', items: toLocale(errorsJa, 'en') },
+]
+
+const apiSidebarKo = [
+  { text: '@kairo-js/router', link: '/ko/api/' },
+  { text: '클래스', items: toLocale(classesJa, 'ko') },
+  { text: '인터페이스', items: toLocale(interfacesJa, 'ko') },
+  { text: '타입', items: toLocale(typesJa, 'ko') },
+  { text: '오류', items: toLocale(errorsJa, 'ko') },
 ]
 
 export default defineConfig({
@@ -100,6 +108,31 @@ export default defineConfig({
           ],
           '/en/api/': apiSidebarEn,
         },
+      },
+    },
+    ko: {
+      label: '한국어',
+      lang: 'ko',
+      link: '/ko/',
+      title: 'Kairo',
+      description: 'Minecraft Bedrock Edition을 위한 애드온 간 통신 프레임워크',
+      themeConfig: {
+        nav: [
+          { text: '가이드', link: '/ko/guide/' },
+          { text: 'API', link: '/ko/api/' },
+        ],
+        sidebar: {
+          '/ko/guide/': [
+            { text: '시작하기', items: [{ text: '시작하기', link: '/ko/guide/' }] },
+          ],
+          '/ko/api/': apiSidebarKo,
+        },
+        docFooter: { prev: '이전 페이지', next: '다음 페이지' },
+        outline: { label: '이 페이지의 목차' },
+        langMenuLabel: '언어',
+        returnToTopLabel: '맨 위로',
+        sidebarMenuLabel: '메뉴',
+        darkModeSwitchLabel: '테마',
       },
     },
   },
