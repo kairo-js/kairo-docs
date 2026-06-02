@@ -1,16 +1,30 @@
 import { defineConfig } from 'vitepress'
 
 const classesJa = [
-  { text: 'KairoRouter', link: '/api/kairo-router' },
-  { text: 'KairoBeforeEvents', link: '/api/kairo-before-events' },
-  { text: 'KairoAfterEvents', link: '/api/kairo-after-events' },
-  { text: 'KairoStartupBeforeEvent', link: '/api/kairo-startup-before-event' },
-  { text: 'KairoApiRegistry', link: '/api/kairo-api-registry' },
-  { text: 'KairoCustomCommandRegistry', link: '/api/kairo-custom-command-registry' },
-  { text: 'AddonEventRegistry', link: '/api/addon-event-registry' },
-  { text: 'KairoContext', link: '/api/kairo-context' },
   { text: 'AddonActivateAfterEvent', link: '/api/addon-activate-after-event' },
   { text: 'AddonDeactivateBeforeEvent', link: '/api/addon-deactivate-before-event' },
+  { text: 'AddonEventRegistry', link: '/api/addon-event-registry' },
+  { text: 'KairoAfterEvents', link: '/api/kairo-after-events' },
+  { text: 'KairoApiRegistry', link: '/api/kairo-api-registry' },
+  { text: 'KairoBeforeEvents', link: '/api/kairo-before-events' },
+  { text: 'KairoContext', link: '/api/kairo-context' },
+  { text: 'KairoCustomCommandRegistry', link: '/api/kairo-custom-command-registry' },
+  { text: 'KairoRouter', link: '/api/kairo-router' },
+  { text: 'KairoStartupBeforeEvent', link: '/api/kairo-startup-before-event' },
+]
+
+const interfacesJa = [
+  { text: 'Disposable', link: '/api/disposable' },
+  { text: 'KairoRegistry', link: '/api/kairo-registry' },
+  { text: 'Subscribable', link: '/api/subscribable' },
+]
+
+const typesJa = [
+  { text: 'AfterHookContext', link: '/api/after-hook-context' },
+  { text: 'BeforeHookContext', link: '/api/before-hook-context' },
+  { text: 'CancelledResult', link: '/api/cancelled-result' },
+  { text: 'HookOptions', link: '/api/hook-options' },
+  { text: 'HookRollbackContext', link: '/api/hook-rollback-context' },
 ]
 
 const errorsJa = [
@@ -22,42 +36,23 @@ const errorsJa = [
   { text: 'RequestTimeoutError', link: '/api/request-timeout-error' },
 ]
 
-const typesJa = [
-  { text: 'AfterHookContext', link: '/api/after-hook-context' },
-  { text: 'BeforeHookContext', link: '/api/before-hook-context' },
-  { text: 'CancelledResult', link: '/api/cancelled-result' },
-  { text: 'Disposable', link: '/api/disposable' },
-  { text: 'HookOptions', link: '/api/hook-options' },
-  { text: 'HookRollbackContext', link: '/api/hook-rollback-context' },
-  { text: 'KairoRegistry', link: '/api/kairo-registry' },
-  { text: 'Subscribable', link: '/api/subscribable' },
-]
-
 const apiSidebarJa = [
   { text: '@kairo-js/router', link: '/api/' },
   { text: 'クラス', items: classesJa },
-  { text: 'エラークラス', items: errorsJa },
-  { text: '型・インターフェース', items: typesJa },
+  { text: 'インターフェース', items: interfacesJa },
+  { text: '型', items: typesJa },
+  { text: 'エラー', items: errorsJa },
 ]
 
-const classesEn = classesJa.map(item => ({
-  text: item.text,
-  link: item.link.replace('/api/', '/en/api/'),
-}))
-const errorsEn = errorsJa.map(item => ({
-  text: item.text,
-  link: item.link.replace('/api/', '/en/api/'),
-}))
-const typesEn = typesJa.map(item => ({
-  text: item.text,
-  link: item.link.replace('/api/', '/en/api/'),
-}))
+const toEn = (items: { text: string; link: string }[]) =>
+  items.map(item => ({ text: item.text, link: item.link.replace('/api/', '/en/api/') }))
 
 const apiSidebarEn = [
   { text: '@kairo-js/router', link: '/en/api/' },
-  { text: 'Classes', items: classesEn },
-  { text: 'Error Classes', items: errorsEn },
-  { text: 'Types & Interfaces', items: typesEn },
+  { text: 'Classes', items: toEn(classesJa) },
+  { text: 'Interfaces', items: toEn(interfacesJa) },
+  { text: 'Types', items: toEn(typesJa) },
+  { text: 'Errors', items: toEn(errorsJa) },
 ]
 
 export default defineConfig({
