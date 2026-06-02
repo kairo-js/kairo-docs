@@ -24,14 +24,6 @@ interface KairoRegistry {
 
 ## フィールド
 
-### kairoId
-
-`readonly kairoId: string`
-
-Kairo が割り当てた内部 ID。
-
----
-
 ### addonId
 
 `readonly addonId: string`
@@ -40,19 +32,11 @@ Kairo が割り当てた内部 ID。
 
 ---
 
-### version
+### dependencies
 
-`readonly version: SemVer`
+`readonly dependencies: DependencyMap`
 
-アドオンのバージョン。
-
----
-
-### name
-
-`readonly name: string`
-
-アドオンの表示名。
+必須依存アドオンのマップ。
 
 ---
 
@@ -64,19 +48,19 @@ Kairo が割り当てた内部 ID。
 
 ---
 
+### kairoId
+
+`readonly kairoId: string`
+
+Kairo が割り当てた内部 ID。
+
+---
+
 ### metadata.authors
 
 `readonly metadata.authors: string[]`
 
 作者一覧。
-
----
-
-### metadata.url
-
-`readonly metadata.url: string | undefined`
-
-アドオンの URL（省略可能）。
 
 ---
 
@@ -88,11 +72,19 @@ Kairo が割り当てた内部 ID。
 
 ---
 
-### dependencies
+### metadata.url
 
-`readonly dependencies: DependencyMap`
+`readonly metadata.url: string | undefined`
 
-必須依存アドオンのマップ。
+アドオンの URL（省略可能）。
+
+---
+
+### name
+
+`readonly name: string`
+
+アドオンの表示名。
 
 ---
 
@@ -109,5 +101,13 @@ Kairo が割り当てた内部 ID。
 `readonly tags: string[]`
 
 アドオンのタグ一覧。
+
+---
+
+### version
+
+`readonly version: SemVer`
+
+アドオンのバージョン。
 
 ---

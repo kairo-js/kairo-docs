@@ -22,19 +22,19 @@ type AfterHookContext<TArgs, TReturn> = {
 
 ---
 
-### result
-
-`result: TReturn`
-
-変更可能。pure transform のみを行うこと（外部副作用は禁止）。
-
----
-
 ### callerAddonId
 
 `readonly callerAddonId: string`
 
 呼び出し元アドオンの addonId（読み取り専用）。
+
+---
+
+### result
+
+`result: TReturn`
+
+変更可能。pure transform のみを行うこと（外部副作用は禁止）。
 
 ---
 

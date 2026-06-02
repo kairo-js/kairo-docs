@@ -14,11 +14,11 @@ type HookRollbackContext<TArgs> = {
 
 ## Fields
 
-### rollbackData
+### callerAddonId
 
-`readonly rollbackData: unknown`
+`readonly callerAddonId: string`
 
-The value stored via `setRollbackData()`. `undefined` if not set.
+The addonId of the caller (read-only).
 
 ---
 
@@ -30,11 +30,11 @@ Snapshot of args at this rollback's execution point. Do not mutate. Return a new
 
 ---
 
-### callerAddonId
+### rollbackData
 
-`readonly callerAddonId: string`
+`readonly rollbackData: unknown`
 
-The addonId of the caller (read-only).
+The value stored via `setRollbackData()`. `undefined` if not set.
 
 ---
 

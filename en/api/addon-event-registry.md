@@ -6,7 +6,41 @@ The class accessed via `ev.events`. Used inside the `router.beforeEvents.startup
 
 ## Methods
 
-### on()
+- [deliver(emitterAddonId, eventName, payload)](#deliver)
+- [getSubscriptions()](#getsubscriptions)
+- [on(emitterAddonId, eventName, handler)](#on)
+
+### deliver(emitterAddonId, eventName, payload) {#deliver}
+
+```typescript
+deliver(emitterAddonId: string, eventName: string, payload: unknown): void
+```
+
+Delivers an event to registered handlers. Called internally by the framework.
+
+| Parameter | Type | Description |
+|---|---|---|
+| `emitterAddonId` | `string` | The ID of the addon that emitted the event |
+| `eventName` | `string` | The name of the event |
+| `payload` | `unknown` | The event payload |
+
+**Returns:** `void`
+
+---
+
+### getSubscriptions() {#getsubscriptions}
+
+```typescript
+getSubscriptions(): EventSubscription[]
+```
+
+Returns all registered subscriptions.
+
+**Returns:** `EventSubscription[]`
+
+---
+
+### on(emitterAddonId, eventName, handler) {#on}
 
 ```typescript
 on<TPayload = unknown>(
@@ -23,36 +57,6 @@ Subscribes to an event emitted by another addon.
 | `emitterAddonId` | `string` | The ID of the addon that emits the event |
 | `eventName` | `string` | The name of the event to subscribe to |
 | `handler` | `EventHandler<TPayload>` | Handler invoked when the event is received |
-
-**Returns:** `void`
-
----
-
-### getSubscriptions()
-
-```typescript
-getSubscriptions(): EventSubscription[]
-```
-
-Returns all registered subscriptions.
-
-**Returns:** `EventSubscription[]`
-
----
-
-### deliver()
-
-```typescript
-deliver(emitterAddonId: string, eventName: string, payload: unknown): void
-```
-
-Delivers an event to registered handlers. Called internally by the framework.
-
-| Parameter | Type | Description |
-|---|---|---|
-| `emitterAddonId` | `string` | The ID of the addon that emitted the event |
-| `eventName` | `string` | The name of the event |
-| `payload` | `unknown` | The event payload |
 
 **Returns:** `void`
 

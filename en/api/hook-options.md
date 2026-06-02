@@ -16,19 +16,11 @@ type HookOptions<TArgs, TReturn> = {
 
 ## Fields
 
-### priority
+### after
 
-`priority?: number`
+`after?: (ctx: AfterHookContext<TArgs, TReturn>) => Promise<void>`
 
-Execution order; lower = earlier. Default `0`. 32-bit signed integer.
-
----
-
-### modes
-
-`modes?: ReadonlyArray<'send' | 'request'>`
-
-Call types to apply this hook to. Defaults to `["request"]` if `after` is present; `["send", "request"]` if `before` only.
+Runs after the handler (`request` only). Can mutate result. Perform pure transforms only.
 
 ---
 
@@ -40,11 +32,19 @@ Runs before the handler. Can mutate args or cancel the call.
 
 ---
 
-### after
+### modes
 
-`after?: (ctx: AfterHookContext<TArgs, TReturn>) => Promise<void>`
+`modes?: ReadonlyArray<'send' | 'request'>`
 
-Runs after the handler (`request` only). Can mutate result. Perform pure transforms only.
+Call types to apply this hook to. Defaults to `["request"]` if `after` is present; `["send", "request"]` if `before` only.
+
+---
+
+### priority
+
+`priority?: number`
+
+Execution order; lower = earlier. Default `0`. 32-bit signed integer.
 
 ---
 

@@ -14,11 +14,11 @@ type HookRollbackContext<TArgs> = {
 
 ## フィールド
 
-### rollbackData
+### callerAddonId
 
-`readonly rollbackData: unknown`
+`readonly callerAddonId: string`
 
-`setRollbackData()` で格納した値。未設定の場合は `undefined`。
+呼び出し元アドオンの addonId（読み取り専用）。
 
 ---
 
@@ -30,11 +30,11 @@ type HookRollbackContext<TArgs> = {
 
 ---
 
-### callerAddonId
+### rollbackData
 
-`readonly callerAddonId: string`
+`readonly rollbackData: unknown`
 
-呼び出し元アドオンの addonId（読み取り専用）。
+`setRollbackData()` で格納した値。未設定の場合は `undefined`。
 
 ---
 

@@ -40,7 +40,18 @@ before イベントの購読。
 
 ## メソッド
 
-### clearRun()
+- [clearRun(runId)](#clearrun)
+- [emit(eventName, payload?)](#emit)
+- [getAddonId()](#getaddonid)
+- [getHookDeclarations()](#gethookdeclarations)
+- [init(properties)](#init)
+- [request(targetAddonId, apiName, args?, options?)](#request)
+- [runInterval(callback, tickInterval?)](#runinterval)
+- [runTimeout(callback, tickDelay?)](#runtimeout)
+- [send(targetAddonId, apiName, args?)](#send)
+- [waitForWorldLoad()](#waitforworldload)
+
+### clearRun(runId) {#clearrun}
 
 ```typescript
 clearRun(runId: number): void
@@ -56,7 +67,7 @@ clearRun(runId: number): void
 
 ---
 
-### emit()
+### emit(eventName, payload?) {#emit}
 
 ```typescript
 emit(eventName: string, payload?: unknown): void
@@ -73,7 +84,7 @@ emit(eventName: string, payload?: unknown): void
 
 ---
 
-### getAddonId()
+### getAddonId() {#getaddonid}
 
 ```typescript
 getAddonId(): string | undefined
@@ -85,7 +96,7 @@ getAddonId(): string | undefined
 
 ---
 
-### getHookDeclarations()
+### getHookDeclarations() {#gethookdeclarations}
 
 ```typescript
 getHookDeclarations(): readonly InternalHookDeclaration[]
@@ -97,7 +108,7 @@ getHookDeclarations(): readonly InternalHookDeclaration[]
 
 ---
 
-### init()
+### init(properties) {#init}
 
 ```typescript
 init(properties: AddonProperties): void
@@ -113,7 +124,7 @@ init(properties: AddonProperties): void
 
 ---
 
-### request()
+### request(targetAddonId, apiName, args?, options?) {#request}
 
 ```typescript
 request<TReturn>(
@@ -151,7 +162,7 @@ if ('cancelled' in result) {
 
 ---
 
-### runInterval()
+### runInterval(callback, tickInterval?) {#runinterval}
 
 ```typescript
 runInterval(callback: () => void, tickInterval?: number): number
@@ -168,7 +179,7 @@ runInterval(callback: () => void, tickInterval?: number): number
 
 ---
 
-### runTimeout()
+### runTimeout(callback, tickDelay?) {#runtimeout}
 
 ```typescript
 runTimeout(callback: () => void, tickDelay?: number): number
@@ -185,7 +196,7 @@ runTimeout(callback: () => void, tickDelay?: number): number
 
 ---
 
-### send()
+### send(targetAddonId, apiName, args?) {#send}
 
 ```typescript
 send(targetAddonId: string, apiName: string, args?: unknown): void
@@ -207,7 +218,7 @@ router.send('economy-addon', 'onTransaction', { amount: 50 })
 
 ---
 
-### waitForWorldLoad()
+### waitForWorldLoad() {#waitforworldload}
 
 ```typescript
 waitForWorldLoad(): Promise<void>

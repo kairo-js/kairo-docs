@@ -8,6 +8,10 @@ The class accessed via `router.afterEvents`. Each property implements [`Subscrib
 
 ### Kairo-specific events
 
+### Minecraft ScriptAPI pass-through events
+
+Events corresponding to `WorldAfterEvents` from `@minecraft/server`.
+
 ### addonActivate
 
 `readonly addonActivate: Subscribable<AddonActivateAfterEvent>`
@@ -15,10 +19,6 @@ The class accessed via `router.afterEvents`. Each property implements [`Subscrib
 Fires after an addon is activated.
 
 ---
-
-### Minecraft ScriptAPI pass-through events
-
-Events corresponding to `WorldAfterEvents` from `@minecraft/server`.
 
 ### blockExplode
 

@@ -8,13 +8,9 @@ The class accessed via `router.beforeEvents`. Each property implements [`Subscri
 
 ### Kairo-specific events
 
-### startup
+### Minecraft ScriptAPI pass-through events
 
-`readonly startup: Subscribable<KairoStartupBeforeEvent>`
-
-Fires before Minecraft's `worldLoad`. Declare all APIs here.
-
----
+Events corresponding to `WorldBeforeEvents` from `@minecraft/server`.
 
 ### addonDeactivate
 
@@ -23,10 +19,6 @@ Fires before Minecraft's `worldLoad`. Declare all APIs here.
 Fires before an addon is deactivated.
 
 ---
-
-### Minecraft ScriptAPI pass-through events
-
-Events corresponding to `WorldBeforeEvents` from `@minecraft/server`.
 
 ### effectAdd
 
@@ -121,6 +113,14 @@ Corresponds to `WorldBeforeEvents.playerLeave` in `@minecraft/server`.
 `readonly shutdown: Subscribable<ShutdownBeforeEvent>`
 
 Corresponds to `WorldBeforeEvents.shutdown` in `@minecraft/server`.
+
+---
+
+### startup
+
+`readonly startup: Subscribable<KairoStartupBeforeEvent>`
+
+Fires before Minecraft's `worldLoad`. Declare all APIs here.
 
 ---
 

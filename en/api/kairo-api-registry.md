@@ -6,40 +6,68 @@ The class accessed via `ev.api`. Only operable inside the `router.beforeEvents.s
 
 ## Methods
 
-### register()
+- [dispose()](#dispose)
+- [getApiHandler(apiName)](#getapihandler)
+- [getApiNames()](#getapinames)
+- [getHookDeclarations()](#gethookdeclarations)
+- [hook(targetAddonId, apiName, options)](#hook)
+- [register(apiName, handler)](#register)
+- [seal()](#seal)
+- [setDeclaringAddonId(addonId)](#setdeclaringaddonid)
+
+### dispose() {#dispose}
 
 ```typescript
-register<TArgs, TReturn>(
-  apiName: string,
-  handler: (args: TArgs) => TReturn | Promise<TReturn>,
-): void
+dispose(): void
 ```
 
-Registers an API handler provided by this addon. Registering the same `apiName` twice within the same addonId throws an error.
-
-| Parameter | Type | Description |
-|---|---|---|
-| `apiName` | `string` | The name of the API to register |
-| `handler` | `(args: TArgs) => TReturn \| Promise<TReturn>` | The handler to invoke when the API is called |
+Releases resources held by this registry.
 
 **Returns:** `void`
 
+---
+
+### getApiHandler(apiName) {#getapihandler}
+
 ```typescript
-ev.api.register<{ playerId: string }, { balance: number }>(
-  'economy/getBalance',
-  async ({ playerId }) => {
-    return { balance: getBalance(playerId) }
-  },
-)
+getApiHandler(apiName: string): ApiHandler | undefined
 ```
 
-::: tip API Name Namespacing
-Use slash-separated namespaces like `economy/getBalance` to avoid collisions and improve discoverability.
-:::
+Returns the registered handler for the given API name. Returns `undefined` if not registered.
+
+| Parameter | Type | Description |
+|---|---|---|
+| `apiName` | `string` | The name of the API to look up |
+
+**Returns:** `ApiHandler | undefined`
 
 ---
 
-### hook()
+### getApiNames() {#getapinames}
+
+```typescript
+getApiNames(): ReadonlyArray<string>
+```
+
+Returns all registered API names.
+
+**Returns:** `ReadonlyArray<string>`
+
+---
+
+### getHookDeclarations() {#gethookdeclarations}
+
+```typescript
+getHookDeclarations(): readonly InternalHookDeclaration[]
+```
+
+Returns all registered hook declarations.
+
+**Returns:** `readonly InternalHookDeclaration[]`
+
+---
+
+### hook(targetAddonId, apiName, options) {#hook}
 
 ```typescript
 hook<TArgs, TReturn>(
@@ -77,47 +105,40 @@ ev.api.hook('economy-addon', 'economy/getBalance', {
 
 ---
 
-### getApiHandler()
+### register(apiName, handler) {#register}
 
 ```typescript
-getApiHandler(apiName: string): ApiHandler | undefined
+register<TArgs, TReturn>(
+  apiName: string,
+  handler: (args: TArgs) => TReturn | Promise<TReturn>,
+): void
 ```
 
-Returns the registered handler for the given API name. Returns `undefined` if not registered.
+Registers an API handler provided by this addon. Registering the same `apiName` twice within the same addonId throws an error.
 
 | Parameter | Type | Description |
 |---|---|---|
-| `apiName` | `string` | The name of the API to look up |
+| `apiName` | `string` | The name of the API to register |
+| `handler` | `(args: TArgs) => TReturn \| Promise<TReturn>` | The handler to invoke when the API is called |
 
-**Returns:** `ApiHandler | undefined`
-
----
-
-### getApiNames()
+**Returns:** `void`
 
 ```typescript
-getApiNames(): ReadonlyArray<string>
+ev.api.register<{ playerId: string }, { balance: number }>(
+  'economy/getBalance',
+  async ({ playerId }) => {
+    return { balance: getBalance(playerId) }
+  },
+)
 ```
 
-Returns all registered API names.
-
-**Returns:** `ReadonlyArray<string>`
+::: tip API Name Namespacing
+Use slash-separated namespaces like `economy/getBalance` to avoid collisions and improve discoverability.
+:::
 
 ---
 
-### getHookDeclarations()
-
-```typescript
-getHookDeclarations(): readonly InternalHookDeclaration[]
-```
-
-Returns all registered hook declarations.
-
-**Returns:** `readonly InternalHookDeclaration[]`
-
----
-
-### seal()
+### seal() {#seal}
 
 ```typescript
 seal(): void
@@ -129,7 +150,7 @@ Closes the registry. Called internally by the framework. Calling `register()` or
 
 ---
 
-### setDeclaringAddonId()
+### setDeclaringAddonId(addonId) {#setdeclaringaddonid}
 
 ```typescript
 setDeclaringAddonId(addonId: string): void
@@ -140,17 +161,5 @@ Sets the addonId of the declaring addon. Called internally by the framework.
 | Parameter | Type | Description |
 |---|---|---|
 | `addonId` | `string` | The declaring addon's ID |
-
-**Returns:** `void`
-
----
-
-### dispose()
-
-```typescript
-dispose(): void
-```
-
-Releases resources held by this registry.
 
 **Returns:** `void`

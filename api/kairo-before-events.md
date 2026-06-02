@@ -8,19 +8,19 @@
 
 ### kairo 独自イベント
 
-### startup
-
-`readonly startup: Subscribable<KairoStartupBeforeEvent>`
-
-Minecraft の `worldLoad` より前に発火。API 宣言はここで行う。
-
----
-
 ### addonDeactivate
 
 `readonly addonDeactivate: Subscribable<AddonDeactivateBeforeEvent>`
 
 アドオンが停止される前に発火。
+
+---
+
+### startup
+
+`readonly startup: Subscribable<KairoStartupBeforeEvent>`
+
+Minecraft の `worldLoad` より前に発火。API 宣言はここで行う。
 
 ---
 

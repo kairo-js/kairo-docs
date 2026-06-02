@@ -24,14 +24,6 @@ interface KairoRegistry {
 
 ## Fields
 
-### kairoId
-
-`readonly kairoId: string`
-
-Internal ID assigned by Kairo.
-
----
-
 ### addonId
 
 `readonly addonId: string`
@@ -40,19 +32,11 @@ The addon's identifier.
 
 ---
 
-### version
+### dependencies
 
-`readonly version: SemVer`
+`readonly dependencies: DependencyMap`
 
-The addon's version.
-
----
-
-### name
-
-`readonly name: string`
-
-The addon's display name.
+Map of required addon dependencies.
 
 ---
 
@@ -64,19 +48,19 @@ A description of the addon.
 
 ---
 
+### kairoId
+
+`readonly kairoId: string`
+
+Internal ID assigned by Kairo.
+
+---
+
 ### metadata.authors
 
 `readonly metadata.authors: string[]`
 
 List of authors.
-
----
-
-### metadata.url
-
-`readonly metadata.url: string | undefined`
-
-URL for the addon (optional).
 
 ---
 
@@ -88,11 +72,19 @@ License identifier (optional).
 
 ---
 
-### dependencies
+### metadata.url
 
-`readonly dependencies: DependencyMap`
+`readonly metadata.url: string | undefined`
 
-Map of required addon dependencies.
+URL for the addon (optional).
+
+---
+
+### name
+
+`readonly name: string`
+
+The addon's display name.
 
 ---
 
@@ -109,5 +101,13 @@ Map of optional addon dependencies.
 `readonly tags: string[]`
 
 Tags associated with the addon.
+
+---
+
+### version
+
+`readonly version: SemVer`
+
+The addon's version.
 
 ---

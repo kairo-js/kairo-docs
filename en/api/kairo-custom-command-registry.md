@@ -6,7 +6,10 @@ The class accessed via `ev.customCommandRegistry`. Used inside the `router.befor
 
 ## Methods
 
-### registerCommand()
+- [registerCommand(customCommand, callback)](#registercommand)
+- [registerEnum(name, values)](#registerenum)
+
+### registerCommand(customCommand, callback) {#registercommand}
 
 ```typescript
 registerCommand(
@@ -26,7 +29,7 @@ Registers a Minecraft custom command.
 
 ---
 
-### registerEnum()
+### registerEnum(name, values) {#registerenum}
 
 ```typescript
 registerEnum(name: string, values: string[]): void

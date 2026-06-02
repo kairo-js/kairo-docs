@@ -16,19 +16,11 @@ type HookOptions<TArgs, TReturn> = {
 
 ## フィールド
 
-### priority
+### after
 
-`priority?: number`
+`after?: (ctx: AfterHookContext<TArgs, TReturn>) => Promise<void>`
 
-実行順序。小さいほど先に実行される。デフォルト `0`。32-bit 符号付き整数。
-
----
-
-### modes
-
-`modes?: ReadonlyArray<'send' | 'request'>`
-
-フックを適用する呼び出し種別。省略かつ `after` が存在する場合は `["request"]`。省略かつ `before` のみの場合は `["send", "request"]`。
+ハンドラ実行後に呼ばれる（`request` のみ）。result の改ざんが可能。pure transform のみを行うこと。
 
 ---
 
@@ -40,11 +32,19 @@ type HookOptions<TArgs, TReturn> = {
 
 ---
 
-### after
+### modes
 
-`after?: (ctx: AfterHookContext<TArgs, TReturn>) => Promise<void>`
+`modes?: ReadonlyArray<'send' | 'request'>`
 
-ハンドラ実行後に呼ばれる（`request` のみ）。result の改ざんが可能。pure transform のみを行うこと。
+フックを適用する呼び出し種別。省略かつ `after` が存在する場合は `["request"]`。省略かつ `before` のみの場合は `["send", "request"]`。
+
+---
+
+### priority
+
+`priority?: number`
+
+実行順序。小さいほど先に実行される。デフォルト `0`。32-bit 符号付き整数。
 
 ---
 

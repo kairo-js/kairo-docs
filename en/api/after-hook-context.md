@@ -22,19 +22,19 @@ Read-only. TypeScript enforces this at the shallow level only; deep mutation is 
 
 ---
 
-### result
-
-`result: TReturn`
-
-Mutable. Perform pure transforms only — no external side effects.
-
----
-
 ### callerAddonId
 
 `readonly callerAddonId: string`
 
 The addonId of the caller (read-only).
+
+---
+
+### result
+
+`result: TReturn`
+
+Mutable. Perform pure transforms only — no external side effects.
 
 ---
 

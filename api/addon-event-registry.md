@@ -6,7 +6,41 @@
 
 ## メソッド
 
-### on()
+- [deliver(emitterAddonId, eventName, payload)](#deliver)
+- [getSubscriptions()](#getsubscriptions)
+- [on(emitterAddonId, eventName, handler)](#on)
+
+### deliver(emitterAddonId, eventName, payload) {#deliver}
+
+```typescript
+deliver(emitterAddonId: string, eventName: string, payload: unknown): void
+```
+
+イベントを配信します。フレームワーク内部から呼ばれます。
+
+| パラメーター | 型 | 説明 |
+|---|---|---|
+| `emitterAddonId` | `string` | イベント送出元のアドオン ID |
+| `eventName` | `string` | イベント名 |
+| `payload` | `unknown` | イベントのデータ |
+
+**返り値:** `void`
+
+---
+
+### getSubscriptions() {#getsubscriptions}
+
+```typescript
+getSubscriptions(): EventSubscription[]
+```
+
+登録済みの購読一覧を返します。
+
+**返り値:** `EventSubscription[]`
+
+---
+
+### on(emitterAddonId, eventName, handler) {#on}
 
 ```typescript
 on<TPayload = unknown>(
@@ -23,36 +57,6 @@ on<TPayload = unknown>(
 | `emitterAddonId` | `string` | イベント送出元のアドオン ID |
 | `eventName` | `string` | 購読するイベント名 |
 | `handler` | `EventHandler<TPayload>` | イベント受信時のハンドラ |
-
-**返り値:** `void`
-
----
-
-### getSubscriptions()
-
-```typescript
-getSubscriptions(): EventSubscription[]
-```
-
-登録済みの購読一覧を返します。
-
-**返り値:** `EventSubscription[]`
-
----
-
-### deliver()
-
-```typescript
-deliver(emitterAddonId: string, eventName: string, payload: unknown): void
-```
-
-イベントを配信します。フレームワーク内部から呼ばれます。
-
-| パラメーター | 型 | 説明 |
-|---|---|---|
-| `emitterAddonId` | `string` | イベント送出元のアドオン ID |
-| `eventName` | `string` | イベント名 |
-| `payload` | `unknown` | イベントのデータ |
 
 **返り値:** `void`
 
