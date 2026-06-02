@@ -35,9 +35,11 @@ getApiHandler(apiName: string): ApiHandler | undefined
 
 登録済み API ハンドラを取得します。未登録の場合は `undefined` を返します。
 
-| パラメーター | 型 | 説明 |
-|---|---|---|
-| `apiName` | `string` | 取得する API 名 |
+**パラメーター**
+
+**apiName:** `string`
+
+取得する API 名。
 
 **返り値:** `ApiHandler | undefined`
 
@@ -79,11 +81,19 @@ hook<TArgs, TReturn>(
 
 他アドオンの API 呼び出しをインターセプトするフックを登録します。
 
-| パラメーター | 型 | 説明 |
-|---|---|---|
-| `targetAddonId` | `string` | フック対象アドオンの ID |
-| `apiName` | `string` | フック対象の API 名 |
-| `options` | `HookOptions<TArgs, TReturn>` | フックの設定 |
+**パラメーター**
+
+**targetAddonId:** `string`
+
+フック対象アドオンの ID。
+
+**apiName:** `string`
+
+フック対象の API 名。
+
+**options:** `HookOptions<TArgs, TReturn>`
+
+フックの設定。
 
 **返り値:** `void`
 
@@ -116,10 +126,15 @@ register<TArgs, TReturn>(
 
 自アドオンが提供する API ハンドラを登録します。同一 addonId 内で同じ `apiName` を重複登録するとエラーになります。
 
-| パラメーター | 型 | 説明 |
-|---|---|---|
-| `apiName` | `string` | 登録する API 名 |
-| `handler` | `(args: TArgs) => TReturn \| Promise<TReturn>` | API 呼び出し時に実行するハンドラ |
+**パラメーター**
+
+**apiName:** `string`
+
+登録する API 名。
+
+**handler:** `(args: TArgs) => TReturn | Promise<TReturn>`
+
+API 呼び出し時に実行するハンドラ。
 
 **返り値:** `void`
 
@@ -158,8 +173,10 @@ setDeclaringAddonId(addonId: string): void
 
 フック宣言者の addonId を設定します。フレームワーク内部から呼ばれます。
 
-| パラメーター | 型 | 説明 |
-|---|---|---|
-| `addonId` | `string` | 宣言者の addonId |
+**パラメーター**
+
+**addonId:** `string`
+
+宣言者の addonId。
 
 **返り値:** `void`

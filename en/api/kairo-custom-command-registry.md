@@ -20,10 +20,15 @@ registerCommand(
 
 Registers a Minecraft custom command.
 
-| Parameter | Type | Description |
-|---|---|---|
-| `customCommand` | `CustomCommand` | The command definition |
-| `callback` | `(origin: CustomCommandOrigin, ...args: any[]) => CustomCommandResult \| undefined` | Handler invoked when the command is executed |
+**Parameters**
+
+**customCommand:** `CustomCommand`
+
+The command definition.
+
+**callback:** `(origin: CustomCommandOrigin, ...args: any[]) => CustomCommandResult | undefined`
+
+Handler invoked when the command is executed.
 
 **Returns:** `void`
 
@@ -37,10 +42,15 @@ registerEnum(name: string, values: string[]): void
 
 Registers an enum for use in command arguments. Can be referenced in a `CustomCommand` argument definition.
 
-| Parameter | Type | Description |
-|---|---|---|
-| `name` | `string` | The name of the enum |
-| `values` | `string[]` | The allowed enum values |
+**Parameters**
+
+**name:** `string`
+
+The name of the enum.
+
+**values:** `string[]`
+
+The allowed enum values.
 
 **Returns:** `void`
 

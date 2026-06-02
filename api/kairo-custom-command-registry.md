@@ -20,10 +20,15 @@ registerCommand(
 
 Minecraft カスタムコマンドを登録します。
 
-| パラメーター | 型 | 説明 |
-|---|---|---|
-| `customCommand` | `CustomCommand` | コマンドの定義情報 |
-| `callback` | `(origin: CustomCommandOrigin, ...args: any[]) => CustomCommandResult \| undefined` | コマンド実行時のハンドラ |
+**パラメーター**
+
+**customCommand:** `CustomCommand`
+
+コマンドの定義情報。
+
+**callback:** `(origin: CustomCommandOrigin, ...args: any[]) => CustomCommandResult | undefined`
+
+コマンド実行時のハンドラ。
 
 **返り値:** `void`
 
@@ -37,10 +42,15 @@ registerEnum(name: string, values: string[]): void
 
 コマンド引数用の enum 値を登録します。`CustomCommand` の引数定義で参照できます。
 
-| パラメーター | 型 | 説明 |
-|---|---|---|
-| `name` | `string` | enum の名前 |
-| `values` | `string[]` | enum の選択肢 |
+**パラメーター**
+
+**name:** `string`
+
+enum の名前。
+
+**values:** `string[]`
+
+enum の選択肢。
 
 **返り値:** `void`
 

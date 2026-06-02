@@ -21,9 +21,11 @@ subscribe(fn: (arg: T) => void): Disposable
 
 Registers an event handler. The returned [`Disposable`](/en/api/disposable) can be used to unsubscribe later.
 
-| Parameter | Type | Description |
-|---|---|---|
-| `fn` | `(arg: T) => void` | The handler to invoke when the event fires |
+**Parameters**
+
+**fn:** `(arg: T) => void`
+
+The handler to invoke when the event fires.
 
 **Returns:** [`Disposable`](/en/api/disposable)
 
@@ -37,9 +39,11 @@ unsubscribe(fn: (arg: T) => void): void
 
 Removes a previously registered event handler. Pass the same function reference that was passed to `subscribe()`.
 
-| Parameter | Type | Description |
-|---|---|---|
-| `fn` | `(arg: T) => void` | The handler to remove |
+**Parameters**
+
+**fn:** `(arg: T) => void`
+
+The handler to remove.
 
 **Returns:** `void`
 

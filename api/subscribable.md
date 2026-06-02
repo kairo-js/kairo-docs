@@ -21,9 +21,11 @@ subscribe(fn: (arg: T) => void): Disposable
 
 イベントハンドラを登録します。戻り値の [`Disposable`](/api/disposable) を使って後から購読を解除できます。
 
-| パラメーター | 型 | 説明 |
-|---|---|---|
-| `fn` | `(arg: T) => void` | イベント発火時に呼ばれるハンドラ |
+**パラメーター**
+
+**fn:** `(arg: T) => void`
+
+イベント発火時に呼ばれるハンドラ。
 
 **返り値:** [`Disposable`](/api/disposable)
 
@@ -37,9 +39,11 @@ unsubscribe(fn: (arg: T) => void): void
 
 登録済みのイベントハンドラを解除します。`subscribe()` に渡した関数の参照を指定します。
 
-| パラメーター | 型 | 説明 |
-|---|---|---|
-| `fn` | `(arg: T) => void` | 解除するハンドラ |
+**パラメーター**
+
+**fn:** `(arg: T) => void`
+
+解除するハンドラ。
 
 **返り値:** `void`
 

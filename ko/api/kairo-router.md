@@ -59,9 +59,9 @@ clearRun(runId: number): void
 
 `runInterval()` 또는 `runTimeout()`으로 예약한 실행을 취소합니다.
 
-| 매개변수 | 타입 | 설명 |
-|---|---|---|
-| `runId` | `number` | 취소할 실행의 ID |
+**runId:** `number`
+
+취소할 실행의 ID.
 
 **반환값:** `void`
 
@@ -75,10 +75,13 @@ emit(eventName: string, payload?: unknown): void
 
 커스텀 이벤트를 발행합니다. `AddonEventRegistry.on()`으로 구독된 핸들러에 전달됩니다.
 
-| 매개변수 | 타입 | 설명 |
-|---|---|---|
-| `eventName` | `string` | 발행할 이벤트의 이름 |
-| `payload` | `unknown` | 이벤트에 첨부할 데이터 (선택 사항) |
+**eventName:** `string`
+
+발행할 이벤트의 이름.
+
+**payload:** `unknown`
+
+이벤트에 첨부할 데이터 (선택 사항).
 
 **반환값:** `void`
 
@@ -116,9 +119,9 @@ init(properties: AddonProperties): void
 
 애드온을 초기화합니다.
 
-| 매개변수 | 타입 | 설명 |
-|---|---|---|
-| `properties` | `AddonProperties` | 애드온의 설정 |
+**properties:** `AddonProperties`
+
+애드온의 설정.
 
 **반환값:** `void`
 
@@ -137,12 +140,21 @@ request<TReturn>(
 
 API를 호출하고 결과를 기다립니다. `timeout`은 틱 단위이며 기본값은 20틱입니다.
 
-| 매개변수 | 타입 | 설명 |
-|---|---|---|
-| `targetAddonId` | `string` | 대상 애드온의 ID |
-| `apiName` | `string` | 호출할 API의 이름 |
-| `args` | `unknown` | API에 전달할 인수 (선택 사항) |
-| `options.timeout` | `number` | 타임아웃 (틱 단위, 기본값 20) |
+**targetAddonId:** `string`
+
+대상 애드온의 ID.
+
+**apiName:** `string`
+
+호출할 API의 이름.
+
+**args:** `unknown`
+
+API에 전달할 인수 (선택 사항).
+
+**options.timeout:** `number`
+
+타임아웃 (틱 단위, 기본값 20).
 
 **반환값:** `Promise<TReturn | CancelledResult>`
 
@@ -170,10 +182,13 @@ runInterval(callback: () => void, tickInterval?: number): number
 
 지정한 틱 간격으로 콜백을 반복 실행하도록 예약합니다. `clearRun()`에 전달할 runId를 반환합니다.
 
-| 매개변수 | 타입 | 설명 |
-|---|---|---|
-| `callback` | `() => void` | 반복 실행할 함수 |
-| `tickInterval` | `number` | 틱 단위 간격 (선택 사항) |
+**callback:** `() => void`
+
+반복 실행할 함수.
+
+**tickInterval:** `number`
+
+틱 단위 간격 (선택 사항).
 
 **반환값:** `number` — runId
 
@@ -187,10 +202,13 @@ runTimeout(callback: () => void, tickDelay?: number): number
 
 지정한 틱 지연 후 콜백을 한 번 실행하도록 예약합니다. `clearRun()`에 전달할 runId를 반환합니다.
 
-| 매개변수 | 타입 | 설명 |
-|---|---|---|
-| `callback` | `() => void` | 한 번 실행할 함수 |
-| `tickDelay` | `number` | 틱 단위 지연 (선택 사항) |
+**callback:** `() => void`
+
+한 번 실행할 함수.
+
+**tickDelay:** `number`
+
+틱 단위 지연 (선택 사항).
 
 **반환값:** `number` — runId
 
@@ -204,11 +222,17 @@ send(targetAddonId: string, apiName: string, args?: unknown): void
 
 API를 fire-and-forget 방식으로 호출합니다. 응답을 기다리지 않습니다. 대상 애드온이 존재하지 않거나 비활성 상태인 경우 조용히 무시됩니다.
 
-| 매개변수 | 타입 | 설명 |
-|---|---|---|
-| `targetAddonId` | `string` | 대상 애드온의 ID |
-| `apiName` | `string` | 호출할 API의 이름 |
-| `args` | `unknown` | API에 전달할 인수 (선택 사항) |
+**targetAddonId:** `string`
+
+대상 애드온의 ID.
+
+**apiName:** `string`
+
+호출할 API의 이름.
+
+**args:** `unknown`
+
+API에 전달할 인수 (선택 사항).
 
 **반환값:** `void`
 

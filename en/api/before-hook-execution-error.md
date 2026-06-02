@@ -12,6 +12,8 @@ Thrown when a `before` hook throws. By the time this error is thrown, rollback f
 constructor(cause?: unknown)
 ```
 
-| Parameter | Type | Description |
-|---|---|---|
-| `cause` | `unknown` | The original exception that was thrown (optional) |
+**Parameters**
+
+**cause:** `unknown`
+
+The original exception that was thrown (optional).

@@ -12,6 +12,8 @@ Thrown when the specified API name does not exist in the routing table. Occurs w
 constructor(apiName?: string)
 ```
 
-| Parameter | Type | Description |
-|---|---|---|
-| `apiName` | `string` | The API name that was not found (optional) |
+**Parameters**
+
+**apiName:** `string`
+
+The API name that was not found (optional).

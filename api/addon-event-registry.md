@@ -18,11 +18,19 @@ deliver(emitterAddonId: string, eventName: string, payload: unknown): void
 
 イベントを配信します。フレームワーク内部から呼ばれます。
 
-| パラメーター | 型 | 説明 |
-|---|---|---|
-| `emitterAddonId` | `string` | イベント送出元のアドオン ID |
-| `eventName` | `string` | イベント名 |
-| `payload` | `unknown` | イベントのデータ |
+**パラメーター**
+
+**emitterAddonId:** `string`
+
+イベント送出元のアドオン ID。
+
+**eventName:** `string`
+
+イベント名。
+
+**payload:** `unknown`
+
+イベントのデータ。
 
 **返り値:** `void`
 
@@ -52,11 +60,19 @@ on<TPayload = unknown>(
 
 他アドオンが emit するイベントを購読します。
 
-| パラメーター | 型 | 説明 |
-|---|---|---|
-| `emitterAddonId` | `string` | イベント送出元のアドオン ID |
-| `eventName` | `string` | 購読するイベント名 |
-| `handler` | `EventHandler<TPayload>` | イベント受信時のハンドラ |
+**パラメーター**
+
+**emitterAddonId:** `string`
+
+イベント送出元のアドオン ID。
+
+**eventName:** `string`
+
+購読するイベント名。
+
+**handler:** `EventHandler<TPayload>`
+
+イベント受信時のハンドラ。
 
 **返り値:** `void`
 

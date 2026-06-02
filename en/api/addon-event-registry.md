@@ -18,11 +18,19 @@ deliver(emitterAddonId: string, eventName: string, payload: unknown): void
 
 Delivers an event to registered handlers. Called internally by the framework.
 
-| Parameter | Type | Description |
-|---|---|---|
-| `emitterAddonId` | `string` | The ID of the addon that emitted the event |
-| `eventName` | `string` | The name of the event |
-| `payload` | `unknown` | The event payload |
+**Parameters**
+
+**emitterAddonId:** `string`
+
+The ID of the addon that emitted the event.
+
+**eventName:** `string`
+
+The name of the event.
+
+**payload:** `unknown`
+
+The event payload.
 
 **Returns:** `void`
 
@@ -52,11 +60,19 @@ on<TPayload = unknown>(
 
 Subscribes to an event emitted by another addon.
 
-| Parameter | Type | Description |
-|---|---|---|
-| `emitterAddonId` | `string` | The ID of the addon that emits the event |
-| `eventName` | `string` | The name of the event to subscribe to |
-| `handler` | `EventHandler<TPayload>` | Handler invoked when the event is received |
+**Parameters**
+
+**emitterAddonId:** `string`
+
+The ID of the addon that emits the event.
+
+**eventName:** `string`
+
+The name of the event to subscribe to.
+
+**handler:** `EventHandler<TPayload>`
+
+Handler invoked when the event is received.
 
 **Returns:** `void`
 

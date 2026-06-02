@@ -35,9 +35,9 @@ getApiHandler(apiName: string): ApiHandler | undefined
 
 지정한 API 이름에 등록된 핸들러를 반환합니다. 등록되어 있지 않으면 `undefined`를 반환합니다.
 
-| 매개변수 | 타입 | 설명 |
-|---|---|---|
-| `apiName` | `string` | 조회할 API의 이름 |
+**apiName:** `string`
+
+조회할 API의 이름.
 
 **반환값:** `ApiHandler | undefined`
 
@@ -79,11 +79,17 @@ hook<TArgs, TReturn>(
 
 다른 애드온의 API 호출을 가로채는 훅을 등록합니다.
 
-| 매개변수 | 타입 | 설명 |
-|---|---|---|
-| `targetAddonId` | `string` | 훅을 연결할 애드온의 ID |
-| `apiName` | `string` | 훅을 연결할 API의 이름 |
-| `options` | `HookOptions<TArgs, TReturn>` | 훅 설정 |
+**targetAddonId:** `string`
+
+훅을 연결할 애드온의 ID.
+
+**apiName:** `string`
+
+훅을 연결할 API의 이름.
+
+**options:** `HookOptions<TArgs, TReturn>`
+
+훅 설정.
 
 **반환값:** `void`
 
@@ -116,10 +122,13 @@ register<TArgs, TReturn>(
 
 이 애드온이 제공하는 API 핸들러를 등록합니다. 같은 addonId 내에서 동일한 `apiName`을 두 번 등록하면 에러가 발생합니다.
 
-| 매개변수 | 타입 | 설명 |
-|---|---|---|
-| `apiName` | `string` | 등록할 API의 이름 |
-| `handler` | `(args: TArgs) => TReturn \| Promise<TReturn>` | API가 호출될 때 실행할 핸들러 |
+**apiName:** `string`
+
+등록할 API의 이름.
+
+**handler:** `(args: TArgs) => TReturn | Promise<TReturn>`
+
+API가 호출될 때 실행할 핸들러.
 
 **반환값:** `void`
 
@@ -158,8 +167,8 @@ setDeclaringAddonId(addonId: string): void
 
 선언 애드온의 addonId를 설정합니다. 프레임워크 내부에서 호출됩니다.
 
-| 매개변수 | 타입 | 설명 |
-|---|---|---|
-| `addonId` | `string` | 선언 애드온의 ID |
+**addonId:** `string`
+
+선언 애드온의 ID.
 
 **반환값:** `void`

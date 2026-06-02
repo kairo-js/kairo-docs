@@ -12,6 +12,8 @@ Thrown when the API handler throws. Propagates to the caller as a rejected `rout
 constructor(cause?: unknown)
 ```
 
-| Parameter | Type | Description |
-|---|---|---|
-| `cause` | `unknown` | The original exception that was thrown (optional) |
+**Parameters**
+
+**cause:** `unknown`
+
+The original exception that was thrown (optional).

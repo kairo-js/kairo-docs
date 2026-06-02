@@ -43,9 +43,20 @@ constructor(
 )
 ```
 
-| Parameter | Type | Description |
-|---|---|---|
-| `message` | `string` | Error message |
-| `source` | `"local_parse" \| "remote"` | Where the error occurred |
-| `protocolStage` | `ProtocolStage` | Protocol stage (optional) |
-| `correlationId` | `string` | The correlationId of the related request (optional) |
+**Parameters**
+
+**message:** `string`
+
+Error message.
+
+**source:** `"local_parse" | "remote"`
+
+Where the error occurred.
+
+**protocolStage:** `ProtocolStage`
+
+Protocol stage (optional).
+
+**correlationId:** `string`
+
+The correlationId of the related request (optional).
