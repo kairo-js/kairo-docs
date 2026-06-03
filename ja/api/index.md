@@ -1,53 +1,23 @@
-# @kairo-js/router
+# Kairo JavaScript API リファレンス
 
-Minecraft Bedrock Edition のアドオン間通信フレームワーク。`router` オブジェクトと `KairoApiRegistry` を使って、複数のビヘイビアーパック間での API 呼び出し・フック・カスタムイベントを実現します。
+Minecraft Bedrock Edition のアドオン開発向け JavaScript API パッケージです。
 
-## Available Versions
+## パッケージ
 
-- `0.3.0-beta.0`
+### [@kairo-js/router](/ja/api/router)
 
-## Classes
+`0.3.0-beta.0`
 
-- [AddonActivateAfterEvent](/ja/api/addon-activate-after-event)
-- [AddonDeactivateBeforeEvent](/ja/api/addon-deactivate-before-event)
-- [AddonEventRegistry](/ja/api/addon-event-registry)
-- [KairoAfterEvents](/ja/api/kairo-after-events)
-- [KairoApiRegistry](/ja/api/kairo-api-registry)
-- [KairoBeforeEvents](/ja/api/kairo-before-events)
-- [KairoContext](/ja/api/kairo-context)
-- [KairoCustomCommandRegistry](/ja/api/kairo-custom-command-registry)
-- [KairoRouter](/ja/api/kairo-router)
-- [KairoStartupBeforeEvent](/ja/api/kairo-startup-before-event)
+アドオン間通信フレームワーク。`router` と `KairoApiRegistry` を使って、複数のビヘイビアーパック間での API 呼び出し・フック・カスタムイベントを実現します。
 
-## Interfaces
+### [@kairo-js/properties](/ja/api/properties/)
 
-- [Disposable](/ja/api/disposable)
-- [KairoRegistry](/ja/api/kairo-registry)
-- [Subscribable](/ja/api/subscribable)
+`1.2.1`
 
-## Types
+型定義パッケージ。アドオンのプロパティ・バージョン管理・Minecraft 依存関係・サポートタグなどの型を提供します。
 
-- [AfterHookContext](/ja/api/after-hook-context)
-- [BeforeHookContext](/ja/api/before-hook-context)
-- [CancelledResult](/ja/api/cancelled-result)
-- [HookOptions](/ja/api/hook-options)
-- [HookRollbackContext](/ja/api/hook-rollback-context)
+### [@kairo-js/utils](/ja/api/utils/)
 
-## Errors
+`1.2.1`
 
-- [AfterHookExecutionError](/ja/api/after-hook-execution-error)
-- [ApiNotFoundError](/ja/api/api-not-found-error)
-- [BeforeHookExecutionError](/ja/api/before-hook-execution-error)
-- [HandlerExecutionError](/ja/api/handler-execution-error)
-- [ProtocolError](/ja/api/protocol-error)
-- [RequestTimeoutError](/ja/api/request-timeout-error)
-
-## Objects
-
-### router
-
-`static readonly router: KairoRouter`
-
-アドオンのライフサイクル・API 通信・イベントを管理するクラスです。kairo-router パッケージのメインエントリーポイントです。
-
-**型:** [`KairoRouter`](/ja/api/kairo-router)
+ユーティリティ関数パッケージ。セマンティックバージョン比較・JSON パース・タイムスタンプ検証・シード付き乱数生成などを提供します。

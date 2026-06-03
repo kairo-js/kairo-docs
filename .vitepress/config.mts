@@ -77,6 +77,7 @@ function makeSidebar(
   locale: string,
   labels: {
     guide: string; guideIndex: string
+    apiRef: string
     classes: string; interfaces: string; types: string
     errors: string; enumerations: string; functions: string
   },
@@ -92,10 +93,11 @@ function makeSidebar(
       text: labels.guide,
       items: [{ text: labels.guideIndex, link: guideLink }],
     },
+    { text: labels.apiRef, link: routerBase },
     {
       text: '@kairo-js/router',
       items: [
-        { text: '@kairo-js/router', link: routerBase },
+        { text: '@kairo-js/router', link: `${routerBase}router` },
         { text: labels.classes,      collapsed: false, items: prefixed(routerClassItems,     routerBase) },
         { text: labels.interfaces,   collapsed: false, items: prefixed(routerInterfaceItems, routerBase) },
         { text: labels.types,        collapsed: false, items: prefixed(routerTypeItems,      routerBase) },
@@ -135,6 +137,7 @@ export default defineConfig({
       themeConfig: {
         sidebar: makeSidebar('', {
           guide: 'Guide', guideIndex: 'Getting Started',
+          apiRef: 'API Reference',
           classes: 'Classes', interfaces: 'Interfaces',
           types: 'Types', errors: 'Errors',
           enumerations: 'Enumerations', functions: 'Functions',
@@ -150,6 +153,7 @@ export default defineConfig({
       themeConfig: {
         sidebar: makeSidebar('ja', {
           guide: 'ガイド', guideIndex: 'はじめに',
+          apiRef: 'API リファレンス',
           classes: 'クラス', interfaces: 'インターフェース',
           types: '型', errors: 'エラー',
           enumerations: '列挙型', functions: '関数',
@@ -167,6 +171,7 @@ export default defineConfig({
       themeConfig: {
         sidebar: makeSidebar('zh', {
           guide: '指南', guideIndex: '入门',
+          apiRef: 'API 参考',
           classes: '类', interfaces: '接口',
           types: '类型', errors: '错误',
           enumerations: '枚举', functions: '函数',
@@ -184,6 +189,7 @@ export default defineConfig({
       themeConfig: {
         sidebar: makeSidebar('ko', {
           guide: '가이드', guideIndex: '시작하기',
+          apiRef: 'API 레퍼런스',
           classes: '클래스', interfaces: '인터페이스',
           types: '타입', errors: '오류',
           enumerations: '열거형', functions: '함수',
