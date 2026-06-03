@@ -53,3 +53,24 @@ if ('canceled' in result) {
 ```
 
 詳細は [kairo-router API リファレンス](/ja/api/kairo-router) を参照してください。
+
+## 必須 dependencies
+
+アドオンの `properties.ts` に `"kairo"` を必須 dependency として宣言する必要があります。記述がない場合、`router.init()` は即座にエラーをスローします。
+
+```typescript
+export const properties: AddonProperties = {
+  id: 'my-addon',
+  // ...
+  dependencies: {
+    kairo: '^1.0.0',
+    // optional: 'kairo-database': '^2.0.0' — router.save/load/delete/has に必要
+  },
+}
+```
+
+## standalone モード
+
+必須 dependencies が `kairo`（と任意で `kairo-database`）のみのアドオンは、kairo がインストールされていない場合でも自動的に起動します。これは、kairo のライフサイクル管理をオプションとして利用したい単体アドオンに便利です。
+
+詳細は [`RouterInitOptions`](/ja/api/router-init-options) を参照してください。

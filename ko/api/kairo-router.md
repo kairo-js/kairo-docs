@@ -109,10 +109,10 @@ getAddonId(): string | undefined
 ### init {#init}
 
 ```typescript
-init(properties: AddonProperties): void
+init(properties: AddonProperties, options?: RouterInitOptions): void
 ```
 
-애드온을 초기화합니다.
+애드온을 초기화합니다. `properties.dependencies`에 `"kairo"`가 포함되지 않으면 `KairoRouterInitError`가 발생합니다.
 
 **매개변수**
 
@@ -120,7 +120,15 @@ init(properties: AddonProperties): void
 
   애드온의 설정.
 
+- **options:** [`RouterInitOptions`](/ko/api/router-init-options)
+
+  초기화 옵션 (선택 사항).
+
 **반환값:** `void`
+
+::: tip 스탠드얼론 모드
+필수 dependencies가 `kairo`와 `kairo-database`만 포함된 경우, kairo가 설치되지 않은 월드에서도 애드온이 자동으로 활성화됩니다. 자세한 내용은 [`RouterInitOptions`](/ko/api/router-init-options)를 참조하세요.
+:::
 
 ---
 
@@ -246,7 +254,7 @@ router.send('economy-addon', 'onTransaction', { amount: 50 })
 delete(key: string): Promise<void>
 ```
 
-지정한 키의 저장된 값을 삭제합니다.
+지정한 키의 저장된 값을 삭제합니다. `dependencies` 또는 `optionalDependencies`에 `"kairo-database"`가 필요합니다. 스탠드얼론 모드에서는 아무 작업 없이 즉시 resolve됩니다.
 
 **매개변수**
 
@@ -264,7 +272,7 @@ delete(key: string): Promise<void>
 has(key: string, options?: { addonId?: string }): Promise<boolean>
 ```
 
-지정한 키가 존재하면 `true`를 반환합니다.
+지정한 키가 존재하면 `true`를 반환합니다. `dependencies` 또는 `optionalDependencies`에 `"kairo-database"`가 필요합니다. 스탠드얼론 모드에서는 항상 `false`를 반환합니다.
 
 **매개변수**
 
@@ -285,7 +293,7 @@ has(key: string, options?: { addonId?: string }): Promise<boolean>
 load<T = unknown>(key: string, options?: { addonId?: string }): Promise<T | undefined>
 ```
 
-스토어에서 값을 불러옵니다. 키가 없으면 `undefined`를 반환합니다.
+스토어에서 값을 불러옵니다. 키가 없으면 `undefined`를 반환합니다. `dependencies` 또는 `optionalDependencies`에 `"kairo-database"`가 필요합니다. 스탠드얼론 모드에서는 항상 `undefined`를 반환합니다.
 
 **매개변수**
 
@@ -306,7 +314,7 @@ load<T = unknown>(key: string, options?: { addonId?: string }): Promise<T | unde
 save(key: string, value: unknown): Promise<void>
 ```
 
-지정한 키로 값을 스토어에 저장합니다.
+지정한 키로 값을 스토어에 저장합니다. `dependencies` 또는 `optionalDependencies`에 `"kairo-database"`가 필요합니다. 스탠드얼론 모드에서는 아무 작업 없이 즉시 resolve됩니다.
 
 **매개변수**
 

@@ -53,3 +53,23 @@ if ('canceled' in result) {
 ```
 
 전체 API는 [kairo-router API 레퍼런스](/ko/api/kairo-router)를 참고하세요.
+
+## 필수 dependencies
+
+`properties.ts`에 `"kairo"`를 필수 dependency로 선언해야 합니다. 누락된 경우 `router.init()`이 즉시 오류를 발생시킵니다.
+
+```typescript
+export const properties: AddonProperties = {
+  id: 'my-addon',
+  dependencies: {
+    kairo: '^1.0.0',
+    // optional: 'kairo-database': '^2.0.0' — router.save/load/delete/has에 필요
+  },
+}
+```
+
+## 스탠드얼론 모드
+
+필수 dependencies가 `kairo`(와 선택적으로 `kairo-database`)뿐인 애드온은 kairo가 설치되지 않은 경우에도 자동으로 활성화됩니다.
+
+자세한 내용은 [`RouterInitOptions`](/ko/api/router-init-options)를 참조하세요.

@@ -109,10 +109,10 @@ getAddonId(): string | undefined
 ### init {#init}
 
 ```typescript
-init(properties: AddonProperties): void
+init(properties: AddonProperties, options?: RouterInitOptions): void
 ```
 
-アドオンを初期化します。
+アドオンを初期化します。`properties.dependencies` に `"kairo"` が含まれていない場合、`KairoRouterInitError` がスローされます。
 
 **パラメーター**
 
@@ -120,7 +120,15 @@ init(properties: AddonProperties): void
 
   アドオンの設定情報。
 
+- **options:** [`RouterInitOptions`](/ja/api/router-init-options)
+
+  初期化オプション（省略可能）。
+
 **返り値:** `void`
+
+::: tip standalone モード
+必須 dependencies が `kairo` と `kairo-database` のみの場合、kairo がインストールされていないワールドでアドオンを自動起動します。詳細は [`RouterInitOptions`](/ja/api/router-init-options) を参照してください。
+:::
 
 ---
 
@@ -246,7 +254,7 @@ router.send('economy-addon', 'onTransaction', { amount: 50 })
 delete(key: string): Promise<void>
 ```
 
-指定したキーの保存済み値を削除します。
+指定したキーの保存済み値を削除します。`dependencies` または `optionalDependencies` に `"kairo-database"` が必要です。standalone モードでは何もせず即座に resolve します。
 
 **パラメーター**
 
@@ -264,7 +272,7 @@ delete(key: string): Promise<void>
 has(key: string, options?: { addonId?: string }): Promise<boolean>
 ```
 
-指定したキーが存在する場合に `true` を返します。
+指定したキーが存在する場合に `true` を返します。`dependencies` または `optionalDependencies` に `"kairo-database"` が必要です。standalone モードでは常に `false` を返します。
 
 **パラメーター**
 
@@ -285,7 +293,7 @@ has(key: string, options?: { addonId?: string }): Promise<boolean>
 load<T = unknown>(key: string, options?: { addonId?: string }): Promise<T | undefined>
 ```
 
-ストアから値を読み込みます。キーが存在しない場合は `undefined` を返します。
+ストアから値を読み込みます。キーが存在しない場合は `undefined` を返します。`dependencies` または `optionalDependencies` に `"kairo-database"` が必要です。standalone モードでは常に `undefined` を返します。
 
 **パラメーター**
 
@@ -306,7 +314,7 @@ load<T = unknown>(key: string, options?: { addonId?: string }): Promise<T | unde
 save(key: string, value: unknown): Promise<void>
 ```
 
-指定したキーで値をストアに保存します。
+指定したキーで値をストアに保存します。`dependencies` または `optionalDependencies` に `"kairo-database"` が必要です。standalone モードでは何もせず即座に resolve します。
 
 **パラメーター**
 

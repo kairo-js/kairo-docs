@@ -22,6 +22,7 @@ const routerInterfaceItems = [
   { text: 'HookOptions', link: 'hook-options' },
   { text: 'HookRollbackContext', link: 'hook-rollback-context' },
   { text: 'KairoRegistry', link: 'kairo-registry' },
+  { text: 'RouterInitOptions', link: 'router-init-options' },
   { text: 'Subscribable', link: 'subscribable' },
 ]
 const routerTypeItems = [

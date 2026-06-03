@@ -109,10 +109,10 @@ getAddonId(): string | undefined
 ### init {#init}
 
 ```typescript
-init(properties: AddonProperties): void
+init(properties: AddonProperties, options?: RouterInitOptions): void
 ```
 
-初始化插件。
+初始化插件。如果 `properties.dependencies` 中未包含 `"kairo"`，将抛出 `KairoRouterInitError`。
 
 **参数**
 
@@ -120,7 +120,15 @@ init(properties: AddonProperties): void
 
   插件的配置信息。
 
+- **options:** [`RouterInitOptions`](/zh/api/router-init-options)
+
+  初始化选项（可选）。
+
 **返回值：** `void`
+
+::: tip 独立模式
+如果必须依赖项仅包含 `kairo` 和 `kairo-database`，则在未安装 kairo 的世界中插件会自动激活。详情请参见 [`RouterInitOptions`](/zh/api/router-init-options)。
+:::
 
 ---
 
@@ -246,7 +254,7 @@ router.send('economy-addon', 'onTransaction', { amount: 50 })
 delete(key: string): Promise<void>
 ```
 
-删除指定键的已存储值。
+删除指定键的已存储值。需要在 `dependencies` 或 `optionalDependencies` 中声明 `"kairo-database"`。在独立模式下，不执行任何操作并立即 resolve。
 
 **参数**
 
@@ -264,7 +272,7 @@ delete(key: string): Promise<void>
 has(key: string, options?: { addonId?: string }): Promise<boolean>
 ```
 
-如果指定键存在则返回 `true`。
+如果指定键存在则返回 `true`。需要在 `dependencies` 或 `optionalDependencies` 中声明 `"kairo-database"`。在独立模式下，始终返回 `false`。
 
 **参数**
 
@@ -285,7 +293,7 @@ has(key: string, options?: { addonId?: string }): Promise<boolean>
 load<T = unknown>(key: string, options?: { addonId?: string }): Promise<T | undefined>
 ```
 
-从存储中读取值。键不存在时返回 `undefined`。
+从存储中读取值。键不存在时返回 `undefined`。需要在 `dependencies` 或 `optionalDependencies` 中声明 `"kairo-database"`。在独立模式下，始终返回 `undefined`。
 
 **参数**
 
@@ -306,7 +314,7 @@ load<T = unknown>(key: string, options?: { addonId?: string }): Promise<T | unde
 save(key: string, value: unknown): Promise<void>
 ```
 
-将值以指定键保存到存储中。
+将值以指定键保存到存储中。需要在 `dependencies` 或 `optionalDependencies` 中声明 `"kairo-database"`。在独立模式下，不执行任何操作并立即 resolve。
 
 **参数**
 

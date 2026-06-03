@@ -53,3 +53,23 @@ if ('canceled' in result) {
 ```
 
 完整 API 请参阅 [kairo-router API 参考](/zh/api/kairo-router)。
+
+## 必须依赖项
+
+`properties.ts` 中必须将 `"kairo"` 声明为必须依赖项。如果缺失，`router.init()` 将立即抛出错误。
+
+```typescript
+export const properties: AddonProperties = {
+  id: 'my-addon',
+  dependencies: {
+    kairo: '^1.0.0',
+    // optional: 'kairo-database': '^2.0.0' — router.save/load/delete/has 所需
+  },
+}
+```
+
+## 独立模式
+
+如果必须依赖项仅包含 `kairo`（以及可选的 `kairo-database`），即使未安装 kairo，插件也会自动激活。
+
+详情请参见 [`RouterInitOptions`](/zh/api/router-init-options)。

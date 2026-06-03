@@ -53,3 +53,24 @@ if ('canceled' in result) {
 ```
 
 For the full API, see the [kairo-router API Reference](/api/kairo-router).
+
+## Required dependencies
+
+Your addon's `properties.ts` must declare `"kairo"` as a required dependency. Omitting it causes `router.init()` to throw.
+
+```typescript
+export const properties: AddonProperties = {
+  id: 'my-addon',
+  // ...
+  dependencies: {
+    kairo: '^1.0.0',
+    // optional: 'kairo-database': '^2.0.0' — required for router.save/load/delete/has
+  },
+}
+```
+
+## Standalone mode
+
+If your addon has no required dependencies other than `kairo` (and optionally `kairo-database`), it activates automatically even when kairo is not installed. This is useful for self-contained addons that optionally integrate with kairo's lifecycle management.
+
+See [`RouterInitOptions`](/api/router-init-options) for full details.

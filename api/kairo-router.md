@@ -109,10 +109,10 @@ Returns the addonId of this addon. Returns `undefined` before the addon is regis
 ### init {#init}
 
 ```typescript
-init(properties: AddonProperties): void
+init(properties: AddonProperties, options?: RouterInitOptions): void
 ```
 
-Initializes the addon.
+Initializes the addon. `"kairo"` must be declared in `properties.dependencies`, otherwise this call throws a `KairoRouterInitError`.
 
 **Parameters**
 
@@ -120,7 +120,15 @@ Initializes the addon.
 
   The addon's configuration.
 
+- **options:** [`RouterInitOptions`](/api/router-init-options)
+
+  Optional initialization options.
+
 **Returns:** `void`
+
+::: tip Standalone mode
+If the addon's required dependencies contain only `kairo` and `kairo-database`, the router automatically activates the addon when kairo is not installed. See [`RouterInitOptions`](/api/router-init-options) for details.
+:::
 
 ---
 
@@ -246,7 +254,7 @@ router.send('economy-addon', 'onTransaction', { amount: 50 })
 delete(key: string): Promise<void>
 ```
 
-Deletes a stored value by key.
+Deletes a stored value by key. Requires `"kairo-database"` in `dependencies` or `optionalDependencies`. In standalone mode, resolves immediately without any operation.
 
 **Parameters**
 
@@ -264,7 +272,7 @@ Deletes a stored value by key.
 has(key: string, options?: { addonId?: string }): Promise<boolean>
 ```
 
-Returns `true` if the given key exists in the store.
+Returns `true` if the given key exists in the store. Requires `"kairo-database"` in `dependencies` or `optionalDependencies`. In standalone mode, always returns `false`.
 
 **Parameters**
 
@@ -285,7 +293,7 @@ Returns `true` if the given key exists in the store.
 load<T = unknown>(key: string, options?: { addonId?: string }): Promise<T | undefined>
 ```
 
-Loads a value from the store. Returns `undefined` if the key does not exist.
+Loads a value from the store. Returns `undefined` if the key does not exist. Requires `"kairo-database"` in `dependencies` or `optionalDependencies`. In standalone mode, always returns `undefined`.
 
 **Parameters**
 
@@ -306,7 +314,7 @@ Loads a value from the store. Returns `undefined` if the key does not exist.
 save(key: string, value: unknown): Promise<void>
 ```
 
-Persists a value in the store under the given key.
+Persists a value in the store under the given key. Requires `"kairo-database"` in `dependencies` or `optionalDependencies`. In standalone mode, resolves immediately without any operation.
 
 **Parameters**
 
