@@ -20,9 +20,8 @@ kairo가 설치되지 않은 월드에서의 스탠드얼론 활성화를 제어
 
 | 값 | 동작 |
 |---|---|
-| `undefined` (기본값) | 필수 `dependencies`가 `kairo`와 `kairo-database`만 포함된 경우 스탠드얼론 활성화 |
-| `true` | 의존성에 관계없이 항상 스탠드얼론 시도 |
-| `false` | 스탠드얼론 비활성화 |
+| `undefined` / `false` (기본값) | 스탠드얼론 비활성화 |
+| `true` | 필수 `dependencies`가 `kairo`와 `kairo-database`만 포함된 경우 스탠드얼론 활성화 |
 
 **스탠드얼론 활성화**는 kairo가 감지되지 않을 경우 월드 로드 후 약 20틱 후에 발생합니다. 스탠드얼론 모드에서 활성화된 후의 동작:
 
@@ -38,12 +37,9 @@ kairo가 설치되지 않은 월드에서의 스탠드얼론 활성화를 제어
 import { router } from '@kairo-js/router'
 import { properties } from './properties'
 
-// dependencies가 kairo뿐이라면 자동으로 스탠드얼론 활성화 (옵션 불필요)
+// 기본값 — 스탠드얼론 비활성화 (kairo 필요)
 router.init(properties)
 
-// 다른 애드온 의존성이 있어도 강제로 스탠드얼론 활성화
+// 스탠드얼론 opt-in (크로스 애드온 의존성이 없을 때만 활성화)
 router.init(properties, { standalone: true })
-
-// 스탠드얼론 비활성화
-router.init(properties, { standalone: false })
 ```

@@ -70,6 +70,6 @@ export const properties: AddonProperties = {
 
 ## 스탠드얼론 모드
 
-필수 dependencies가 `kairo`(와 선택적으로 `kairo-database`)뿐인 애드온은 kairo가 설치되지 않은 경우에도 자동으로 활성화됩니다.
+`router.init()`에 `{ standalone: true }`를 전달하면 스탠드얼론 활성화가 켜집니다. kairo가 설치되지 않은 경우, 필수 dependencies가 `kairo`와 `kairo-database`만 포함되어 있으면 자동으로 활성화됩니다. kairo의 라이프사이클 관리를 선택적으로 활용하는 단독 애드온에 유용합니다.
 
 자세한 내용은 [`RouterInitOptions`](/ko/api/router-init-options)를 참조하세요.

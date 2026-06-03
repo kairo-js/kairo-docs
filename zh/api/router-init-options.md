@@ -20,9 +20,8 @@ interface RouterInitOptions {
 
 | 值 | 行为 |
 |---|---|
-| `undefined`（默认） | 仅当必须依赖项限于 `kairo` 和 `kairo-database` 时启用独立模式 |
-| `true` | 无论依赖项如何，始终尝试独立激活 |
-| `false` | 禁用独立模式 |
+| `undefined` / `false`（默认） | 不启用独立模式 |
+| `true` | 仅当必须依赖项限于 `kairo` 和 `kairo-database` 时启用独立模式 |
 
 **独立模式激活**在未检测到 kairo 时，于世界加载约 20 tick 后触发。以独立模式激活后的行为：
 
@@ -38,12 +37,9 @@ interface RouterInitOptions {
 import { router } from '@kairo-js/router'
 import { properties } from './properties'
 
-// dependencies 仅包含 kairo 时自动启用独立模式（无需选项）
+// 默认 — 不启用独立模式（需要 kairo）
 router.init(properties)
 
-// 即使有跨附加包依赖，也强制使用独立模式
+// 选择启用独立模式（仅在无跨附加包依赖时激活）
 router.init(properties, { standalone: true })
-
-// 禁用独立模式
-router.init(properties, { standalone: false })
 ```

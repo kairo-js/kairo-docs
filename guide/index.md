@@ -71,6 +71,6 @@ export const properties: AddonProperties = {
 
 ## Standalone mode
 
-If your addon has no required dependencies other than `kairo` (and optionally `kairo-database`), it activates automatically even when kairo is not installed. This is useful for self-contained addons that optionally integrate with kairo's lifecycle management.
+Pass `{ standalone: true }` to `router.init()` to enable standalone activation. When kairo is not installed, the addon activates automatically — but only if its required dependencies contain nothing beyond `kairo` and `kairo-database`. This is useful for self-contained addons that optionally integrate with kairo's lifecycle management.
 
 See [`RouterInitOptions`](/api/router-init-options) for full details.

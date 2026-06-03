@@ -70,6 +70,6 @@ export const properties: AddonProperties = {
 
 ## 独立模式
 
-如果必须依赖项仅包含 `kairo`（以及可选的 `kairo-database`），即使未安装 kairo，插件也会自动激活。
+向 `router.init()` 传入 `{ standalone: true }` 可启用独立模式。未安装 kairo 时，若必须依赖项仅包含 `kairo` 和 `kairo-database`，插件将自动激活。适用于希望选择性集成 kairo 生命周期管理的独立附加包。
 
 详情请参见 [`RouterInitOptions`](/zh/api/router-init-options)。

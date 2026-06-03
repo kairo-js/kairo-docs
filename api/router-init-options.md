@@ -20,9 +20,8 @@ Controls standalone activation behavior when kairo is not installed in the world
 
 | Value | Behavior |
 |---|---|
-| `undefined` (default) | Standalone only if required `dependencies` are limited to `kairo` and `kairo-database` |
-| `true` | Always attempt standalone, regardless of dependencies |
-| `false` | Never attempt standalone |
+| `undefined` / `false` (default) | Never attempt standalone |
+| `true` | Attempt standalone if required `dependencies` are limited to `kairo` and `kairo-database` |
 
 **Standalone activation** occurs approximately 20 ticks after world load when kairo is not detected. Once active in standalone mode:
 
@@ -38,13 +37,9 @@ Controls standalone activation behavior when kairo is not installed in the world
 import { router } from '@kairo-js/router'
 import { properties } from './properties'
 
-// Standalone activates automatically — no option needed
-// (properties.dependencies only contains "kairo")
+// Default — no standalone (kairo is required)
 router.init(properties)
 
-// Force standalone even with cross-addon dependencies
+// Opt-in to standalone (only activates if no cross-addon dependencies)
 router.init(properties, { standalone: true })
-
-// Disable standalone entirely
-router.init(properties, { standalone: false })
 ```

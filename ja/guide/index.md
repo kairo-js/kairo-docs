@@ -71,6 +71,6 @@ export const properties: AddonProperties = {
 
 ## standalone モード
 
-必須 dependencies が `kairo`（と任意で `kairo-database`）のみのアドオンは、kairo がインストールされていない場合でも自動的に起動します。これは、kairo のライフサイクル管理をオプションとして利用したい単体アドオンに便利です。
+`router.init()` に `{ standalone: true }` を渡すと standalone 起動が有効になります。kairo がインストールされていない場合、必須 dependencies が `kairo` と `kairo-database` のみであれば自動的に起動します。kairo のライフサイクル管理をオプションとして利用したい単体アドオンに便利です。
 
 詳細は [`RouterInitOptions`](/ja/api/router-init-options) を参照してください。
