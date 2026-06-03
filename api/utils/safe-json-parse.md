@@ -19,7 +19,7 @@ function safeJsonParse(message: string, error: () => Error): unknown
 
 **Returns:** `unknown` — The parsed value. Narrow the type with a validation function such as `compile()`.
 
-## Usage
+## Examples
 
 ```typescript
 import { safeJsonParse, compile } from '@kairo-js/utils'

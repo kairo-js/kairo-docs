@@ -52,7 +52,7 @@ Registers an enum for use in command arguments. Can be referenced in a `CustomCo
 
 **Returns:** `void`
 
-## Usage
+## Examples
 
 ```typescript
 import { router } from '@kairo-js/router'

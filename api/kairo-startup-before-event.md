@@ -32,7 +32,7 @@ Subscribe to addon events.
 
 ---
 
-## Usage
+## Examples
 
 ```typescript
 import { router } from '@kairo-js/router'

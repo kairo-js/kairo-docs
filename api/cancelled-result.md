@@ -42,7 +42,7 @@ The reason the call was cancelled.
 | `ADDON_UNRESOLVED` | The target addon is in an unresolved state (dependencies not yet resolved). |
 | `CANCELLED_BY_HOOK` | A `before` hook called `ctx.cancel()` to cancel the call. |
 
-## Usage
+## Examples
 
 ```typescript
 const result = await router.request<{ balance: number }>(

@@ -72,7 +72,7 @@ Subscribes to an event emitted by another addon.
 
 **Returns:** `void`
 
-## Usage
+## Examples
 
 ```typescript
 import { router } from '@kairo-js/router'

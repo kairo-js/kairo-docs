@@ -38,7 +38,7 @@ Mutable. Perform pure transforms only — no external side effects.
 
 ---
 
-## Usage
+## Examples
 
 ```typescript
 ev.api.hook('economy-addon', 'economy/getBalance', {

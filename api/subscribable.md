@@ -47,7 +47,7 @@ Removes a previously registered event handler. Pass the same function reference 
 
 **Returns:** `void`
 
-## Usage
+## Examples
 
 ```typescript
 import { router } from '@kairo-js/router'

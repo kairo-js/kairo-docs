@@ -68,7 +68,7 @@ before: -10 → 0(B) → 0(C) → 5 → [handler] → after: 5 → 0(C) → 0(B)
 
 `after` runs in the exact reverse order of `before` execution.
 
-## Usage
+## Examples
 
 ```typescript
 ev.api.hook<{ playerId: string }, { balance: number }>(

@@ -34,7 +34,7 @@ function validateTimestamp(
 
 **Returns:** `void`
 
-## Usage
+## Examples
 
 ```typescript
 import { validateTimestamp } from '@kairo-js/utils'

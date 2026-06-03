@@ -19,7 +19,7 @@ interface ValidateFunction<T> {
 
 An optional list of human-readable error messages describing why the most recent validation failed. Only populated after a call that returned `false`.
 
-## Usage
+## Examples
 
 ```typescript
 import { compile } from '@kairo-js/utils'

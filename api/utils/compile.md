@@ -16,7 +16,7 @@ function compile<T extends TSchema>(schema: T): ValidateFunction<Static<T>>
 
 **Returns:** [`ValidateFunction<Static<T>>`](/api/utils/validate-function) — A compiled type guard function. Call it with an `unknown` value to validate and narrow the type.
 
-## Usage
+## Examples
 
 ```typescript
 import { compile } from '@kairo-js/utils'

@@ -6,7 +6,7 @@ The event object for `router.afterEvents.addonActivate`. Not directly instantiab
 
 Fires after an addon is activated.
 
-## Usage
+## Examples
 
 ```typescript
 import { router } from '@kairo-js/router'

@@ -6,7 +6,7 @@ The event object for `router.beforeEvents.addonDeactivate`. Not directly instant
 
 Fires before an addon is deactivated. Use this handler to release resources and perform cleanup.
 
-## Usage
+## Examples
 
 ```typescript
 import { router } from '@kairo-js/router'

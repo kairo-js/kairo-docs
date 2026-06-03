@@ -420,7 +420,7 @@ Corresponds to `WorldAfterEvents.weatherChange` in `@minecraft/server`.
 
 ---
 
-## Usage
+## Examples
 
 ```typescript
 import { router } from '@kairo-js/router'

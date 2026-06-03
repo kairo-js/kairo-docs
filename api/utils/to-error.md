@@ -16,7 +16,7 @@ function toError(e: unknown): Error
 
 **Returns:** `Error` — The original value if it is already an `Error`, or a new `Error` wrapping the value otherwise.
 
-## Usage
+## Examples
 
 ```typescript
 import { toError } from '@kairo-js/utils'

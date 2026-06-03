@@ -22,7 +22,7 @@ Releases the resource. For event subscriptions, calling `dispose()` unsubscribes
 
 **Returns:** `void`
 
-## Usage
+## Examples
 
 ```typescript
 import { router } from '@kairo-js/router'

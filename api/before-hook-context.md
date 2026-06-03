@@ -47,7 +47,7 @@ Stores data for use in `rollback` if this hook later needs to undo side effects.
 
 ---
 
-## Usage
+## Examples
 
 ```typescript
 ev.api.hook('economy-addon', 'economy/getBalance', {

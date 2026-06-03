@@ -45,7 +45,7 @@ The rollback function's return type is `Promise<TArgs | void>`.
 - Returning `TArgs`: subsequent rollback handlers receive that value as `currentArgsSnapshot`.
 - Returning `void`: no change is made to args.
 
-## Usage
+## Examples
 
 ```typescript
 ev.api.hook('economy-addon', 'economy/deduct', {

@@ -34,7 +34,7 @@ Returns the next pseudo-random number in the sequence.
 
 **Returns:** `number` — A value in the range `[0, 1)`.
 
-## Usage
+## Examples
 
 ```typescript
 import { SeedRandom } from '@kairo-js/utils'
