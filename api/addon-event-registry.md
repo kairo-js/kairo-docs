@@ -1,50 +1,16 @@
-# AddonEventRegistry
+# AddonEventRegistration
 
-`import { router } from '@kairo-js/router'`
+Accessed via `ev.events`. Used inside the `router.beforeEvents.startup` event to subscribe to custom events emitted by other addons via `router.emit()`.
 
-The class accessed via `ev.events`. Used inside the `router.beforeEvents.startup` event to subscribe to custom events emitted by other addons via `router.emit()`.
+```typescript
+interface AddonEventRegistration {
+  on<TPayload = unknown>(emitterAddonId: string, eventName: string, handler: EventHandler<TPayload>): void
+}
+```
 
 ## Methods
 
-- [deliver](#deliver)
-- [getSubscriptions](#getsubscriptions)
 - [on](#on)
-
-### deliver {#deliver}
-
-```typescript
-deliver(emitterAddonId: string, eventName: string, payload: unknown): void
-```
-
-Delivers an event to registered handlers. Called internally by the framework.
-
-**Parameters**
-
-- **emitterAddonId:** `string`
-
-  The ID of the addon that emitted the event.
-- **eventName:** `string`
-
-  The name of the event.
-- **payload:** `unknown`
-
-  The event payload.
-
-**Returns:** `void`
-
----
-
-### getSubscriptions {#getsubscriptions}
-
-```typescript
-getSubscriptions(): EventSubscription[]
-```
-
-Returns all registered subscriptions.
-
-**Returns:** `EventSubscription[]`
-
----
 
 ### on {#on}
 

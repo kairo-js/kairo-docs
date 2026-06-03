@@ -10,7 +10,7 @@ Fires before Minecraft's `worldLoad`. Registering APIs, declaring hooks, registe
 
 ### api
 
-`readonly api: KairoApiRegistry`
+`readonly api: ApiRegistration`
 
 Register APIs and hooks.
 
@@ -26,7 +26,7 @@ Register custom commands.
 
 ### events
 
-`readonly events: AddonEventRegistry`
+`readonly events: AddonEventRegistration`
 
 Subscribe to addon events.
 

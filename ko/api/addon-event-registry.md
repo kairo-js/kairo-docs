@@ -1,50 +1,16 @@
-# AddonEventRegistry
+# AddonEventRegistration
 
-`import { router } from '@kairo-js/router'`
+`ev.events`를 통해 접근하는 인터페이스입니다. `router.beforeEvents.startup` 이벤트 안에서 다른 애드온이 `router.emit()`으로 발행하는 커스텀 이벤트를 구독하는 데 사용합니다.
 
-`ev.events`를 통해 접근하는 클래스입니다. `router.beforeEvents.startup` 이벤트 안에서 다른 애드온이 `router.emit()`으로 발행하는 커스텀 이벤트를 구독하는 데 사용합니다.
+```typescript
+interface AddonEventRegistration {
+  on<TPayload = unknown>(emitterAddonId: string, eventName: string, handler: EventHandler<TPayload>): void
+}
+```
 
 ## 메서드
 
-- [deliver](#deliver)
-- [getSubscriptions](#getsubscriptions)
 - [on](#on)
-
-### deliver {#deliver}
-
-```typescript
-deliver(emitterAddonId: string, eventName: string, payload: unknown): void
-```
-
-등록된 핸들러에 이벤트를 전달합니다. 프레임워크 내부에서 호출됩니다.
-
-**매개변수**
-
-- **emitterAddonId:** `string`
-
-  이벤트를 발행한 애드온의 ID.
-- **eventName:** `string`
-
-  이벤트의 이름.
-- **payload:** `unknown`
-
-  이벤트 페이로드.
-
-**반환값:** `void`
-
----
-
-### getSubscriptions {#getsubscriptions}
-
-```typescript
-getSubscriptions(): EventSubscription[]
-```
-
-등록된 모든 구독을 반환합니다.
-
-**반환값:** `EventSubscription[]`
-
----
 
 ### on {#on}
 

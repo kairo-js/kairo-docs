@@ -1,73 +1,18 @@
-# KairoApiRegistry
+# ApiRegistration
 
-`import { router } from '@kairo-js/router'`
+Accessed via `ev.api`. Only operable inside the `router.beforeEvents.startup` event.
 
-The class accessed via `ev.api`. Only operable inside the `router.beforeEvents.startup` event. The registry is sealed after startup ends; any operations after that point throw an error.
+```typescript
+interface ApiRegistration {
+  register<TArgs, TReturn>(apiName: string, handler: (args: TArgs) => TReturn | Promise<TReturn>): void
+  hook<TArgs, TReturn>(targetAddonId: string, apiName: string, options: HookOptions<TArgs, TReturn>): void
+}
+```
 
 ## Methods
 
-- [dispose](#dispose)
-- [getApiHandler](#getapihandler)
-- [getApiNames](#getapinames)
-- [getHookDeclarations](#gethookdeclarations)
 - [hook](#hook)
 - [register](#register)
-- [seal](#seal)
-- [setDeclaringAddonId](#setdeclaringaddonid)
-
-### dispose {#dispose}
-
-```typescript
-dispose(): void
-```
-
-Releases resources held by this registry.
-
-**Returns:** `void`
-
----
-
-### getApiHandler {#getapihandler}
-
-```typescript
-getApiHandler(apiName: string): ApiHandler | undefined
-```
-
-Returns the registered handler for the given API name. Returns `undefined` if not registered.
-
-**Parameters**
-
-- **apiName:** `string`
-
-  The name of the API to look up.
-
-**Returns:** `ApiHandler | undefined`
-
----
-
-### getApiNames {#getapinames}
-
-```typescript
-getApiNames(): ReadonlyArray<string>
-```
-
-Returns all registered API names.
-
-**Returns:** `ReadonlyArray<string>`
-
----
-
-### getHookDeclarations {#gethookdeclarations}
-
-```typescript
-getHookDeclarations(): readonly HookDeclaration[]
-```
-
-Returns all registered hook declarations.
-
-**Returns:** `readonly HookDeclaration[]`
-
----
 
 ### hook {#hook}
 
@@ -147,33 +92,3 @@ ev.api.register<{ playerId: string }, { balance: number }>(
 ::: tip API Name Namespacing
 Use slash-separated namespaces like `economy/getBalance` to avoid collisions and improve discoverability.
 :::
-
----
-
-### seal {#seal}
-
-```typescript
-seal(): void
-```
-
-Closes the registry. Called internally by the framework. Calling `register()` or `hook()` after sealing throws an error.
-
-**Returns:** `void`
-
----
-
-### setDeclaringAddonId {#setdeclaringaddonid}
-
-```typescript
-setDeclaringAddonId(addonId: string): void
-```
-
-Sets the addonId of the declaring addon. Called internally by the framework.
-
-**Parameters**
-
-- **addonId:** `string`
-
-  The declaring addon's ID.
-
-**Returns:** `void`

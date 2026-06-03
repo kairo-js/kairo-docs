@@ -1,6 +1,6 @@
 # @kairo-js/router
 
-Inter-addon communication framework for Minecraft Bedrock Edition. Use the `router` object and `KairoApiRegistry` to enable API calls, hooks, and custom events across multiple behavior packs.
+Inter-addon communication framework for Minecraft Bedrock Edition. Use the `router` object and `ApiRegistration` to enable API calls, hooks, and custom events across multiple behavior packs.
 
 ## Available Versions
 
@@ -10,9 +10,9 @@ Inter-addon communication framework for Minecraft Bedrock Edition. Use the `rout
 
 - [AddonActivateAfterEvent](/api/addon-activate-after-event)
 - [AddonDeactivateBeforeEvent](/api/addon-deactivate-before-event)
-- [AddonEventRegistry](/api/addon-event-registry)
+- [AddonEventRegistration](/api/addon-event-registry)
 - [KairoAfterEvents](/api/kairo-after-events)
-- [KairoApiRegistry](/api/kairo-api-registry)
+- [ApiRegistration](/api/kairo-api-registry)
 - [KairoBeforeEvents](/api/kairo-before-events)
 - [KairoContext](/api/kairo-context)
 - [KairoCustomCommandRegistry](/api/kairo-custom-command-registry)

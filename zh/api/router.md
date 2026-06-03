@@ -1,6 +1,6 @@
 # @kairo-js/router
 
-适用于 Minecraft 基岩版的插件间通信框架。使用 `router` 对象和 `KairoApiRegistry`，可在多个行为包之间实现 API 调用、钩子以及自定义事件。
+适用于 Minecraft 基岩版的插件间通信框架。使用 `router` 对象和 `ApiRegistration`，可在多个行为包之间实现 API 调用、钩子以及自定义事件。
 
 ## 可用版本
 
@@ -10,9 +10,9 @@
 
 - [AddonActivateAfterEvent](/zh/api/addon-activate-after-event)
 - [AddonDeactivateBeforeEvent](/zh/api/addon-deactivate-before-event)
-- [AddonEventRegistry](/zh/api/addon-event-registry)
+- [AddonEventRegistration](/zh/api/addon-event-registry)
 - [KairoAfterEvents](/zh/api/kairo-after-events)
-- [KairoApiRegistry](/zh/api/kairo-api-registry)
+- [ApiRegistration](/zh/api/kairo-api-registry)
 - [KairoBeforeEvents](/zh/api/kairo-before-events)
 - [KairoContext](/zh/api/kairo-context)
 - [KairoCustomCommandRegistry](/zh/api/kairo-custom-command-registry)

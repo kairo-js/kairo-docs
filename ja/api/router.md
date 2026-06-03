@@ -1,6 +1,6 @@
 # @kairo-js/router
 
-Minecraft Bedrock Edition のアドオン間通信フレームワーク。`router` オブジェクトと `KairoApiRegistry` を使って、複数のビヘイビアーパック間での API 呼び出し・フック・カスタムイベントを実現します。
+Minecraft Bedrock Edition のアドオン間通信フレームワーク。`router` オブジェクトと `ApiRegistration` を使って、複数のビヘイビアーパック間での API 呼び出し・フック・カスタムイベントを実現します。
 
 ## Available Versions
 
@@ -10,9 +10,9 @@ Minecraft Bedrock Edition のアドオン間通信フレームワーク。`route
 
 - [AddonActivateAfterEvent](/ja/api/addon-activate-after-event)
 - [AddonDeactivateBeforeEvent](/ja/api/addon-deactivate-before-event)
-- [AddonEventRegistry](/ja/api/addon-event-registry)
+- [AddonEventRegistration](/ja/api/addon-event-registry)
 - [KairoAfterEvents](/ja/api/kairo-after-events)
-- [KairoApiRegistry](/ja/api/kairo-api-registry)
+- [ApiRegistration](/ja/api/kairo-api-registry)
 - [KairoBeforeEvents](/ja/api/kairo-before-events)
 - [KairoContext](/ja/api/kairo-context)
 - [KairoCustomCommandRegistry](/ja/api/kairo-custom-command-registry)

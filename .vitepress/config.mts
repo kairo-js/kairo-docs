@@ -4,9 +4,7 @@ import { defineConfig } from 'vitepress'
 const routerClassItems = [
   { text: 'AddonActivateAfterEvent', link: 'addon-activate-after-event' },
   { text: 'AddonDeactivateBeforeEvent', link: 'addon-deactivate-before-event' },
-  { text: 'AddonEventRegistry', link: 'addon-event-registry' },
   { text: 'KairoAfterEvents', link: 'kairo-after-events' },
-  { text: 'KairoApiRegistry', link: 'kairo-api-registry' },
   { text: 'KairoBeforeEvents', link: 'kairo-before-events' },
   { text: 'KairoContext', link: 'kairo-context' },
   { text: 'KairoCustomCommandRegistry', link: 'kairo-custom-command-registry' },
@@ -14,9 +12,10 @@ const routerClassItems = [
   { text: 'KairoStartupBeforeEvent', link: 'kairo-startup-before-event' },
 ]
 const routerInterfaceItems = [
+  { text: 'AddonEventRegistration', link: 'addon-event-registry' },
+  { text: 'ApiRegistration', link: 'kairo-api-registry' },
   { text: 'Disposable', link: 'disposable' },
   { text: 'KairoRegistry', link: 'kairo-registry' },
-  { text: 'Subscribable', link: 'subscribable' },
 ]
 const routerTypeItems = [
   { text: 'AfterHookContext', link: 'after-hook-context' },

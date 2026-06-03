@@ -10,7 +10,7 @@
 
 ### api
 
-`readonly api: KairoApiRegistry`
+`readonly api: ApiRegistration`
 
 注册 API 和 hook。
 
@@ -26,7 +26,7 @@
 
 ### events
 
-`readonly events: AddonEventRegistry`
+`readonly events: AddonEventRegistration`
 
 订阅插件事件。
 
