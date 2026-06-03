@@ -79,13 +79,14 @@ function prefixed(items: { text: string; link: string }[], base: string) {
 function makeSidebar(
   locale: string,
   labels: {
-    guide: string; guideIndex: string
+    guide: string; guideIndex: string; kairo: string; kairoDatabase: string
     apiRef: string
     classes: string; interfaces: string; types: string
     errors: string; enumerations: string; functions: string
   },
 ) {
   const p = (sub: string) => locale ? `/${locale}/${sub}/` : `/${sub}/`
+  const g = (page: string) => locale ? `/${locale}/guide/${page}` : `/guide/${page}`
   const routerBase = p('api')
   const propsBase  = p('api/properties')
   const utilsBase  = p('api/utils')
@@ -94,7 +95,11 @@ function makeSidebar(
   return [
     {
       text: labels.guide,
-      items: [{ text: labels.guideIndex, link: guideLink }],
+      items: [
+        { text: labels.guideIndex,    link: guideLink },
+        { text: labels.kairo,         link: g('kairo') },
+        { text: labels.kairoDatabase, link: g('kairo-database') },
+      ],
     },
     { text: labels.apiRef, link: routerBase },
     {
@@ -140,6 +145,7 @@ export default defineConfig({
       themeConfig: {
         sidebar: makeSidebar('', {
           guide: 'Guide', guideIndex: 'Getting Started',
+          kairo: 'Kairo', kairoDatabase: 'Kairo Database',
           apiRef: 'API Reference',
           classes: 'Classes', interfaces: 'Interfaces',
           types: 'Types', errors: 'Errors',
@@ -156,6 +162,7 @@ export default defineConfig({
       themeConfig: {
         sidebar: makeSidebar('ja', {
           guide: 'ガイド', guideIndex: 'はじめに',
+          kairo: 'Kairo', kairoDatabase: 'Kairo Database',
           apiRef: 'API リファレンス',
           classes: 'クラス', interfaces: 'インターフェース',
           types: '型', errors: 'エラー',
@@ -174,6 +181,7 @@ export default defineConfig({
       themeConfig: {
         sidebar: makeSidebar('zh', {
           guide: '指南', guideIndex: '入门',
+          kairo: 'Kairo', kairoDatabase: 'Kairo Database',
           apiRef: 'API 参考',
           classes: '类', interfaces: '接口',
           types: '类型', errors: '错误',
@@ -192,6 +200,7 @@ export default defineConfig({
       themeConfig: {
         sidebar: makeSidebar('ko', {
           guide: '가이드', guideIndex: '시작하기',
+          kairo: 'Kairo', kairoDatabase: 'Kairo Database',
           apiRef: 'API 레퍼런스',
           classes: '클래스', interfaces: '인터페이스',
           types: '타입', errors: '오류',
