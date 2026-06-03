@@ -30,11 +30,12 @@ Kairo 注册了 `/kairo:addons` 命令用于运行时管理附加包。需要 **
 
 为执行命令的玩家打开 Kairo 管理界面。
 
-### `/kairo:addons enable <addonId> <version>`
+### `/kairo:addons enable <addonId> [version]`
 
-启用指定附加包的特定版本。
+启用一个附加包。如果省略 `version`，将激活最新的稳定版本。如果没有稳定版本，则使用最新的预发布版本。
 
 ```
+/kairo:addons enable economy-addon
 /kairo:addons enable economy-addon 1.2.0
 ```
 

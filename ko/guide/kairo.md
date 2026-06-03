@@ -30,11 +30,12 @@ Kairo는 `/kairo:addons` 커맨드를 등록합니다. **Game Directors** 권한
 
 실행한 플레이어에게 Kairo 관리 UI를 엽니다.
 
-### `/kairo:addons enable <addonId> <version>`
+### `/kairo:addons enable <addonId> [version]`
 
-지정한 애드온의 특정 버전을 활성화합니다.
+애드온을 활성화합니다. `version`을 생략하면 최신 안정 버전이 활성화됩니다. 안정 버전이 없는 경우 최신 프리릴리즈 버전이 사용됩니다.
 
 ```
+/kairo:addons enable economy-addon
 /kairo:addons enable economy-addon 1.2.0
 ```
 

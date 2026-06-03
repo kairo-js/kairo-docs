@@ -30,11 +30,12 @@ Lists all registered addons with their current state.
 
 Opens the Kairo management UI for the executing player.
 
-### `/kairo:addons enable <addonId> <version>`
+### `/kairo:addons enable <addonId> [version]`
 
-Enables a specific version of an addon.
+Enables an addon. If `version` is omitted, the latest stable version is activated. If only pre-release versions are available, the latest pre-release is used.
 
 ```
+/kairo:addons enable economy-addon
 /kairo:addons enable economy-addon 1.2.0
 ```
 

@@ -30,11 +30,12 @@ Kairo は `/kairo:addons` コマンドをゲーム内に登録します。実行
 
 実行したプレイヤーに Kairo 管理 UI を開きます。
 
-### `/kairo:addons enable <addonId> <version>`
+### `/kairo:addons enable <addonId> [version]`
 
-指定したアドオンの指定バージョンを有効化します。
+アドオンを有効化します。`version` を省略した場合は最新の安定版が有効化されます。安定版が存在しない場合は最新のプレリリース版が使用されます。
 
 ```
+/kairo:addons enable economy-addon
 /kairo:addons enable economy-addon 1.2.0
 ```
 
