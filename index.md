@@ -3,21 +3,21 @@ layout: home
 
 hero:
   name: Kairo
-  text: アドオン間通信ライブラリ
-  tagline: Minecraft Bedrock Edition で複数のアドオンが互いの API を呼び出せるようにするフレームワーク。kairo-router を組み込むだけで始められます。
+  text: Inter-Addon Communication Library
+  tagline: A framework for Minecraft Bedrock Edition that lets multiple addons call each other's APIs. Just add kairo-router and you're ready to go.
   actions:
     - theme: brand
-      text: はじめる
+      text: Get Started
       link: /guide/
     - theme: alt
       text: GitHub
       link: https://github.com/kairo-js
 
 features:
-  - title: シンプルな API 呼び出し
-    details: router.send() / router.request() で、addonId と API 名を指定するだけで他のアドオンの関数を呼び出せます。
-  - title: フック機構
-    details: before / after フックで他アドオンの API 呼び出しをインターセプト。引数改ざん・キャッシュ返却・ロールバックをサポートします。
-  - title: TypeScript サポート
-    details: 型安全なジェネリクス API で、引数・返り値をコンパイル時に検証できます。JavaScript からも利用可能です。
+  - title: Simple API Calls
+    details: Call another addon's functions with router.send() / router.request() — just specify the addonId and API name.
+  - title: Hook System
+    details: Intercept any addon's API calls with before/after hooks. Supports argument mutation, cache short-circuits, and rollback.
+  - title: TypeScript Support
+    details: Type-safe generics validate arguments and return types at compile time. Plain JavaScript is also supported.
 ---

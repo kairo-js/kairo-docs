@@ -2,21 +2,21 @@
 
 `import { router } from '@kairo-js/router'`
 
-通过 `router.afterEvents` 访问的类。每个属性均实现了 [`Subscribable<T>`](/zh/api/subscribable)。
+The class accessed via `router.afterEvents`. Each property implements [`Subscribable<T>`](/api/subscribable).
 
-## 属性
+## Properties
 
-### Kairo 专属事件
+### Kairo-specific events
 
-### Minecraft ScriptAPI 透传事件
+### Minecraft ScriptAPI pass-through events
 
-对应 `@minecraft/server` 中 `WorldAfterEvents` 的事件。
+Events corresponding to `WorldAfterEvents` from `@minecraft/server`.
 
 ### addonActivate
 
 `readonly addonActivate: Subscribable<AddonActivateAfterEvent>`
 
-在插件激活后触发。
+Fires after an addon is activated.
 
 ---
 
@@ -24,7 +24,7 @@
 
 `readonly blockExplode: Subscribable<BlockExplodeAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.blockExplode`。
+Corresponds to `WorldAfterEvents.blockExplode` in `@minecraft/server`.
 
 ---
 
@@ -32,7 +32,7 @@
 
 `readonly buttonPush: Subscribable<ButtonPushAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.buttonPush`。
+Corresponds to `WorldAfterEvents.buttonPush` in `@minecraft/server`.
 
 ---
 
@@ -40,7 +40,7 @@
 
 `readonly dataDrivenEntityTrigger: Subscribable<DataDrivenEntityTriggerAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.dataDrivenEntityTrigger`。
+Corresponds to `WorldAfterEvents.dataDrivenEntityTrigger` in `@minecraft/server`.
 
 ---
 
@@ -48,7 +48,7 @@
 
 `readonly effectAdd: Subscribable<EffectAddAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.effectAdd`。
+Corresponds to `WorldAfterEvents.effectAdd` in `@minecraft/server`.
 
 ---
 
@@ -56,7 +56,7 @@
 
 `readonly entityDie: Subscribable<EntityDieAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.entityDie`。
+Corresponds to `WorldAfterEvents.entityDie` in `@minecraft/server`.
 
 ---
 
@@ -64,7 +64,7 @@
 
 `readonly entityHeal: Subscribable<EntityHealAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.entityHeal`。
+Corresponds to `WorldAfterEvents.entityHeal` in `@minecraft/server`.
 
 ---
 
@@ -72,7 +72,7 @@
 
 `readonly entityHealthChanged: Subscribable<EntityHealthChangedAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.entityHealthChanged`。
+Corresponds to `WorldAfterEvents.entityHealthChanged` in `@minecraft/server`.
 
 ---
 
@@ -80,7 +80,7 @@
 
 `readonly entityHitBlock: Subscribable<EntityHitBlockAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.entityHitBlock`。
+Corresponds to `WorldAfterEvents.entityHitBlock` in `@minecraft/server`.
 
 ---
 
@@ -88,7 +88,7 @@
 
 `readonly entityHitEntity: Subscribable<EntityHitEntityAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.entityHitEntity`。
+Corresponds to `WorldAfterEvents.entityHitEntity` in `@minecraft/server`.
 
 ---
 
@@ -96,7 +96,7 @@
 
 `readonly entityHurt: Subscribable<EntityHurtAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.entityHurt`。
+Corresponds to `WorldAfterEvents.entityHurt` in `@minecraft/server`.
 
 ---
 
@@ -104,7 +104,7 @@
 
 `readonly entityItemDrop: Subscribable<EntityItemDropAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.entityItemDrop`。
+Corresponds to `WorldAfterEvents.entityItemDrop` in `@minecraft/server`.
 
 ---
 
@@ -112,7 +112,7 @@
 
 `readonly entityItemPickup: Subscribable<EntityItemPickupAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.entityItemPickup`。
+Corresponds to `WorldAfterEvents.entityItemPickup` in `@minecraft/server`.
 
 ---
 
@@ -120,7 +120,7 @@
 
 `readonly entityLoad: Subscribable<EntityLoadAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.entityLoad`。
+Corresponds to `WorldAfterEvents.entityLoad` in `@minecraft/server`.
 
 ---
 
@@ -128,7 +128,7 @@
 
 `readonly entityRemove: Subscribable<EntityRemoveAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.entityRemove`。
+Corresponds to `WorldAfterEvents.entityRemove` in `@minecraft/server`.
 
 ---
 
@@ -136,7 +136,7 @@
 
 `readonly entitySpawn: Subscribable<EntitySpawnAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.entitySpawn`。
+Corresponds to `WorldAfterEvents.entitySpawn` in `@minecraft/server`.
 
 ---
 
@@ -144,7 +144,7 @@
 
 `readonly explosion: Subscribable<ExplosionAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.explosion`。
+Corresponds to `WorldAfterEvents.explosion` in `@minecraft/server`.
 
 ---
 
@@ -152,7 +152,7 @@
 
 `readonly gameRuleChange: Subscribable<GameRuleChangeAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.gameRuleChange`。
+Corresponds to `WorldAfterEvents.gameRuleChange` in `@minecraft/server`.
 
 ---
 
@@ -160,7 +160,7 @@
 
 `readonly itemCompleteUse: Subscribable<ItemCompleteUseAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.itemCompleteUse`。
+Corresponds to `WorldAfterEvents.itemCompleteUse` in `@minecraft/server`.
 
 ---
 
@@ -168,7 +168,7 @@
 
 `readonly itemReleaseUse: Subscribable<ItemReleaseUseAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.itemReleaseUse`。
+Corresponds to `WorldAfterEvents.itemReleaseUse` in `@minecraft/server`.
 
 ---
 
@@ -176,7 +176,7 @@
 
 `readonly itemStartUse: Subscribable<ItemStartUseAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.itemStartUse`。
+Corresponds to `WorldAfterEvents.itemStartUse` in `@minecraft/server`.
 
 ---
 
@@ -184,7 +184,7 @@
 
 `readonly itemStartUseOn: Subscribable<ItemStartUseOnAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.itemStartUseOn`。
+Corresponds to `WorldAfterEvents.itemStartUseOn` in `@minecraft/server`.
 
 ---
 
@@ -192,7 +192,7 @@
 
 `readonly itemStopUse: Subscribable<ItemStopUseAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.itemStopUse`。
+Corresponds to `WorldAfterEvents.itemStopUse` in `@minecraft/server`.
 
 ---
 
@@ -200,7 +200,7 @@
 
 `readonly itemStopUseOn: Subscribable<ItemStopUseOnAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.itemStopUseOn`。
+Corresponds to `WorldAfterEvents.itemStopUseOn` in `@minecraft/server`.
 
 ---
 
@@ -208,7 +208,7 @@
 
 `readonly itemUse: Subscribable<ItemUseAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.itemUse`。
+Corresponds to `WorldAfterEvents.itemUse` in `@minecraft/server`.
 
 ---
 
@@ -216,7 +216,7 @@
 
 `readonly leverAction: Subscribable<LeverActionAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.leverAction`。
+Corresponds to `WorldAfterEvents.leverAction` in `@minecraft/server`.
 
 ---
 
@@ -224,7 +224,7 @@
 
 `readonly pistonActivate: Subscribable<PistonActivateAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.pistonActivate`。
+Corresponds to `WorldAfterEvents.pistonActivate` in `@minecraft/server`.
 
 ---
 
@@ -232,7 +232,7 @@
 
 `readonly playerBreakBlock: Subscribable<PlayerBreakBlockAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.playerBreakBlock`。
+Corresponds to `WorldAfterEvents.playerBreakBlock` in `@minecraft/server`.
 
 ---
 
@@ -240,7 +240,7 @@
 
 `readonly playerButtonInput: Subscribable<PlayerButtonInputAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.playerButtonInput`。
+Corresponds to `WorldAfterEvents.playerButtonInput` in `@minecraft/server`.
 
 ---
 
@@ -248,7 +248,7 @@
 
 `readonly playerDimensionChange: Subscribable<PlayerDimensionChangeAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.playerDimensionChange`。
+Corresponds to `WorldAfterEvents.playerDimensionChange` in `@minecraft/server`.
 
 ---
 
@@ -256,7 +256,7 @@
 
 `readonly playerEmote: Subscribable<PlayerEmoteAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.playerEmote`。
+Corresponds to `WorldAfterEvents.playerEmote` in `@minecraft/server`.
 
 ---
 
@@ -264,7 +264,7 @@
 
 `readonly playerGameModeChange: Subscribable<PlayerGameModeChangeAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.playerGameModeChange`。
+Corresponds to `WorldAfterEvents.playerGameModeChange` in `@minecraft/server`.
 
 ---
 
@@ -272,7 +272,7 @@
 
 `readonly playerHotbarSelectedSlotChange: Subscribable<PlayerHotbarSelectedSlotChangeAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.playerHotbarSelectedSlotChange`。
+Corresponds to `WorldAfterEvents.playerHotbarSelectedSlotChange` in `@minecraft/server`.
 
 ---
 
@@ -280,7 +280,7 @@
 
 `readonly playerInputModeChange: Subscribable<PlayerInputModeChangeAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.playerInputModeChange`。
+Corresponds to `WorldAfterEvents.playerInputModeChange` in `@minecraft/server`.
 
 ---
 
@@ -288,7 +288,7 @@
 
 `readonly playerInputPermissionCategoryChange: Subscribable<PlayerInputPermissionCategoryChangeAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.playerInputPermissionCategoryChange`。
+Corresponds to `WorldAfterEvents.playerInputPermissionCategoryChange` in `@minecraft/server`.
 
 ---
 
@@ -296,7 +296,7 @@
 
 `readonly playerInteractWithBlock: Subscribable<PlayerInteractWithBlockAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.playerInteractWithBlock`。
+Corresponds to `WorldAfterEvents.playerInteractWithBlock` in `@minecraft/server`.
 
 ---
 
@@ -304,7 +304,7 @@
 
 `readonly playerInteractWithEntity: Subscribable<PlayerInteractWithEntityAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.playerInteractWithEntity`。
+Corresponds to `WorldAfterEvents.playerInteractWithEntity` in `@minecraft/server`.
 
 ---
 
@@ -312,7 +312,7 @@
 
 `readonly playerInventoryItemChange: Subscribable<PlayerInventoryItemChangeAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.playerInventoryItemChange`。
+Corresponds to `WorldAfterEvents.playerInventoryItemChange` in `@minecraft/server`.
 
 ---
 
@@ -320,7 +320,7 @@
 
 `readonly playerJoin: Subscribable<PlayerJoinAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.playerJoin`。
+Corresponds to `WorldAfterEvents.playerJoin` in `@minecraft/server`.
 
 ---
 
@@ -328,7 +328,7 @@
 
 `readonly playerLeave: Subscribable<PlayerLeaveAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.playerLeave`。
+Corresponds to `WorldAfterEvents.playerLeave` in `@minecraft/server`.
 
 ---
 
@@ -336,7 +336,7 @@
 
 `readonly playerPlaceBlock: Subscribable<PlayerPlaceBlockAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.playerPlaceBlock`。
+Corresponds to `WorldAfterEvents.playerPlaceBlock` in `@minecraft/server`.
 
 ---
 
@@ -344,7 +344,7 @@
 
 `readonly playerSpawn: Subscribable<PlayerSpawnAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.playerSpawn`。
+Corresponds to `WorldAfterEvents.playerSpawn` in `@minecraft/server`.
 
 ---
 
@@ -352,7 +352,7 @@
 
 `readonly playerSwingStart: Subscribable<PlayerSwingStartAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.playerSwingStart`。
+Corresponds to `WorldAfterEvents.playerSwingStart` in `@minecraft/server`.
 
 ---
 
@@ -360,7 +360,7 @@
 
 `readonly pressurePlatePop: Subscribable<PressurePlatePopAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.pressurePlatePop`。
+Corresponds to `WorldAfterEvents.pressurePlatePop` in `@minecraft/server`.
 
 ---
 
@@ -368,7 +368,7 @@
 
 `readonly pressurePlatePush: Subscribable<PressurePlatePushAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.pressurePlatePush`。
+Corresponds to `WorldAfterEvents.pressurePlatePush` in `@minecraft/server`.
 
 ---
 
@@ -376,7 +376,7 @@
 
 `readonly projectileHitBlock: Subscribable<ProjectileHitBlockAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.projectileHitBlock`。
+Corresponds to `WorldAfterEvents.projectileHitBlock` in `@minecraft/server`.
 
 ---
 
@@ -384,7 +384,7 @@
 
 `readonly projectileHitEntity: Subscribable<ProjectileHitEntityAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.projectileHitEntity`。
+Corresponds to `WorldAfterEvents.projectileHitEntity` in `@minecraft/server`.
 
 ---
 
@@ -392,7 +392,7 @@
 
 `readonly scriptEventReceive: Subscribable<ScriptEventCommandMessageAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.scriptEventReceive`。
+Corresponds to `WorldAfterEvents.scriptEventReceive` in `@minecraft/server`.
 
 ---
 
@@ -400,7 +400,7 @@
 
 `readonly targetBlockHit: Subscribable<TargetBlockHitAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.targetBlockHit`。
+Corresponds to `WorldAfterEvents.targetBlockHit` in `@minecraft/server`.
 
 ---
 
@@ -408,7 +408,7 @@
 
 `readonly tripWireTrip: Subscribable<TripWireTripAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.tripWireTrip`。
+Corresponds to `WorldAfterEvents.tripWireTrip` in `@minecraft/server`.
 
 ---
 
@@ -416,11 +416,11 @@
 
 `readonly weatherChange: Subscribable<WeatherChangeAfterEvent>`
 
-对应 `@minecraft/server` 中的 `WorldAfterEvents.weatherChange`。
+Corresponds to `WorldAfterEvents.weatherChange` in `@minecraft/server`.
 
 ---
 
-## 使用示例
+## Usage
 
 ```typescript
 import { router } from '@kairo-js/router'
