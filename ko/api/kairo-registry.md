@@ -106,7 +106,7 @@ Kairo가 할당한 내부 ID입니다.
 
 ### version
 
-`readonly version: SemVer`
+`readonly version:` [`SemVer`](/ko/api/properties/semver)
 
 애드온의 버전입니다.
 

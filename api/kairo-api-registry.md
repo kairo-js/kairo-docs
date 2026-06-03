@@ -34,7 +34,7 @@ Registers a hook that intercepts another addon's API calls.
 - **apiName:** `string`
 
   The name of the API to hook.
-- **options:** `HookOptions<TArgs, TReturn>`
+- **options:** [`HookOptions<TArgs, TReturn>`](/api/hook-options)
 
   Hook configuration.
 

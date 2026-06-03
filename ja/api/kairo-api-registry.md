@@ -34,7 +34,7 @@ hook<TArgs, TReturn>(
 - **apiName:** `string`
 
   フック対象の API 名。
-- **options:** `HookOptions<TArgs, TReturn>`
+- **options:** [`HookOptions<TArgs, TReturn>`](/ja/api/hook-options)
 
   フックの設定。
 

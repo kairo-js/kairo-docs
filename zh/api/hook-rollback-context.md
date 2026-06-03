@@ -5,7 +5,7 @@
 传递给 `rollback` 钩子处理器（`HookOptions.rollback`）的上下文对象。仅在某个 `before` 钩子抛出异常时触发。
 
 ```typescript
-type HookRollbackContext<TArgs> = {
+interface HookRollbackContext<TArgs> {
   readonly rollbackData: unknown
   readonly currentArgsSnapshot: DeepReadonly<TArgs>
   readonly callerAddonId: string
@@ -24,7 +24,7 @@ type HookRollbackContext<TArgs> = {
 
 ### currentArgsSnapshot
 
-`readonly currentArgsSnapshot: DeepReadonly<TArgs>`
+`readonly currentArgsSnapshot:` [`DeepReadonly`](/zh/api/deep-readonly)`<TArgs>`
 
 本次回滚执行时的参数快照。不得直接修改，请返回新对象。
 

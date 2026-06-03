@@ -5,7 +5,7 @@
 The context object passed to `rollback` hook handlers (`HookOptions.rollback`). Only fires when a `before` hook throws.
 
 ```typescript
-type HookRollbackContext<TArgs> = {
+interface HookRollbackContext<TArgs> {
   readonly rollbackData: unknown
   readonly currentArgsSnapshot: DeepReadonly<TArgs>
   readonly callerAddonId: string
@@ -24,7 +24,7 @@ The addonId of the caller (read-only).
 
 ### currentArgsSnapshot
 
-`readonly currentArgsSnapshot: DeepReadonly<TArgs>`
+`readonly currentArgsSnapshot:` [`DeepReadonly`](/api/deep-readonly)`<TArgs>`
 
 Snapshot of args at this rollback's execution point. Do not mutate. Return a new object instead.
 

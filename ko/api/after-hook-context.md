@@ -5,7 +5,7 @@
 `after` 훅 핸들러(`HookOptions.after`)에 전달되는 컨텍스트 객체입니다.
 
 ```typescript
-type AfterHookContext<TArgs, TReturn> = {
+interface AfterHookContext<TArgs, TReturn> {
   readonly args: TArgs
   result: TReturn
   readonly callerAddonId: string

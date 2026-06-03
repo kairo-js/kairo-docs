@@ -5,7 +5,7 @@
 `router.request()` がキャンセルされた場合の返り値です。Promise が reject されるのではなく、resolve 値として返されます。
 
 ```typescript
-type CancelledResult = {
+interface CancelledResult {
   readonly cancelled: true
   readonly reason:
     | 'ADDON_NOT_FOUND'

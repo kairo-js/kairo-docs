@@ -10,7 +10,7 @@
 
 ### api
 
-`readonly api: ApiRegistration`
+`readonly api:` [`ApiRegistration`](/zh/api/kairo-api-registry)
 
 注册 API 和 hook。
 
@@ -18,7 +18,7 @@
 
 ### customCommandRegistry
 
-`readonly customCommandRegistry: KairoCustomCommandRegistry`
+`readonly customCommandRegistry:` [`KairoCustomCommandRegistry`](/zh/api/kairo-custom-command-registry)
 
 注册自定义命令。
 
@@ -26,7 +26,7 @@
 
 ### events
 
-`readonly events: AddonEventRegistration`
+`readonly events:` [`AddonEventRegistration`](/zh/api/addon-event-registry)
 
 订阅插件事件。
 

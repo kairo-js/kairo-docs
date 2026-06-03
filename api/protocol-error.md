@@ -6,6 +6,8 @@
 
 Thrown on ScriptEvent message parse failure or schema mismatch.
 
+Not directly instantiable — received as a thrown exception.
+
 ## Properties
 
 ### source
@@ -32,28 +34,3 @@ The correlationId of the associated `request()` call.
 
 ---
 
-## Constructor
-
-```typescript
-constructor(
-  message: string,
-  source: "local_parse" | "remote",
-  protocolStage?: ProtocolStage,
-  correlationId?: string,
-)
-```
-
-**Parameters**
-
-- **message:** `string`
-
-  Error message.
-- **source:** `"local_parse" | "remote"`
-
-  Where the error occurred.
-- **protocolStage:** `ProtocolStage`
-
-  Protocol stage (optional).
-- **correlationId:** `string`
-
-  The correlationId of the related request (optional).

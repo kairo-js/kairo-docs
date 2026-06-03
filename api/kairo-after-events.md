@@ -14,7 +14,7 @@ Events corresponding to `WorldAfterEvents` from `@minecraft/server`.
 
 ### addonActivate
 
-`readonly addonActivate: Subscribable<AddonActivateAfterEvent>`
+`readonly addonActivate:` [`Subscribable`](/api/subscribable)`<`[`AddonActivateAfterEvent`](/api/addon-activate-after-event)`>`
 
 Fires after an addon is activated.
 
@@ -22,401 +22,401 @@ Fires after an addon is activated.
 
 ### blockExplode
 
-`readonly blockExplode: Subscribable<BlockExplodeAfterEvent>`
+`readonly blockExplode:` [`Subscribable`](/api/subscribable)`<`[`BlockExplodeAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/blockexplodeafterevent)`>`
 
-Corresponds to `WorldAfterEvents.blockExplode` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.blockExplode`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/blockexplodeafterevent) in `@minecraft/server`.
 
 ---
 
 ### buttonPush
 
-`readonly buttonPush: Subscribable<ButtonPushAfterEvent>`
+`readonly buttonPush:` [`Subscribable`](/api/subscribable)`<`[`ButtonPushAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/buttonpushafterevent)`>`
 
-Corresponds to `WorldAfterEvents.buttonPush` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.buttonPush`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/buttonpushafterevent) in `@minecraft/server`.
 
 ---
 
 ### dataDrivenEntityTrigger
 
-`readonly dataDrivenEntityTrigger: Subscribable<DataDrivenEntityTriggerAfterEvent>`
+`readonly dataDrivenEntityTrigger:` [`Subscribable`](/api/subscribable)`<`[`DataDrivenEntityTriggerAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/datadrivenentitytriggerafterevent)`>`
 
-Corresponds to `WorldAfterEvents.dataDrivenEntityTrigger` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.dataDrivenEntityTrigger`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/datadrivenentitytriggerafterevent) in `@minecraft/server`.
 
 ---
 
 ### effectAdd
 
-`readonly effectAdd: Subscribable<EffectAddAfterEvent>`
+`readonly effectAdd:` [`Subscribable`](/api/subscribable)`<`[`EffectAddAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/effectaddafterevent)`>`
 
-Corresponds to `WorldAfterEvents.effectAdd` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.effectAdd`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/effectaddafterevent) in `@minecraft/server`.
 
 ---
 
 ### entityDie
 
-`readonly entityDie: Subscribable<EntityDieAfterEvent>`
+`readonly entityDie:` [`Subscribable`](/api/subscribable)`<`[`EntityDieAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/entitydieafterevent)`>`
 
-Corresponds to `WorldAfterEvents.entityDie` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.entityDie`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/entitydieafterevent) in `@minecraft/server`.
 
 ---
 
 ### entityHeal
 
-`readonly entityHeal: Subscribable<EntityHealAfterEvent>`
+`readonly entityHeal:` [`Subscribable`](/api/subscribable)`<`[`EntityHealAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/entityhealafterevent)`>`
 
-Corresponds to `WorldAfterEvents.entityHeal` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.entityHeal`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/entityhealafterevent) in `@minecraft/server`.
 
 ---
 
 ### entityHealthChanged
 
-`readonly entityHealthChanged: Subscribable<EntityHealthChangedAfterEvent>`
+`readonly entityHealthChanged:` [`Subscribable`](/api/subscribable)`<`[`EntityHealthChangedAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/entityhealthchangedafterevent)`>`
 
-Corresponds to `WorldAfterEvents.entityHealthChanged` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.entityHealthChanged`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/entityhealthchangedafterevent) in `@minecraft/server`.
 
 ---
 
 ### entityHitBlock
 
-`readonly entityHitBlock: Subscribable<EntityHitBlockAfterEvent>`
+`readonly entityHitBlock:` [`Subscribable`](/api/subscribable)`<`[`EntityHitBlockAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/entityhitblockafterevent)`>`
 
-Corresponds to `WorldAfterEvents.entityHitBlock` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.entityHitBlock`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/entityhitblockafterevent) in `@minecraft/server`.
 
 ---
 
 ### entityHitEntity
 
-`readonly entityHitEntity: Subscribable<EntityHitEntityAfterEvent>`
+`readonly entityHitEntity:` [`Subscribable`](/api/subscribable)`<`[`EntityHitEntityAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/entityhitentityafterevent)`>`
 
-Corresponds to `WorldAfterEvents.entityHitEntity` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.entityHitEntity`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/entityhitentityafterevent) in `@minecraft/server`.
 
 ---
 
 ### entityHurt
 
-`readonly entityHurt: Subscribable<EntityHurtAfterEvent>`
+`readonly entityHurt:` [`Subscribable`](/api/subscribable)`<`[`EntityHurtAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/entityhurtafterevent)`>`
 
-Corresponds to `WorldAfterEvents.entityHurt` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.entityHurt`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/entityhurtafterevent) in `@minecraft/server`.
 
 ---
 
 ### entityItemDrop
 
-`readonly entityItemDrop: Subscribable<EntityItemDropAfterEvent>`
+`readonly entityItemDrop:` [`Subscribable`](/api/subscribable)`<`[`EntityItemDropAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/entityitemdropafterevent)`>`
 
-Corresponds to `WorldAfterEvents.entityItemDrop` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.entityItemDrop`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/entityitemdropafterevent) in `@minecraft/server`.
 
 ---
 
 ### entityItemPickup
 
-`readonly entityItemPickup: Subscribable<EntityItemPickupAfterEvent>`
+`readonly entityItemPickup:` [`Subscribable`](/api/subscribable)`<`[`EntityItemPickupAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/entityitempickupafterevent)`>`
 
-Corresponds to `WorldAfterEvents.entityItemPickup` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.entityItemPickup`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/entityitempickupafterevent) in `@minecraft/server`.
 
 ---
 
 ### entityLoad
 
-`readonly entityLoad: Subscribable<EntityLoadAfterEvent>`
+`readonly entityLoad:` [`Subscribable`](/api/subscribable)`<`[`EntityLoadAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/entityloadafterevent)`>`
 
-Corresponds to `WorldAfterEvents.entityLoad` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.entityLoad`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/entityloadafterevent) in `@minecraft/server`.
 
 ---
 
 ### entityRemove
 
-`readonly entityRemove: Subscribable<EntityRemoveAfterEvent>`
+`readonly entityRemove:` [`Subscribable`](/api/subscribable)`<`[`EntityRemoveAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/entityremoveafterevent)`>`
 
-Corresponds to `WorldAfterEvents.entityRemove` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.entityRemove`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/entityremoveafterevent) in `@minecraft/server`.
 
 ---
 
 ### entitySpawn
 
-`readonly entitySpawn: Subscribable<EntitySpawnAfterEvent>`
+`readonly entitySpawn:` [`Subscribable`](/api/subscribable)`<`[`EntitySpawnAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/entityspawnafterevent)`>`
 
-Corresponds to `WorldAfterEvents.entitySpawn` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.entitySpawn`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/entityspawnafterevent) in `@minecraft/server`.
 
 ---
 
 ### explosion
 
-`readonly explosion: Subscribable<ExplosionAfterEvent>`
+`readonly explosion:` [`Subscribable`](/api/subscribable)`<`[`ExplosionAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/explosionafterevent)`>`
 
-Corresponds to `WorldAfterEvents.explosion` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.explosion`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/explosionafterevent) in `@minecraft/server`.
 
 ---
 
 ### gameRuleChange
 
-`readonly gameRuleChange: Subscribable<GameRuleChangeAfterEvent>`
+`readonly gameRuleChange:` [`Subscribable`](/api/subscribable)`<`[`GameRuleChangeAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/gamerulechangeafterevent)`>`
 
-Corresponds to `WorldAfterEvents.gameRuleChange` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.gameRuleChange`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/gamerulechangeafterevent) in `@minecraft/server`.
 
 ---
 
 ### itemCompleteUse
 
-`readonly itemCompleteUse: Subscribable<ItemCompleteUseAfterEvent>`
+`readonly itemCompleteUse:` [`Subscribable`](/api/subscribable)`<`[`ItemCompleteUseAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/itemcompleteuseafterevent)`>`
 
-Corresponds to `WorldAfterEvents.itemCompleteUse` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.itemCompleteUse`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/itemcompleteuseafterevent) in `@minecraft/server`.
 
 ---
 
 ### itemReleaseUse
 
-`readonly itemReleaseUse: Subscribable<ItemReleaseUseAfterEvent>`
+`readonly itemReleaseUse:` [`Subscribable`](/api/subscribable)`<`[`ItemReleaseUseAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/itemreleaseuseafterevent)`>`
 
-Corresponds to `WorldAfterEvents.itemReleaseUse` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.itemReleaseUse`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/itemreleaseuseafterevent) in `@minecraft/server`.
 
 ---
 
 ### itemStartUse
 
-`readonly itemStartUse: Subscribable<ItemStartUseAfterEvent>`
+`readonly itemStartUse:` [`Subscribable`](/api/subscribable)`<`[`ItemStartUseAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/itemstartuseafterevent)`>`
 
-Corresponds to `WorldAfterEvents.itemStartUse` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.itemStartUse`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/itemstartuseafterevent) in `@minecraft/server`.
 
 ---
 
 ### itemStartUseOn
 
-`readonly itemStartUseOn: Subscribable<ItemStartUseOnAfterEvent>`
+`readonly itemStartUseOn:` [`Subscribable`](/api/subscribable)`<`[`ItemStartUseOnAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/itemstartuseonafterevent)`>`
 
-Corresponds to `WorldAfterEvents.itemStartUseOn` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.itemStartUseOn`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/itemstartuseonafterevent) in `@minecraft/server`.
 
 ---
 
 ### itemStopUse
 
-`readonly itemStopUse: Subscribable<ItemStopUseAfterEvent>`
+`readonly itemStopUse:` [`Subscribable`](/api/subscribable)`<`[`ItemStopUseAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/itemstopuseafterevent)`>`
 
-Corresponds to `WorldAfterEvents.itemStopUse` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.itemStopUse`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/itemstopuseafterevent) in `@minecraft/server`.
 
 ---
 
 ### itemStopUseOn
 
-`readonly itemStopUseOn: Subscribable<ItemStopUseOnAfterEvent>`
+`readonly itemStopUseOn:` [`Subscribable`](/api/subscribable)`<`[`ItemStopUseOnAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/itemstopuseonafterevent)`>`
 
-Corresponds to `WorldAfterEvents.itemStopUseOn` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.itemStopUseOn`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/itemstopuseonafterevent) in `@minecraft/server`.
 
 ---
 
 ### itemUse
 
-`readonly itemUse: Subscribable<ItemUseAfterEvent>`
+`readonly itemUse:` [`Subscribable`](/api/subscribable)`<`[`ItemUseAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/itemuseafterevent)`>`
 
-Corresponds to `WorldAfterEvents.itemUse` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.itemUse`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/itemuseafterevent) in `@minecraft/server`.
 
 ---
 
 ### leverAction
 
-`readonly leverAction: Subscribable<LeverActionAfterEvent>`
+`readonly leverAction:` [`Subscribable`](/api/subscribable)`<`[`LeverActionAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/leveractionafterevent)`>`
 
-Corresponds to `WorldAfterEvents.leverAction` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.leverAction`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/leveractionafterevent) in `@minecraft/server`.
 
 ---
 
 ### pistonActivate
 
-`readonly pistonActivate: Subscribable<PistonActivateAfterEvent>`
+`readonly pistonActivate:` [`Subscribable`](/api/subscribable)`<`[`PistonActivateAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/pistonactivateafterevent)`>`
 
-Corresponds to `WorldAfterEvents.pistonActivate` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.pistonActivate`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/pistonactivateafterevent) in `@minecraft/server`.
 
 ---
 
 ### playerBreakBlock
 
-`readonly playerBreakBlock: Subscribable<PlayerBreakBlockAfterEvent>`
+`readonly playerBreakBlock:` [`Subscribable`](/api/subscribable)`<`[`PlayerBreakBlockAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playerbreakblockafterevent)`>`
 
-Corresponds to `WorldAfterEvents.playerBreakBlock` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.playerBreakBlock`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playerbreakblockafterevent) in `@minecraft/server`.
 
 ---
 
 ### playerButtonInput
 
-`readonly playerButtonInput: Subscribable<PlayerButtonInputAfterEvent>`
+`readonly playerButtonInput:` [`Subscribable`](/api/subscribable)`<`[`PlayerButtonInputAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playerbuttoninputafterevent)`>`
 
-Corresponds to `WorldAfterEvents.playerButtonInput` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.playerButtonInput`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playerbuttoninputafterevent) in `@minecraft/server`.
 
 ---
 
 ### playerDimensionChange
 
-`readonly playerDimensionChange: Subscribable<PlayerDimensionChangeAfterEvent>`
+`readonly playerDimensionChange:` [`Subscribable`](/api/subscribable)`<`[`PlayerDimensionChangeAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playerdimensionchangeafterevent)`>`
 
-Corresponds to `WorldAfterEvents.playerDimensionChange` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.playerDimensionChange`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playerdimensionchangeafterevent) in `@minecraft/server`.
 
 ---
 
 ### playerEmote
 
-`readonly playerEmote: Subscribable<PlayerEmoteAfterEvent>`
+`readonly playerEmote:` [`Subscribable`](/api/subscribable)`<`[`PlayerEmoteAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playeremoteafterevent)`>`
 
-Corresponds to `WorldAfterEvents.playerEmote` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.playerEmote`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playeremoteafterevent) in `@minecraft/server`.
 
 ---
 
 ### playerGameModeChange
 
-`readonly playerGameModeChange: Subscribable<PlayerGameModeChangeAfterEvent>`
+`readonly playerGameModeChange:` [`Subscribable`](/api/subscribable)`<`[`PlayerGameModeChangeAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playergamemodechangeafterevent)`>`
 
-Corresponds to `WorldAfterEvents.playerGameModeChange` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.playerGameModeChange`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playergamemodechangeafterevent) in `@minecraft/server`.
 
 ---
 
 ### playerHotbarSelectedSlotChange
 
-`readonly playerHotbarSelectedSlotChange: Subscribable<PlayerHotbarSelectedSlotChangeAfterEvent>`
+`readonly playerHotbarSelectedSlotChange:` [`Subscribable`](/api/subscribable)`<`[`PlayerHotbarSelectedSlotChangeAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playerhotbarselectedslotchangeafterevent)`>`
 
-Corresponds to `WorldAfterEvents.playerHotbarSelectedSlotChange` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.playerHotbarSelectedSlotChange`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playerhotbarselectedslotchangeafterevent) in `@minecraft/server`.
 
 ---
 
 ### playerInputModeChange
 
-`readonly playerInputModeChange: Subscribable<PlayerInputModeChangeAfterEvent>`
+`readonly playerInputModeChange:` [`Subscribable`](/api/subscribable)`<`[`PlayerInputModeChangeAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playerinputmodechangeafterevent)`>`
 
-Corresponds to `WorldAfterEvents.playerInputModeChange` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.playerInputModeChange`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playerinputmodechangeafterevent) in `@minecraft/server`.
 
 ---
 
 ### playerInputPermissionCategoryChange
 
-`readonly playerInputPermissionCategoryChange: Subscribable<PlayerInputPermissionCategoryChangeAfterEvent>`
+`readonly playerInputPermissionCategoryChange:` [`Subscribable`](/api/subscribable)`<`[`PlayerInputPermissionCategoryChangeAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playerinputpermissioncategorychangeafterevent)`>`
 
-Corresponds to `WorldAfterEvents.playerInputPermissionCategoryChange` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.playerInputPermissionCategoryChange`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playerinputpermissioncategorychangeafterevent) in `@minecraft/server`.
 
 ---
 
 ### playerInteractWithBlock
 
-`readonly playerInteractWithBlock: Subscribable<PlayerInteractWithBlockAfterEvent>`
+`readonly playerInteractWithBlock:` [`Subscribable`](/api/subscribable)`<`[`PlayerInteractWithBlockAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playerinteractwithblockafterevent)`>`
 
-Corresponds to `WorldAfterEvents.playerInteractWithBlock` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.playerInteractWithBlock`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playerinteractwithblockafterevent) in `@minecraft/server`.
 
 ---
 
 ### playerInteractWithEntity
 
-`readonly playerInteractWithEntity: Subscribable<PlayerInteractWithEntityAfterEvent>`
+`readonly playerInteractWithEntity:` [`Subscribable`](/api/subscribable)`<`[`PlayerInteractWithEntityAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playerinteractwithentityafterevent)`>`
 
-Corresponds to `WorldAfterEvents.playerInteractWithEntity` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.playerInteractWithEntity`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playerinteractwithentityafterevent) in `@minecraft/server`.
 
 ---
 
 ### playerInventoryItemChange
 
-`readonly playerInventoryItemChange: Subscribable<PlayerInventoryItemChangeAfterEvent>`
+`readonly playerInventoryItemChange:` [`Subscribable`](/api/subscribable)`<`[`PlayerInventoryItemChangeAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playerinventoryitemchangeafterevent)`>`
 
-Corresponds to `WorldAfterEvents.playerInventoryItemChange` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.playerInventoryItemChange`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playerinventoryitemchangeafterevent) in `@minecraft/server`.
 
 ---
 
 ### playerJoin
 
-`readonly playerJoin: Subscribable<PlayerJoinAfterEvent>`
+`readonly playerJoin:` [`Subscribable`](/api/subscribable)`<`[`PlayerJoinAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playerjoinafterevent)`>`
 
-Corresponds to `WorldAfterEvents.playerJoin` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.playerJoin`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playerjoinafterevent) in `@minecraft/server`.
 
 ---
 
 ### playerLeave
 
-`readonly playerLeave: Subscribable<PlayerLeaveAfterEvent>`
+`readonly playerLeave:` [`Subscribable`](/api/subscribable)`<`[`PlayerLeaveAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playerleaveafterevent)`>`
 
-Corresponds to `WorldAfterEvents.playerLeave` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.playerLeave`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playerleaveafterevent) in `@minecraft/server`.
 
 ---
 
 ### playerPlaceBlock
 
-`readonly playerPlaceBlock: Subscribable<PlayerPlaceBlockAfterEvent>`
+`readonly playerPlaceBlock:` [`Subscribable`](/api/subscribable)`<`[`PlayerPlaceBlockAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playerplaceblockafterevent)`>`
 
-Corresponds to `WorldAfterEvents.playerPlaceBlock` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.playerPlaceBlock`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playerplaceblockafterevent) in `@minecraft/server`.
 
 ---
 
 ### playerSpawn
 
-`readonly playerSpawn: Subscribable<PlayerSpawnAfterEvent>`
+`readonly playerSpawn:` [`Subscribable`](/api/subscribable)`<`[`PlayerSpawnAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playerspawnafterevent)`>`
 
-Corresponds to `WorldAfterEvents.playerSpawn` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.playerSpawn`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playerspawnafterevent) in `@minecraft/server`.
 
 ---
 
 ### playerSwingStart
 
-`readonly playerSwingStart: Subscribable<PlayerSwingStartAfterEvent>`
+`readonly playerSwingStart:` [`Subscribable`](/api/subscribable)`<`[`PlayerSwingStartAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playerswingstartafterevent)`>`
 
-Corresponds to `WorldAfterEvents.playerSwingStart` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.playerSwingStart`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/playerswingstartafterevent) in `@minecraft/server`.
 
 ---
 
 ### pressurePlatePop
 
-`readonly pressurePlatePop: Subscribable<PressurePlatePopAfterEvent>`
+`readonly pressurePlatePop:` [`Subscribable`](/api/subscribable)`<`[`PressurePlatePopAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/pressureplatepopafterevent)`>`
 
-Corresponds to `WorldAfterEvents.pressurePlatePop` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.pressurePlatePop`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/pressureplatepopafterevent) in `@minecraft/server`.
 
 ---
 
 ### pressurePlatePush
 
-`readonly pressurePlatePush: Subscribable<PressurePlatePushAfterEvent>`
+`readonly pressurePlatePush:` [`Subscribable`](/api/subscribable)`<`[`PressurePlatePushAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/pressureplatepushafterevent)`>`
 
-Corresponds to `WorldAfterEvents.pressurePlatePush` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.pressurePlatePush`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/pressureplatepushafterevent) in `@minecraft/server`.
 
 ---
 
 ### projectileHitBlock
 
-`readonly projectileHitBlock: Subscribable<ProjectileHitBlockAfterEvent>`
+`readonly projectileHitBlock:` [`Subscribable`](/api/subscribable)`<`[`ProjectileHitBlockAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/projectilehitblockafterevent)`>`
 
-Corresponds to `WorldAfterEvents.projectileHitBlock` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.projectileHitBlock`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/projectilehitblockafterevent) in `@minecraft/server`.
 
 ---
 
 ### projectileHitEntity
 
-`readonly projectileHitEntity: Subscribable<ProjectileHitEntityAfterEvent>`
+`readonly projectileHitEntity:` [`Subscribable`](/api/subscribable)`<`[`ProjectileHitEntityAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/projectilehitentityafterevent)`>`
 
-Corresponds to `WorldAfterEvents.projectileHitEntity` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.projectileHitEntity`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/projectilehitentityafterevent) in `@minecraft/server`.
 
 ---
 
 ### scriptEventReceive
 
-`readonly scriptEventReceive: Subscribable<ScriptEventCommandMessageAfterEvent>`
+`readonly scriptEventReceive:` [`Subscribable`](/api/subscribable)`<`[`ScriptEventCommandMessageAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/scripteventcommandmessageafterevent)`>`
 
-Corresponds to `WorldAfterEvents.scriptEventReceive` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.scriptEventReceive`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/scripteventcommandmessageafterevent) in `@minecraft/server`.
 
 ---
 
 ### targetBlockHit
 
-`readonly targetBlockHit: Subscribable<TargetBlockHitAfterEvent>`
+`readonly targetBlockHit:` [`Subscribable`](/api/subscribable)`<`[`TargetBlockHitAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/targetblockhitafterevent)`>`
 
-Corresponds to `WorldAfterEvents.targetBlockHit` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.targetBlockHit`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/targetblockhitafterevent) in `@minecraft/server`.
 
 ---
 
 ### tripWireTrip
 
-`readonly tripWireTrip: Subscribable<TripWireTripAfterEvent>`
+`readonly tripWireTrip:` [`Subscribable`](/api/subscribable)`<`[`TripWireTripAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/tripwiretripafterevent)`>`
 
-Corresponds to `WorldAfterEvents.tripWireTrip` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.tripWireTrip`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/tripwiretripafterevent) in `@minecraft/server`.
 
 ---
 
 ### weatherChange
 
-`readonly weatherChange: Subscribable<WeatherChangeAfterEvent>`
+`readonly weatherChange:` [`Subscribable`](/api/subscribable)`<`[`WeatherChangeAfterEvent`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/weatherchangeafterevent)`>`
 
-Corresponds to `WorldAfterEvents.weatherChange` in `@minecraft/server`.
+Corresponds to [`WorldAfterEvents.weatherChange`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/weatherchangeafterevent) in `@minecraft/server`.
 
 ---
 

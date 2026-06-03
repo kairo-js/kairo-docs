@@ -8,7 +8,7 @@ The class exported as the `router` singleton. Provides the core functionality of
 
 ### afterEvents
 
-`readonly afterEvents: KairoAfterEvents`
+`readonly afterEvents:` [`KairoAfterEvents`](/api/kairo-after-events)
 
 Subscribe to after events.
 
@@ -16,7 +16,7 @@ Subscribe to after events.
 
 ### beforeEvents
 
-`readonly beforeEvents: KairoBeforeEvents`
+`readonly beforeEvents:` [`KairoBeforeEvents`](/api/kairo-before-events)
 
 Subscribe to before events.
 
@@ -32,7 +32,7 @@ Current tick count since activation (getter).
 
 ### systemInfo
 
-`readonly systemInfo: KairoContext`
+`readonly systemInfo:` [`KairoContext`](/api/kairo-context)
 
 Addon context info (getter).
 
@@ -112,7 +112,7 @@ Initializes the addon.
 
 **Parameters**
 
-- **properties:** `AddonProperties`
+- **properties:** [`AddonProperties`](/api/properties/addon-properties)
 
   The addon's configuration.
 
@@ -148,7 +148,7 @@ Calls an API and awaits the result. `timeout` is in ticks; default is 20 ticks.
 
   Timeout in ticks (default 20).
 
-**Returns:** `Promise<TReturn | CancelledResult>`
+**Returns:** `Promise<TReturn |` [`CancelledResult`](/api/cancelled-result)`>`
 
 ```typescript
 const result = await router.request<{ balance: number }>(

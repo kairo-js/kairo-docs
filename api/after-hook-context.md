@@ -5,7 +5,7 @@
 The context object passed to `after` hook handlers (`HookOptions.after`).
 
 ```typescript
-type AfterHookContext<TArgs, TReturn> = {
+interface AfterHookContext<TArgs, TReturn> {
   readonly args: TArgs
   result: TReturn
   readonly callerAddonId: string

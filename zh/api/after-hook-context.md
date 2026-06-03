@@ -5,7 +5,7 @@
 传递给 `after` 钩子处理器（`HookOptions.after`）的上下文对象。
 
 ```typescript
-type AfterHookContext<TArgs, TReturn> = {
+interface AfterHookContext<TArgs, TReturn> {
   readonly args: TArgs
   result: TReturn
   readonly callerAddonId: string

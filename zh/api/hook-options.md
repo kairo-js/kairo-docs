@@ -5,7 +5,7 @@
 传递给 `ev.api.hook()` 的选项对象。
 
 ```typescript
-type HookOptions<TArgs, TReturn> = {
+interface HookOptions<TArgs, TReturn> {
   priority?: number
   modes?: ReadonlyArray<'send' | 'request'>
   before?: (ctx: BeforeHookContext<TArgs, TReturn>) => Promise<void>
@@ -20,7 +20,7 @@ type HookOptions<TArgs, TReturn> = {
 
 `after?: (ctx: AfterHookContext<TArgs, TReturn>) => Promise<void>`
 
-在处理器执行后运行（仅限 `request`）。可修改返回值，仅执行纯转换操作。
+在处理器执行后运行（仅限 `request`）。可修改返回值，仅执行纯转换操作。接收 [`AfterHookContext`](/zh/api/after-hook-context)。
 
 ---
 
@@ -28,7 +28,7 @@ type HookOptions<TArgs, TReturn> = {
 
 `before?: (ctx: BeforeHookContext<TArgs, TReturn>) => Promise<void>`
 
-在处理器执行前运行。可修改参数或取消调用。
+在处理器执行前运行。可修改参数或取消调用。接收 [`BeforeHookContext`](/zh/api/before-hook-context)。
 
 ---
 
@@ -52,7 +52,7 @@ type HookOptions<TArgs, TReturn> = {
 
 `rollback?: (ctx: HookRollbackContext<TArgs>) => Promise<TArgs | void>`
 
-仅当某个 `before` 钩子抛出异常时运行。可选。
+仅当某个 `before` 钩子抛出异常时运行。可选。接收 [`HookRollbackContext`](/zh/api/hook-rollback-context)。
 
 ---
 

@@ -8,7 +8,7 @@
 
 ### addonProperties
 
-`readonly addonProperties: AddonProperties`
+`readonly addonProperties:` [`AddonProperties`](/zh/api/properties/addon-properties)
 
 插件的配置信息。
 
@@ -24,7 +24,7 @@
 
 ### kairoRegistry
 
-`readonly kairoRegistry: KairoRegistry`
+`readonly kairoRegistry:` [`KairoRegistry`](/zh/api/kairo-registry)
 
 本插件的注册表信息。在注册之前访问会抛出错误。
 

@@ -106,7 +106,7 @@ interface KairoRegistry {
 
 ### version
 
-`readonly version: SemVer`
+`readonly version:` [`SemVer`](/zh/api/properties/semver)
 
 插件的版本号。
 

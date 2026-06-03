@@ -5,7 +5,7 @@
 rollback フックのコンテキストオブジェクトです。before フックが例外をスローした場合のみ発火します。`HookOptions.rollback` のハンドラに渡されます。
 
 ```typescript
-type HookRollbackContext<TArgs> = {
+interface HookRollbackContext<TArgs> {
   readonly rollbackData: unknown
   readonly currentArgsSnapshot: DeepReadonly<TArgs>
   readonly callerAddonId: string
@@ -24,7 +24,7 @@ type HookRollbackContext<TArgs> = {
 
 ### currentArgsSnapshot
 
-`readonly currentArgsSnapshot: DeepReadonly<TArgs>`
+`readonly currentArgsSnapshot:` [`DeepReadonly`](/ja/api/deep-readonly)`<TArgs>`
 
 この rollback 実行時点の args のスナップショット。mutation 禁止。新しいオブジェクトとして返すこと。
 

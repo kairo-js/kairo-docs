@@ -5,7 +5,7 @@
 `before` 훅 핸들러(`HookOptions.before`)에 전달되는 컨텍스트 객체입니다.
 
 ```typescript
-type BeforeHookContext<TArgs, TReturn> = {
+interface BeforeHookContext<TArgs, TReturn> {
   args: TArgs
   readonly callerAddonId: string
   cancel(result?: TReturn): never

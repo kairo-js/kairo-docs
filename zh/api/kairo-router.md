@@ -8,7 +8,7 @@
 
 ### afterEvents
 
-`readonly afterEvents: KairoAfterEvents`
+`readonly afterEvents:` [`KairoAfterEvents`](/zh/api/kairo-after-events)
 
 订阅 after 事件。
 
@@ -16,7 +16,7 @@
 
 ### beforeEvents
 
-`readonly beforeEvents: KairoBeforeEvents`
+`readonly beforeEvents:` [`KairoBeforeEvents`](/zh/api/kairo-before-events)
 
 订阅 before 事件。
 
@@ -32,7 +32,7 @@
 
 ### systemInfo
 
-`readonly systemInfo: KairoContext`
+`readonly systemInfo:` [`KairoContext`](/zh/api/kairo-context)
 
 插件上下文信息（getter）。
 
@@ -112,7 +112,7 @@ init(properties: AddonProperties): void
 
 **参数**
 
-- **properties:** `AddonProperties`
+- **properties:** [`AddonProperties`](/zh/api/properties/addon-properties)
 
   插件的配置信息。
 
@@ -148,7 +148,7 @@ request<TReturn>(
 
   超时时间，单位为 tick（默认 20）。
 
-**返回值：** `Promise<TReturn | CancelledResult>`
+**返回值：** `Promise<TReturn |` [`CancelledResult`](/zh/api/cancelled-result)`>`
 
 ```typescript
 const result = await router.request<{ balance: number }>(

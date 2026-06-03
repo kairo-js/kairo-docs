@@ -8,7 +8,7 @@
 
 ### afterEvents
 
-`readonly afterEvents: KairoAfterEvents`
+`readonly afterEvents:` [`KairoAfterEvents`](/ja/api/kairo-after-events)
 
 after イベントの購読。
 
@@ -16,7 +16,7 @@ after イベントの購読。
 
 ### beforeEvents
 
-`readonly beforeEvents: KairoBeforeEvents`
+`readonly beforeEvents:` [`KairoBeforeEvents`](/ja/api/kairo-before-events)
 
 before イベントの購読。
 
@@ -32,7 +32,7 @@ before イベントの購読。
 
 ### systemInfo
 
-`readonly systemInfo: KairoContext`
+`readonly systemInfo:` [`KairoContext`](/ja/api/kairo-context)
 
 アドオンのコンテキスト情報（getter）。
 
@@ -112,7 +112,7 @@ init(properties: AddonProperties): void
 
 **パラメーター**
 
-- **properties:** `AddonProperties`
+- **properties:** [`AddonProperties`](/ja/api/properties/addon-properties)
 
   アドオンの設定情報。
 
@@ -148,7 +148,7 @@ request<TReturn>(
 
   タイムアウト（tick 単位、デフォルト 20）。
 
-**返り値:** `Promise<TReturn | CancelledResult>`
+**返り値:** `Promise<TReturn |` [`CancelledResult`](/ja/api/cancelled-result)`>`
 
 ```typescript
 const result = await router.request<{ balance: number }>(

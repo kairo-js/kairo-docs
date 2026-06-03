@@ -5,7 +5,7 @@
 调用被取消时 `router.request()` 的返回值。Promise 会 resolve 为此值，而非 reject。
 
 ```typescript
-type CancelledResult = {
+interface CancelledResult {
   readonly cancelled: true
   readonly reason:
     | 'ADDON_NOT_FOUND'

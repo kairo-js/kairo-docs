@@ -5,7 +5,7 @@
 The context object passed to `before` hook handlers (`HookOptions.before`).
 
 ```typescript
-type BeforeHookContext<TArgs, TReturn> = {
+interface BeforeHookContext<TArgs, TReturn> {
   args: TArgs
   readonly callerAddonId: string
   cancel(result?: TReturn): never

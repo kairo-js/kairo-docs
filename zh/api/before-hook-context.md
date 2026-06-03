@@ -5,7 +5,7 @@
 传递给 `before` 钩子处理器（`HookOptions.before`）的上下文对象。
 
 ```typescript
-type BeforeHookContext<TArgs, TReturn> = {
+interface BeforeHookContext<TArgs, TReturn> {
   args: TArgs
   readonly callerAddonId: string
   cancel(result?: TReturn): never

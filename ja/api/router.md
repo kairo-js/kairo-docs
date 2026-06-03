@@ -21,17 +21,19 @@ Minecraft Bedrock Edition のアドオン間通信フレームワーク。`route
 
 ## Interfaces
 
+- [AfterHookContext](/ja/api/after-hook-context)
+- [BeforeHookContext](/ja/api/before-hook-context)
+- [CancelledResult](/ja/api/cancelled-result)
 - [Disposable](/ja/api/disposable)
+- [HookOptions](/ja/api/hook-options)
+- [HookRollbackContext](/ja/api/hook-rollback-context)
 - [KairoRegistry](/ja/api/kairo-registry)
 - [Subscribable](/ja/api/subscribable)
 
 ## Types
 
-- [AfterHookContext](/ja/api/after-hook-context)
-- [BeforeHookContext](/ja/api/before-hook-context)
-- [CancelledResult](/ja/api/cancelled-result)
-- [HookOptions](/ja/api/hook-options)
-- [HookRollbackContext](/ja/api/hook-rollback-context)
+- [DeepReadonly](/ja/api/deep-readonly)
+- [ProtocolStage](/ja/api/protocol-stage)
 
 ## Errors
 

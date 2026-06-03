@@ -22,10 +22,10 @@ registerCommand(
 
 **参数**
 
-- **customCommand:** `CustomCommand`
+- **customCommand:** [`CustomCommand`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/customcommand)
 
   命令定义。
-- **callback:** `(origin: CustomCommandOrigin, ...args: any[]) => CustomCommandResult | undefined`
+- **callback:** `(origin:` [`CustomCommandOrigin`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/customcommandorigin)`, ...args: any[]) =>` [`CustomCommandResult`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/customcommandresult)` | undefined`
 
   命令执行时调用的处理器。
 

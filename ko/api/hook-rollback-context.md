@@ -5,7 +5,7 @@
 `rollback` 훅 핸들러(`HookOptions.rollback`)에 전달되는 컨텍스트 객체입니다. `before` 훅이 예외를 던질 때만 실행됩니다.
 
 ```typescript
-type HookRollbackContext<TArgs> = {
+interface HookRollbackContext<TArgs> {
   readonly rollbackData: unknown
   readonly currentArgsSnapshot: DeepReadonly<TArgs>
   readonly callerAddonId: string
@@ -24,7 +24,7 @@ type HookRollbackContext<TArgs> = {
 
 ### currentArgsSnapshot
 
-`readonly currentArgsSnapshot: DeepReadonly<TArgs>`
+`readonly currentArgsSnapshot:` [`DeepReadonly`](/ko/api/deep-readonly)`<TArgs>`
 
 이 롤백 실행 시점의 args 스냅샷입니다. 변경하지 마십시오. 대신 새 객체를 반환하십시오.
 

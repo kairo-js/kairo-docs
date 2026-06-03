@@ -8,7 +8,7 @@
 
 ### afterEvents
 
-`readonly afterEvents: KairoAfterEvents`
+`readonly afterEvents:` [`KairoAfterEvents`](/ko/api/kairo-after-events)
 
 after 이벤트를 구독합니다.
 
@@ -16,7 +16,7 @@ after 이벤트를 구독합니다.
 
 ### beforeEvents
 
-`readonly beforeEvents: KairoBeforeEvents`
+`readonly beforeEvents:` [`KairoBeforeEvents`](/ko/api/kairo-before-events)
 
 before 이벤트를 구독합니다.
 
@@ -32,7 +32,7 @@ before 이벤트를 구독합니다.
 
 ### systemInfo
 
-`readonly systemInfo: KairoContext`
+`readonly systemInfo:` [`KairoContext`](/ko/api/kairo-context)
 
 애드온 컨텍스트 정보 (getter).
 
@@ -112,7 +112,7 @@ init(properties: AddonProperties): void
 
 **매개변수**
 
-- **properties:** `AddonProperties`
+- **properties:** [`AddonProperties`](/ko/api/properties/addon-properties)
 
   애드온의 설정.
 
@@ -148,7 +148,7 @@ API를 호출하고 결과를 기다립니다. `timeout`은 틱 단위이며 기
 
   타임아웃 (틱 단위, 기본값 20).
 
-**반환값:** `Promise<TReturn | CancelledResult>`
+**반환값:** `Promise<TReturn |` [`CancelledResult`](/ko/api/cancelled-result)`>`
 
 ```typescript
 const result = await router.request<{ balance: number }>(

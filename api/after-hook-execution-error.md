@@ -6,14 +6,4 @@
 
 Thrown when an `after` hook throws. When this error occurs, the handler result is discarded.
 
-## Constructor
-
-```typescript
-constructor(cause?: unknown)
-```
-
-**Parameters**
-
-- **cause:** `unknown`
-
-  The original exception that was thrown (optional).
+Not directly instantiable — received as a thrown exception.

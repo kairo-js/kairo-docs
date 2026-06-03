@@ -5,7 +5,7 @@
 The return value of `router.request()` when the call is cancelled. The Promise resolves to this value rather than rejecting.
 
 ```typescript
-type CancelledResult = {
+interface CancelledResult {
   readonly cancelled: true
   readonly reason:
     | 'ADDON_NOT_FOUND'

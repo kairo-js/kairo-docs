@@ -5,7 +5,7 @@
 The options object passed to `ev.api.hook()`.
 
 ```typescript
-type HookOptions<TArgs, TReturn> = {
+interface HookOptions<TArgs, TReturn> {
   priority?: number
   modes?: ReadonlyArray<'send' | 'request'>
   before?: (ctx: BeforeHookContext<TArgs, TReturn>) => Promise<void>
@@ -20,7 +20,7 @@ type HookOptions<TArgs, TReturn> = {
 
 `after?: (ctx: AfterHookContext<TArgs, TReturn>) => Promise<void>`
 
-Runs after the handler (`request` only). Can mutate result. Perform pure transforms only.
+Runs after the handler (`request` only). Can mutate result. Perform pure transforms only. Receives [`AfterHookContext`](/api/after-hook-context).
 
 ---
 
@@ -28,7 +28,7 @@ Runs after the handler (`request` only). Can mutate result. Perform pure transfo
 
 `before?: (ctx: BeforeHookContext<TArgs, TReturn>) => Promise<void>`
 
-Runs before the handler. Can mutate args or cancel the call.
+Runs before the handler. Can mutate args or cancel the call. Receives [`BeforeHookContext`](/api/before-hook-context).
 
 ---
 
@@ -52,7 +52,7 @@ Execution order; lower = earlier. Default `0`. 32-bit signed integer.
 
 `rollback?: (ctx: HookRollbackContext<TArgs>) => Promise<TArgs | void>`
 
-Runs only when a `before` hook throws. Optional.
+Runs only when a `before` hook throws. Optional. Receives [`HookRollbackContext`](/api/hook-rollback-context).
 
 ---
 

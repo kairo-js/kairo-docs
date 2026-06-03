@@ -4,6 +4,8 @@
 
 **extends** `Error`
 
+不可直接实例化 — 作为抛出的异常接收。
+
 当 ScriptEvent 消息解析失败或模式不匹配时抛出。
 
 ## 属性
@@ -31,29 +33,3 @@
 关联的 `request()` 调用的 correlationId。
 
 ---
-
-## 构造函数
-
-```typescript
-constructor(
-  message: string,
-  source: "local_parse" | "remote",
-  protocolStage?: ProtocolStage,
-  correlationId?: string,
-)
-```
-
-**参数**
-
-- **message:** `string`
-
-  错误信息。
-- **source:** `"local_parse" | "remote"`
-
-  错误发生的位置。
-- **protocolStage:** `ProtocolStage`
-
-  协议阶段（可选）。
-- **correlationId:** `string`
-
-  关联请求的 correlationId（可选）。

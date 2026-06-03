@@ -106,7 +106,7 @@ Tags associated with the addon.
 
 ### version
 
-`readonly version: SemVer`
+`readonly version:` [`SemVer`](/api/properties/semver)
 
 The addon's version.
 

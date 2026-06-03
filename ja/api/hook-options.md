@@ -5,7 +5,7 @@
 `ev.api.hook()` に渡すオプションオブジェクトです。
 
 ```typescript
-type HookOptions<TArgs, TReturn> = {
+interface HookOptions<TArgs, TReturn> {
   priority?: number
   modes?: ReadonlyArray<'send' | 'request'>
   before?: (ctx: BeforeHookContext<TArgs, TReturn>) => Promise<void>
@@ -20,7 +20,7 @@ type HookOptions<TArgs, TReturn> = {
 
 `after?: (ctx: AfterHookContext<TArgs, TReturn>) => Promise<void>`
 
-ハンドラ実行後に呼ばれる（`request` のみ）。result の改ざんが可能。pure transform のみを行うこと。
+ハンドラ実行後に呼ばれる（`request` のみ）。result の改ざんが可能。pure transform のみを行うこと。 [`AfterHookContext`](/ja/api/after-hook-context) を受け取ります。
 
 ---
 
@@ -28,7 +28,7 @@ type HookOptions<TArgs, TReturn> = {
 
 `before?: (ctx: BeforeHookContext<TArgs, TReturn>) => Promise<void>`
 
-ハンドラ実行前に呼ばれる。args の改ざん・cancel が可能。
+ハンドラ実行前に呼ばれる。args の改ざん・cancel が可能。 [`BeforeHookContext`](/ja/api/before-hook-context) を受け取ります。
 
 ---
 
@@ -52,7 +52,7 @@ type HookOptions<TArgs, TReturn> = {
 
 `rollback?: (ctx: HookRollbackContext<TArgs>) => Promise<TArgs | void>`
 
-before フックが例外をスローした場合のみ呼ばれる。省略可能。
+before フックが例外をスローした場合のみ呼ばれる。省略可能。 [`HookRollbackContext`](/ja/api/hook-rollback-context) を受け取ります。
 
 ---
 

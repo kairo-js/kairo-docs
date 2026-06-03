@@ -22,10 +22,10 @@ Minecraft 커스텀 커맨드를 등록합니다.
 
 **매개변수**
 
-- **customCommand:** `CustomCommand`
+- **customCommand:** [`CustomCommand`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/customcommand)
 
   커맨드 정의.
-- **callback:** `(origin: CustomCommandOrigin, ...args: any[]) => CustomCommandResult | undefined`
+- **callback:** `(origin:` [`CustomCommandOrigin`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/customcommandorigin)`, ...args: any[]) =>` [`CustomCommandResult`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/customcommandresult)` | undefined`
 
   커맨드가 실행될 때 호출되는 핸들러.
 

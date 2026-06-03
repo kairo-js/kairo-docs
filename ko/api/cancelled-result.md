@@ -5,7 +5,7 @@
 호출이 취소되었을 때 `router.request()`의 반환값입니다. Promise는 reject되지 않고 이 값으로 resolve됩니다.
 
 ```typescript
-type CancelledResult = {
+interface CancelledResult {
   readonly cancelled: true
   readonly reason:
     | 'ADDON_NOT_FOUND'

@@ -13,16 +13,19 @@ const routerClassItems = [
 ]
 const routerInterfaceItems = [
   { text: 'AddonEventRegistration', link: 'addon-event-registry' },
-  { text: 'ApiRegistration', link: 'kairo-api-registry' },
-  { text: 'Disposable', link: 'disposable' },
-  { text: 'KairoRegistry', link: 'kairo-registry' },
-]
-const routerTypeItems = [
   { text: 'AfterHookContext', link: 'after-hook-context' },
+  { text: 'ApiRegistration', link: 'kairo-api-registry' },
   { text: 'BeforeHookContext', link: 'before-hook-context' },
   { text: 'CancelledResult', link: 'cancelled-result' },
+  { text: 'Disposable', link: 'disposable' },
   { text: 'HookOptions', link: 'hook-options' },
   { text: 'HookRollbackContext', link: 'hook-rollback-context' },
+  { text: 'KairoRegistry', link: 'kairo-registry' },
+  { text: 'Subscribable', link: 'subscribable' },
+]
+const routerTypeItems = [
+  { text: 'DeepReadonly', link: 'deep-readonly' },
+  { text: 'ProtocolStage', link: 'protocol-stage' },
 ]
 const routerErrorItems = [
   { text: 'AfterHookExecutionError', link: 'after-hook-execution-error' },

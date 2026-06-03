@@ -5,7 +5,7 @@
 after フックのコンテキストオブジェクトです。`HookOptions.after` のハンドラに渡されます。
 
 ```typescript
-type AfterHookContext<TArgs, TReturn> = {
+interface AfterHookContext<TArgs, TReturn> {
   readonly args: TArgs
   result: TReturn
   readonly callerAddonId: string

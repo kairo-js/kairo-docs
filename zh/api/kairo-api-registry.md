@@ -34,7 +34,7 @@ hook<TArgs, TReturn>(
 - **apiName:** `string`
 
   要 hook 的 API 名称。
-- **options:** `HookOptions<TArgs, TReturn>`
+- **options:** [`HookOptions<TArgs, TReturn>`](/zh/api/hook-options)
 
   Hook 配置。
 

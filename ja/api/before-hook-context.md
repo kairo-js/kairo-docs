@@ -5,7 +5,7 @@
 before フックのコンテキストオブジェクトです。`HookOptions.before` のハンドラに渡されます。
 
 ```typescript
-type BeforeHookContext<TArgs, TReturn> = {
+interface BeforeHookContext<TArgs, TReturn> {
   args: TArgs
   readonly callerAddonId: string
   cancel(result?: TReturn): never

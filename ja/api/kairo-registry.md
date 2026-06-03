@@ -106,7 +106,7 @@ Kairo が割り当てた内部 ID。
 
 ### version
 
-`readonly version: SemVer`
+`readonly version:` [`SemVer`](/ja/api/properties/semver)
 
 アドオンのバージョン。
 

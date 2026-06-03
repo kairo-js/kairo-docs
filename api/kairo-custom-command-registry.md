@@ -22,10 +22,10 @@ Registers a Minecraft custom command.
 
 **Parameters**
 
-- **customCommand:** `CustomCommand`
+- **customCommand:** [`CustomCommand`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/customcommand)
 
   The command definition.
-- **callback:** `(origin: CustomCommandOrigin, ...args: any[]) => CustomCommandResult | undefined`
+- **callback:** `(origin:` [`CustomCommandOrigin`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/customcommandorigin)`, ...args: any[]) =>` [`CustomCommandResult`](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/customcommandresult)` | undefined`
 
   Handler invoked when the command is executed.
 

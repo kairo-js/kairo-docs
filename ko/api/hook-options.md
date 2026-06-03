@@ -5,7 +5,7 @@
 `ev.api.hook()`에 전달되는 옵션 객체입니다.
 
 ```typescript
-type HookOptions<TArgs, TReturn> = {
+interface HookOptions<TArgs, TReturn> {
   priority?: number
   modes?: ReadonlyArray<'send' | 'request'>
   before?: (ctx: BeforeHookContext<TArgs, TReturn>) => Promise<void>
@@ -20,7 +20,7 @@ type HookOptions<TArgs, TReturn> = {
 
 `after?: (ctx: AfterHookContext<TArgs, TReturn>) => Promise<void>`
 
-핸들러 실행 후 동작합니다 (`request` 전용). 결과를 변경할 수 있습니다. 순수 변환만 수행하십시오.
+핸들러 실행 후 동작합니다 (`request` 전용). 결과를 변경할 수 있습니다. 순수 변환만 수행하십시오. [`AfterHookContext`](/ko/api/after-hook-context)를 받습니다.
 
 ---
 
@@ -28,7 +28,7 @@ type HookOptions<TArgs, TReturn> = {
 
 `before?: (ctx: BeforeHookContext<TArgs, TReturn>) => Promise<void>`
 
-핸들러 실행 전 동작합니다. args를 변경하거나 호출을 취소할 수 있습니다.
+핸들러 실행 전 동작합니다. args를 변경하거나 호출을 취소할 수 있습니다. [`BeforeHookContext`](/ko/api/before-hook-context)를 받습니다.
 
 ---
 
@@ -52,7 +52,7 @@ type HookOptions<TArgs, TReturn> = {
 
 `rollback?: (ctx: HookRollbackContext<TArgs>) => Promise<TArgs | void>`
 
-`before` 훅이 예외를 던질 때만 실행됩니다. 선택 사항입니다.
+`before` 훅이 예외를 던질 때만 실행됩니다. 선택 사항입니다. [`HookRollbackContext`](/ko/api/hook-rollback-context)를 받습니다.
 
 ---
 

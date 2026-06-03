@@ -34,7 +34,7 @@ hook<TArgs, TReturn>(
 - **apiName:** `string`
 
   훅을 연결할 API의 이름.
-- **options:** `HookOptions<TArgs, TReturn>`
+- **options:** [`HookOptions<TArgs, TReturn>`](/ko/api/hook-options)
 
   훅 설정.
 

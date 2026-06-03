@@ -8,7 +8,7 @@
 
 ### addonProperties
 
-`readonly addonProperties: AddonProperties`
+`readonly addonProperties:` [`AddonProperties`](/ko/api/properties/addon-properties)
 
 애드온의 설정입니다.
 
@@ -24,7 +24,7 @@
 
 ### kairoRegistry
 
-`readonly kairoRegistry: KairoRegistry`
+`readonly kairoRegistry:` [`KairoRegistry`](/ko/api/kairo-registry)
 
 이 애드온의 레지스트리 정보입니다. 등록 전에 접근하면 에러가 발생합니다.
 
