@@ -41,12 +41,16 @@ Addon context info (getter).
 ## Methods
 
 - [clearRun](#clearrun)
+- [delete](#delete)
 - [emit](#emit)
 - [getAddonId](#getaddonid)
+- [has](#has)
 - [init](#init)
+- [load](#load)
 - [request](#request)
 - [runInterval](#runinterval)
 - [runTimeout](#runtimeout)
+- [save](#save)
 - [send](#send)
 - [waitForWorldLoad](#waitforworldload)
 
@@ -128,7 +132,7 @@ request<TReturn>(
   apiName: string,
   args?: unknown,
   options?: { timeout?: number },
-): Promise<TReturn | CancelledResult>
+): Promise<TReturn | CanceledResult>
 ```
 
 Calls an API and awaits the result. `timeout` is in ticks; default is 20 ticks.
@@ -148,7 +152,7 @@ Calls an API and awaits the result. `timeout` is in ticks; default is 20 ticks.
 
   Timeout in ticks (default 20).
 
-**Returns:** `Promise<TReturn |` [`CancelledResult`](/api/cancelled-result)`>`
+**Returns:** `Promise<TReturn |` [`CanceledResult`](/api/canceled-result)`>`
 
 ```typescript
 const result = await router.request<{ balance: number }>(
@@ -157,7 +161,7 @@ const result = await router.request<{ balance: number }>(
   { playerId: 'abc123' },
 )
 
-if ('cancelled' in result) {
+if ('canceled' in result) {
   console.warn('Request cancelled:', result.reason)
 } else {
   console.log('Balance:', result.balance)
@@ -233,6 +237,87 @@ Calls an API in fire-and-forget fashion. Does not wait for a response. Silently 
 ```typescript
 router.send('economy-addon', 'onTransaction', { amount: 50 })
 ```
+
+---
+
+### delete {#delete}
+
+```typescript
+delete(key: string): Promise<void>
+```
+
+Deletes a stored value by key.
+
+**Parameters**
+
+- **key:** `string`
+
+  The key to delete.
+
+**Returns:** `Promise<void>`
+
+---
+
+### has {#has}
+
+```typescript
+has(key: string, options?: { addonId?: string }): Promise<boolean>
+```
+
+Returns `true` if the given key exists in the store.
+
+**Parameters**
+
+- **key:** `string`
+
+  The key to check.
+- **options.addonId:** `string`
+
+  Read from another addon's store (optional).
+
+**Returns:** `Promise<boolean>`
+
+---
+
+### load {#load}
+
+```typescript
+load<T = unknown>(key: string, options?: { addonId?: string }): Promise<T | undefined>
+```
+
+Loads a value from the store. Returns `undefined` if the key does not exist.
+
+**Parameters**
+
+- **key:** `string`
+
+  The key to load.
+- **options.addonId:** `string`
+
+  Load from another addon's store (optional).
+
+**Returns:** `Promise<T | undefined>`
+
+---
+
+### save {#save}
+
+```typescript
+save(key: string, value: unknown): Promise<void>
+```
+
+Persists a value in the store under the given key.
+
+**Parameters**
+
+- **key:** `string`
+
+  The key to store under.
+- **value:** `unknown`
+
+  The value to persist.
+
+**Returns:** `Promise<void>`
 
 ---
 

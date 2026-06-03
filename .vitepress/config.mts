@@ -14,9 +14,10 @@ const routerClassItems = [
 const routerInterfaceItems = [
   { text: 'AddonEventRegistration', link: 'addon-event-registry' },
   { text: 'AfterHookContext', link: 'after-hook-context' },
+  { text: 'ApiHandlerContext', link: 'api-handler-context' },
   { text: 'ApiRegistration', link: 'kairo-api-registry' },
   { text: 'BeforeHookContext', link: 'before-hook-context' },
-  { text: 'CancelledResult', link: 'cancelled-result' },
+  { text: 'CanceledResult', link: 'canceled-result' },
   { text: 'Disposable', link: 'disposable' },
   { text: 'HookOptions', link: 'hook-options' },
   { text: 'HookRollbackContext', link: 'hook-rollback-context' },

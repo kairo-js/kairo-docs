@@ -35,7 +35,7 @@ The addonId of the caller (read-only).
 
 `cancel(result?: TReturn): never`
 
-With `result`: skip the handler and return `result` (short-circuit). Without `result`: return `CANCELLED_BY_HOOK`. The `never` return type means TypeScript marks code after this call as unreachable. Always `return` immediately after calling `cancel()`.
+With `result`: skip the handler and return `result` (short-circuit). Without `result`: return `CANCELED_BY_HOOK`. The `never` return type means TypeScript marks code after this call as unreachable. Always `return` immediately after calling `cancel()`.
 
 ---
 

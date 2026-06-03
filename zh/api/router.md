@@ -21,9 +21,12 @@
 
 ## 接口
 
+- [AddonEventRegistration](/zh/api/addon-event-registry)
 - [AfterHookContext](/zh/api/after-hook-context)
+- [ApiHandlerContext](/zh/api/api-handler-context)
+- [ApiRegistration](/zh/api/kairo-api-registry)
 - [BeforeHookContext](/zh/api/before-hook-context)
-- [CancelledResult](/zh/api/cancelled-result)
+- [CanceledResult](/zh/api/canceled-result)
 - [Disposable](/zh/api/disposable)
 - [HookOptions](/zh/api/hook-options)
 - [HookRollbackContext](/zh/api/hook-rollback-context)

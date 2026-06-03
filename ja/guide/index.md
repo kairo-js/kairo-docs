@@ -45,7 +45,7 @@ const result = await router.request<{ balance: number }>(
   { playerId: '...' },
 )
 
-if ('cancelled' in result) {
+if ('canceled' in result) {
   console.log(result.reason)
 } else {
   console.log(result.balance)

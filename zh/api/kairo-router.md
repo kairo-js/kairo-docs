@@ -41,12 +41,16 @@
 ## 方法
 
 - [clearRun](#clearrun)
+- [delete](#delete)
 - [emit](#emit)
 - [getAddonId](#getaddonid)
+- [has](#has)
 - [init](#init)
+- [load](#load)
 - [request](#request)
 - [runInterval](#runinterval)
 - [runTimeout](#runtimeout)
+- [save](#save)
 - [send](#send)
 - [waitForWorldLoad](#waitforworldload)
 
@@ -128,7 +132,7 @@ request<TReturn>(
   apiName: string,
   args?: unknown,
   options?: { timeout?: number },
-): Promise<TReturn | CancelledResult>
+): Promise<TReturn | CanceledResult>
 ```
 
 调用 API 并等待结果。`timeout` 以 tick 为单位，默认为 20 tick。
@@ -148,7 +152,7 @@ request<TReturn>(
 
   超时时间，单位为 tick（默认 20）。
 
-**返回值：** `Promise<TReturn |` [`CancelledResult`](/zh/api/cancelled-result)`>`
+**返回值：** `Promise<TReturn |` [`CanceledResult`](/zh/api/canceled-result)`>`
 
 ```typescript
 const result = await router.request<{ balance: number }>(
@@ -157,7 +161,7 @@ const result = await router.request<{ balance: number }>(
   { playerId: 'abc123' },
 )
 
-if ('cancelled' in result) {
+if ('canceled' in result) {
   console.warn('Request cancelled:', result.reason)
 } else {
   console.log('Balance:', result.balance)
@@ -233,6 +237,87 @@ send(targetAddonId: string, apiName: string, args?: unknown): void
 ```typescript
 router.send('economy-addon', 'onTransaction', { amount: 50 })
 ```
+
+---
+
+### delete {#delete}
+
+```typescript
+delete(key: string): Promise<void>
+```
+
+删除指定键的已存储值。
+
+**参数**
+
+- **key:** `string`
+
+  要删除的键。
+
+**返回值：** `Promise<void>`
+
+---
+
+### has {#has}
+
+```typescript
+has(key: string, options?: { addonId?: string }): Promise<boolean>
+```
+
+如果指定键存在则返回 `true`。
+
+**参数**
+
+- **key:** `string`
+
+  要检查的键。
+- **options.addonId:** `string`
+
+  指定时从其他插件的存储中查找（可选）。
+
+**返回值：** `Promise<boolean>`
+
+---
+
+### load {#load}
+
+```typescript
+load<T = unknown>(key: string, options?: { addonId?: string }): Promise<T | undefined>
+```
+
+从存储中读取值。键不存在时返回 `undefined`。
+
+**参数**
+
+- **key:** `string`
+
+  要读取的键。
+- **options.addonId:** `string`
+
+  指定时从其他插件的存储中读取（可选）。
+
+**返回值：** `Promise<T | undefined>`
+
+---
+
+### save {#save}
+
+```typescript
+save(key: string, value: unknown): Promise<void>
+```
+
+将值以指定键保存到存储中。
+
+**参数**
+
+- **key:** `string`
+
+  存储键。
+- **value:** `unknown`
+
+  要保存的值。
+
+**返回值：** `Promise<void>`
 
 ---
 

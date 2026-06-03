@@ -21,9 +21,12 @@ Minecraft Bedrock Edition のアドオン間通信フレームワーク。`route
 
 ## Interfaces
 
+- [AddonEventRegistration](/ja/api/addon-event-registry)
 - [AfterHookContext](/ja/api/after-hook-context)
+- [ApiHandlerContext](/ja/api/api-handler-context)
+- [ApiRegistration](/ja/api/kairo-api-registry)
 - [BeforeHookContext](/ja/api/before-hook-context)
-- [CancelledResult](/ja/api/cancelled-result)
+- [CanceledResult](/ja/api/canceled-result)
 - [Disposable](/ja/api/disposable)
 - [HookOptions](/ja/api/hook-options)
 - [HookRollbackContext](/ja/api/hook-rollback-context)

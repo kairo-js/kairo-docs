@@ -35,7 +35,7 @@ interface BeforeHookContext<TArgs, TReturn> {
 
 `cancel(result?: TReturn): never`
 
-传入 `result` 时：跳过处理器并返回 `result`（短路）。不传入 `result` 时：返回 `CANCELLED_BY_HOOK`。`never` 返回类型表示 TypeScript 会将此调用之后的代码标记为不可达。调用 `cancel()` 后应立即 `return`。
+传入 `result` 时：跳过处理器并返回 `result`（短路）。不传入 `result` 时：返回 `CANCELED_BY_HOOK`。`never` 返回类型表示 TypeScript 会将此调用之后的代码标记为不可达。调用 `cancel()` 后应立即 `return`。
 
 ---
 

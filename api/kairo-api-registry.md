@@ -4,7 +4,7 @@ Accessed via `ev.api`. Only operable inside the `router.beforeEvents.startup` ev
 
 ```typescript
 interface ApiRegistration {
-  register<TArgs, TReturn>(apiName: string, handler: (args: TArgs) => TReturn | Promise<TReturn>): void
+  register<TArgs, TReturn>(apiName: string, handler: (args: TArgs, ctx: ApiHandlerContext) => TReturn | Promise<TReturn>): void
   hook<TArgs, TReturn>(targetAddonId: string, apiName: string, options: HookOptions<TArgs, TReturn>): void
 }
 ```
@@ -63,7 +63,7 @@ ev.api.hook('economy-addon', 'economy/getBalance', {
 ```typescript
 register<TArgs, TReturn>(
   apiName: string,
-  handler: (args: TArgs) => TReturn | Promise<TReturn>,
+  handler: (args: TArgs, ctx: ApiHandlerContext) => TReturn | Promise<TReturn>,
 ): void
 ```
 
@@ -74,16 +74,17 @@ Registers an API handler provided by this addon. Registering the same `apiName` 
 - **apiName:** `string`
 
   The name of the API to register.
-- **handler:** `(args: TArgs) => TReturn | Promise<TReturn>`
+- **handler:** `(args: TArgs, ctx:` [`ApiHandlerContext`](/api/api-handler-context)`) => TReturn | Promise<TReturn>`
 
-  The handler to invoke when the API is called.
+  The handler to invoke when the API is called. `ctx.callerAddonId` identifies the caller.
 
 **Returns:** `void`
 
 ```typescript
 ev.api.register<{ playerId: string }, { balance: number }>(
   'economy/getBalance',
-  async ({ playerId }) => {
+  async ({ playerId }, ctx) => {
+    console.log(`Called by ${ctx.callerAddonId}`)
     return { balance: getBalance(playerId) }
   },
 )

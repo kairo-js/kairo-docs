@@ -1,17 +1,17 @@
-# CancelledResult
+# CanceledResult
 
-`import type { CancelledResult } from '@kairo-js/router'`
+`import type { CanceledResult } from '@kairo-js/router'`
 
 调用被取消时 `router.request()` 的返回值。Promise 会 resolve 为此值，而非 reject。
 
 ```typescript
-interface CancelledResult {
-  readonly cancelled: true
+interface CanceledResult {
+  readonly canceled: true
   readonly reason:
     | 'ADDON_NOT_FOUND'
     | 'ADDON_INACTIVE'
     | 'ADDON_UNRESOLVED'
-    | 'CANCELLED_BY_HOOK'
+    | 'CANCELED_BY_HOOK'
 }
 ```
 
@@ -19,7 +19,7 @@ interface CancelledResult {
 
 ### cancelled
 
-`readonly cancelled: true`
+`readonly canceled: true`
 
 始终为 `true`。可用作类型守卫。
 
@@ -40,7 +40,7 @@ interface CancelledResult {
 | `ADDON_NOT_FOUND` | 目标 addonId 不存在于路由表中。 |
 | `ADDON_INACTIVE` | 目标插件处于非活跃状态。 |
 | `ADDON_UNRESOLVED` | 目标插件处于未解析状态（依赖项尚未解析）。 |
-| `CANCELLED_BY_HOOK` | `before` 钩子调用了 `ctx.cancel()` 取消了本次调用。 |
+| `CANCELED_BY_HOOK` | `before` 钩子调用了 `ctx.cancel()` 取消了本次调用。 |
 
 ## 用法
 
@@ -51,7 +51,7 @@ const result = await router.request<{ balance: number }>(
   { playerId: 'abc123' },
 )
 
-if ('cancelled' in result) {
+if ('canceled' in result) {
   switch (result.reason) {
     case 'ADDON_NOT_FOUND':
       console.warn('economy-addon not found')
@@ -59,7 +59,7 @@ if ('cancelled' in result) {
     case 'ADDON_INACTIVE':
       console.warn('economy-addon is currently inactive')
       break
-    case 'CANCELLED_BY_HOOK':
+    case 'CANCELED_BY_HOOK':
       console.warn('Call was cancelled by a hook')
       break
     default:

@@ -63,7 +63,7 @@ ev.api.hook('economy-addon', 'economy/getBalance', {
 ```typescript
 register<TArgs, TReturn>(
   apiName: string,
-  handler: (args: TArgs) => TReturn | Promise<TReturn>,
+  handler: (args: TArgs, ctx: ApiHandlerContext) => TReturn | Promise<TReturn>,
 ): void
 ```
 
@@ -74,16 +74,17 @@ register<TArgs, TReturn>(
 - **apiName:** `string`
 
   登録する API 名。
-- **handler:** `(args: TArgs) => TReturn | Promise<TReturn>`
+- **handler:** `(args: TArgs, ctx:` [`ApiHandlerContext`](/ja/api/api-handler-context)`) => TReturn | Promise<TReturn>`
 
-  API 呼び出し時に実行するハンドラ。
+  API 呼び出し時に実行するハンドラ。`ctx.callerAddonId` で呼び出し元を識別できます。
 
 **返り値:** `void`
 
 ```typescript
 ev.api.register<{ playerId: string }, { balance: number }>(
   'economy/getBalance',
-  async ({ playerId }) => {
+  async ({ playerId }, ctx) => {
+    console.log(`呼び出し元: ${ctx.callerAddonId}`)
     return { balance: getBalance(playerId) }
   },
 )

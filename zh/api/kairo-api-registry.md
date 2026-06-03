@@ -63,7 +63,7 @@ ev.api.hook('economy-addon', 'economy/getBalance', {
 ```typescript
 register<TArgs, TReturn>(
   apiName: string,
-  handler: (args: TArgs) => TReturn | Promise<TReturn>,
+  handler: (args: TArgs, ctx: ApiHandlerContext) => TReturn | Promise<TReturn>,
 ): void
 ```
 
@@ -74,16 +74,17 @@ register<TArgs, TReturn>(
 - **apiName:** `string`
 
   要注册的 API 名称。
-- **handler:** `(args: TArgs) => TReturn | Promise<TReturn>`
+- **handler:** `(args: TArgs, ctx:` [`ApiHandlerContext`](/zh/api/api-handler-context)`) => TReturn | Promise<TReturn>`
 
-  API 被调用时执行的处理器。
+  API 被调用时执行的处理器。可通过 `ctx.callerAddonId` 识别调用方。
 
 **返回值：** `void`
 
 ```typescript
 ev.api.register<{ playerId: string }, { balance: number }>(
   'economy/getBalance',
-  async ({ playerId }) => {
+  async ({ playerId }, ctx) => {
+    console.log(`调用方：${ctx.callerAddonId}`)
     return { balance: getBalance(playerId) }
   },
 )

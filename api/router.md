@@ -21,9 +21,12 @@ Inter-addon communication framework for Minecraft Bedrock Edition. Use the `rout
 
 ## Interfaces
 
+- [AddonEventRegistration](/api/addon-event-registry)
 - [AfterHookContext](/api/after-hook-context)
+- [ApiHandlerContext](/api/api-handler-context)
+- [ApiRegistration](/api/kairo-api-registry)
 - [BeforeHookContext](/api/before-hook-context)
-- [CancelledResult](/api/cancelled-result)
+- [CanceledResult](/api/canceled-result)
 - [Disposable](/api/disposable)
 - [HookOptions](/api/hook-options)
 - [HookRollbackContext](/api/hook-rollback-context)

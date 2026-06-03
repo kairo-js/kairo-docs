@@ -1,17 +1,17 @@
-# CancelledResult
+# CanceledResult
 
-`import type { CancelledResult } from '@kairo-js/router'`
+`import type { CanceledResult } from '@kairo-js/router'`
 
 `router.request()` がキャンセルされた場合の返り値です。Promise が reject されるのではなく、resolve 値として返されます。
 
 ```typescript
-interface CancelledResult {
-  readonly cancelled: true
+interface CanceledResult {
+  readonly canceled: true
   readonly reason:
     | 'ADDON_NOT_FOUND'
     | 'ADDON_INACTIVE'
     | 'ADDON_UNRESOLVED'
-    | 'CANCELLED_BY_HOOK'
+    | 'CANCELED_BY_HOOK'
 }
 ```
 
@@ -19,7 +19,7 @@ interface CancelledResult {
 
 ### cancelled
 
-`readonly cancelled: true`
+`readonly canceled: true`
 
 常に `true`。型ガードとして使用する。
 
@@ -27,7 +27,7 @@ interface CancelledResult {
 
 ### reason
 
-`readonly reason: 'ADDON_NOT_FOUND' | 'ADDON_INACTIVE' | 'ADDON_UNRESOLVED' | 'CANCELLED_BY_HOOK'`
+`readonly reason: 'ADDON_NOT_FOUND' | 'ADDON_INACTIVE' | 'ADDON_UNRESOLVED' | 'CANCELED_BY_HOOK'`
 
 キャンセルの理由。
 
@@ -40,7 +40,7 @@ interface CancelledResult {
 | `ADDON_NOT_FOUND` | 対象 addonId がルーティングテーブルに存在しない |
 | `ADDON_INACTIVE` | 対象アドオンが inactive 状態 |
 | `ADDON_UNRESOLVED` | 対象アドオンが unresolved 状態（依存解決前） |
-| `CANCELLED_BY_HOOK` | before フックが `ctx.cancel()` を呼び出してキャンセルした |
+| `CANCELED_BY_HOOK` | before フックが `ctx.cancel()` を呼び出してキャンセルした |
 
 ## 使用例
 
@@ -51,7 +51,7 @@ const result = await router.request<{ balance: number }>(
   { playerId: 'abc123' },
 )
 
-if ('cancelled' in result) {
+if ('canceled' in result) {
   switch (result.reason) {
     case 'ADDON_NOT_FOUND':
       console.warn('economy-addon が見つかりません')
@@ -59,7 +59,7 @@ if ('cancelled' in result) {
     case 'ADDON_INACTIVE':
       console.warn('economy-addon は現在停止中です')
       break
-    case 'CANCELLED_BY_HOOK':
+    case 'CANCELED_BY_HOOK':
       console.warn('フックによってキャンセルされました')
       break
     default:

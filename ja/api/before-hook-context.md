@@ -35,7 +35,7 @@ interface BeforeHookContext<TArgs, TReturn> {
 
 `cancel(result?: TReturn): never`
 
-`result` あり: ハンドラをスキップして `result` を返す（ショートサーキット）。`result` なし: `CANCELLED_BY_HOOK` を返す。`never` 型のため TypeScript はこれ以降のコードを unreachable と判定する。呼び出し後は即 `return` すること。
+`result` あり: ハンドラをスキップして `result` を返す（ショートサーキット）。`result` なし: `CANCELED_BY_HOOK` を返す。`never` 型のため TypeScript はこれ以降のコードを unreachable と判定する。呼び出し後は即 `return` すること。
 
 ---
 

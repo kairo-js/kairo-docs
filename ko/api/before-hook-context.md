@@ -35,7 +35,7 @@ interface BeforeHookContext<TArgs, TReturn> {
 
 `cancel(result?: TReturn): never`
 
-`result`를 지정하면 핸들러를 건너뛰고 `result`를 반환합니다 (단락 평가). `result`를 생략하면 `CANCELLED_BY_HOOK`을 반환합니다. 반환 타입이 `never`이므로 TypeScript는 이 호출 이후의 코드를 도달 불가능으로 표시합니다. `cancel()`을 호출한 직후에는 항상 `return`하십시오.
+`result`를 지정하면 핸들러를 건너뛰고 `result`를 반환합니다 (단락 평가). `result`를 생략하면 `CANCELED_BY_HOOK`을 반환합니다. 반환 타입이 `never`이므로 TypeScript는 이 호출 이후의 코드를 도달 불가능으로 표시합니다. `cancel()`을 호출한 직후에는 항상 `return`하십시오.
 
 ---
 

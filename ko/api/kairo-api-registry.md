@@ -63,7 +63,7 @@ ev.api.hook('economy-addon', 'economy/getBalance', {
 ```typescript
 register<TArgs, TReturn>(
   apiName: string,
-  handler: (args: TArgs) => TReturn | Promise<TReturn>,
+  handler: (args: TArgs, ctx: ApiHandlerContext) => TReturn | Promise<TReturn>,
 ): void
 ```
 
@@ -74,16 +74,17 @@ register<TArgs, TReturn>(
 - **apiName:** `string`
 
   등록할 API의 이름.
-- **handler:** `(args: TArgs) => TReturn | Promise<TReturn>`
+- **handler:** `(args: TArgs, ctx:` [`ApiHandlerContext`](/ko/api/api-handler-context)`) => TReturn | Promise<TReturn>`
 
-  API가 호출될 때 실행할 핸들러.
+  API가 호출될 때 실행할 핸들러. `ctx.callerAddonId`로 호출자를 식별할 수 있습니다.
 
 **반환값:** `void`
 
 ```typescript
 ev.api.register<{ playerId: string }, { balance: number }>(
   'economy/getBalance',
-  async ({ playerId }) => {
+  async ({ playerId }, ctx) => {
+    console.log(`호출자: ${ctx.callerAddonId}`)
     return { balance: getBalance(playerId) }
   },
 )
