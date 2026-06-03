@@ -4,16 +4,16 @@
 
 **extends** `Error`
 
-before フックが例外をスローした場合にスローされます。このエラーがスローされる時点では、該当フックのロールバック処理が既に実行済みです。
+Thrown when a `before` hook throws. By the time this error is thrown, rollback for the failing hook has already been executed.
 
-## コンストラクター
+## Constructor
 
 ```typescript
 constructor(cause?: unknown)
 ```
 
-**パラメーター**
+**Parameters**
 
 - **cause:** `unknown`
 
-  元となった例外（省略可能）。
+  The original exception that was thrown (optional).

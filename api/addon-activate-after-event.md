@@ -2,16 +2,16 @@
 
 `import { router } from '@kairo-js/router'`
 
-`router.afterEvents.addonActivate` のイベントオブジェクトです。ユーザーが直接インスタンス化することはありません。
+The event object for `router.afterEvents.addonActivate`. Not directly instantiable.
 
-アドオンが起動された後に発火します。
+Fires after an addon is activated.
 
-## 使用例
+## Usage
 
 ```typescript
 import { router } from '@kairo-js/router'
 
 router.afterEvents.addonActivate.subscribe((ev) => {
-  console.log('アドオンがアクティブになりました')
+  console.log('Addon is now active')
 })
 ```

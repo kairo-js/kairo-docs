@@ -1,30 +1,30 @@
-# はじめに
+# Getting Started
 
-## kairo のインストール
+## Install kairo
 
-**kairo** ビヘイビアーパックをワールドに追加します。これが他のすべてのアドオン間の通信を仲介します。
+Add the **kairo** behavior pack to your world. It acts as the communication hub between all your addons.
 
-> kairo は [GitHub Releases](https://github.com/kairo-js/kairo/releases) からダウンロードできます。
+> Download kairo from [GitHub Releases](https://github.com/kairo-js/kairo/releases).
 
-## kairo-router を使う
+## Using kairo-router
 
-自分のアドオンに `kairo-router` を追加することで、他のアドオンと通信できるようになります。
+Add `kairo-router` to your addon to start communicating with other addons.
 
-### インストール
+### Installation
 
 ```bash
 pnpm add @kairo-js/router
 ```
 
-### startup イベントで API を宣言する
+### Declare your APIs in the startup event
 
-API の提供・フックの登録はすべて `router.beforeEvents.startup` 内で行います。
+All API registrations and hook declarations must happen inside `router.beforeEvents.startup`.
 
 ```typescript
 import { router } from '@kairo-js/router'
 
 router.beforeEvents.startup.subscribe((ev) => {
-  // 自アドオンが提供する API を登録
+  // Register an API your addon provides
   ev.api.register<{ playerId: string }, { balance: number }>(
     'economy/getBalance',
     async ({ playerId }) => ({ balance: 100 }),
@@ -32,13 +32,13 @@ router.beforeEvents.startup.subscribe((ev) => {
 })
 ```
 
-### API を呼び出す
+### Call other addons' APIs
 
 ```typescript
-// fire-and-forget（返答を待たない）
+// fire-and-forget
 router.send('economy-addon', 'onTransaction', { amount: 50 })
 
-// 結果を待つ
+// await result
 const result = await router.request<{ balance: number }>(
   'economy-addon',
   'getBalance',
@@ -52,4 +52,4 @@ if ('cancelled' in result) {
 }
 ```
 
-詳細は [kairo-router API リファレンス](/api/kairo-router) を参照してください。
+For the full API, see the [kairo-router API Reference](/api/kairo-router).

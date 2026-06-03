@@ -2,9 +2,9 @@
 
 `import { router } from '@kairo-js/router'`
 
-`ev.events` 経由でアクセスするクラスです。`router.beforeEvents.startup` イベント内で、他アドオンが `router.emit()` で送出するカスタムイベントを購読登録します。
+The class accessed via `ev.events`. Used inside the `router.beforeEvents.startup` event to subscribe to custom events emitted by other addons via `router.emit()`.
 
-## メソッド
+## Methods
 
 - [deliver](#deliver)
 - [getSubscriptions](#getsubscriptions)
@@ -16,21 +16,21 @@
 deliver(emitterAddonId: string, eventName: string, payload: unknown): void
 ```
 
-イベントを配信します。フレームワーク内部から呼ばれます。
+Delivers an event to registered handlers. Called internally by the framework.
 
-**パラメーター**
+**Parameters**
 
 - **emitterAddonId:** `string`
 
-  イベント送出元のアドオン ID。
+  The ID of the addon that emitted the event.
 - **eventName:** `string`
 
-  イベント名。
+  The name of the event.
 - **payload:** `unknown`
 
-  イベントのデータ。
+  The event payload.
 
-**返り値:** `void`
+**Returns:** `void`
 
 ---
 
@@ -40,9 +40,9 @@ deliver(emitterAddonId: string, eventName: string, payload: unknown): void
 getSubscriptions(): EventSubscription[]
 ```
 
-登録済みの購読一覧を返します。
+Returns all registered subscriptions.
 
-**返り値:** `EventSubscription[]`
+**Returns:** `EventSubscription[]`
 
 ---
 
@@ -56,34 +56,34 @@ on<TPayload = unknown>(
 ): void
 ```
 
-他アドオンが emit するイベントを購読します。
+Subscribes to an event emitted by another addon.
 
-**パラメーター**
+**Parameters**
 
 - **emitterAddonId:** `string`
 
-  イベント送出元のアドオン ID。
+  The ID of the addon that emits the event.
 - **eventName:** `string`
 
-  購読するイベント名。
+  The name of the event to subscribe to.
 - **handler:** `EventHandler<TPayload>`
 
-  イベント受信時のハンドラ。
+  Handler invoked when the event is received.
 
-**返り値:** `void`
+**Returns:** `void`
 
-## 使用例
+## Usage
 
 ```typescript
 import { router } from '@kairo-js/router'
 
-// startup でイベント購読を登録
+// Register event subscription during startup
 router.beforeEvents.startup.subscribe((ev) => {
   ev.events.on<{ amount: number }>('economy-addon', 'onTransaction', (payload) => {
-    console.log(`取引が発生しました: ${payload.amount}`)
+    console.log(`Transaction occurred: ${payload.amount}`)
   })
 })
 
-// 別アドオン側での emit
+// In the emitting addon
 router.emit('onTransaction', { amount: 50 })
 ```

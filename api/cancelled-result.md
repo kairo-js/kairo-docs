@@ -2,7 +2,7 @@
 
 `import type { CancelledResult } from '@kairo-js/router'`
 
-`router.request()` がキャンセルされた場合の返り値です。Promise が reject されるのではなく、resolve 値として返されます。
+The return value of `router.request()` when the call is cancelled. The Promise resolves to this value rather than rejecting.
 
 ```typescript
 type CancelledResult = {
@@ -15,34 +15,34 @@ type CancelledResult = {
 }
 ```
 
-## フィールド
+## Fields
 
 ### cancelled
 
 `readonly cancelled: true`
 
-常に `true`。型ガードとして使用する。
+Always `true`. Use as a type guard.
 
 ---
 
 ### reason
 
-`readonly reason: 'ADDON_NOT_FOUND' | 'ADDON_INACTIVE' | 'ADDON_UNRESOLVED' | 'CANCELLED_BY_HOOK'`
+`readonly reason: string`
 
-キャンセルの理由。
+The reason the call was cancelled.
 
 ---
 
-## reason の説明
+## reason values
 
-| reason | 説明 |
+| reason | Description |
 |---|---|
-| `ADDON_NOT_FOUND` | 対象 addonId がルーティングテーブルに存在しない |
-| `ADDON_INACTIVE` | 対象アドオンが inactive 状態 |
-| `ADDON_UNRESOLVED` | 対象アドオンが unresolved 状態（依存解決前） |
-| `CANCELLED_BY_HOOK` | before フックが `ctx.cancel()` を呼び出してキャンセルした |
+| `ADDON_NOT_FOUND` | The target addonId does not exist in the routing table. |
+| `ADDON_INACTIVE` | The target addon is in an inactive state. |
+| `ADDON_UNRESOLVED` | The target addon is in an unresolved state (dependencies not yet resolved). |
+| `CANCELLED_BY_HOOK` | A `before` hook called `ctx.cancel()` to cancel the call. |
 
-## 使用例
+## Usage
 
 ```typescript
 const result = await router.request<{ balance: number }>(
@@ -54,18 +54,18 @@ const result = await router.request<{ balance: number }>(
 if ('cancelled' in result) {
   switch (result.reason) {
     case 'ADDON_NOT_FOUND':
-      console.warn('economy-addon が見つかりません')
+      console.warn('economy-addon not found')
       break
     case 'ADDON_INACTIVE':
-      console.warn('economy-addon は現在停止中です')
+      console.warn('economy-addon is currently inactive')
       break
     case 'CANCELLED_BY_HOOK':
-      console.warn('フックによってキャンセルされました')
+      console.warn('Call was cancelled by a hook')
       break
     default:
-      console.warn('キャンセルされました:', result.reason)
+      console.warn('Call cancelled:', result.reason)
   }
 } else {
-  console.log('残高:', result.balance)
+  console.log('Balance:', result.balance)
 }
 ```

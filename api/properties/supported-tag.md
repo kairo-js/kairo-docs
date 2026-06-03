@@ -2,7 +2,7 @@
 
 `import { SupportedTag } from '@kairo-js/properties'`
 
-アドオンのサポート状態を示すタグの定数を定義する列挙型です。`AddonProperties.tags` の値として使用できます。
+Constants for addon support status tags. Used in the `tags` field of `AddonProperties` to indicate the stability or review status of an addon.
 
 ```typescript
 enum SupportedTag {
@@ -13,34 +13,34 @@ enum SupportedTag {
 }
 ```
 
-## メンバー
+## Members
 
 ### Official
 
-値: `"official"`
+Value: `"official"`
 
-公式サポートのアドオンであることを示すタグ。
+The addon is officially maintained by the kairo-js project.
 
 ---
 
 ### Approved
 
-値: `"approved"`
+Value: `"approved"`
 
-承認済みのアドオンであることを示すタグ。
+The addon has been reviewed and approved by the community or a designated authority.
 
 ---
 
 ### Stable
 
-値: `"stable"`
+Value: `"stable"`
 
-安定版のアドオンであることを示すタグ。
+The addon is considered stable for production use.
 
 ---
 
 ### Experimental
 
-値: `"experimental"`
+Value: `"experimental"`
 
-実験的なアドオンであることを示すタグ。
+The addon is experimental and its API may change without notice.

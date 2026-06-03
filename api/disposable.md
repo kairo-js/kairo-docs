@@ -2,7 +2,7 @@
 
 `import type { Disposable } from '@kairo-js/router'`
 
-`subscribe()` の戻り値など、解放可能なリソースを表すインターフェースです。
+Represents a releasable resource, such as the return value of `subscribe()`.
 
 ```typescript
 interface Disposable {
@@ -10,7 +10,7 @@ interface Disposable {
 }
 ```
 
-## メソッド
+## Methods
 
 ### dispose()
 
@@ -18,21 +18,21 @@ interface Disposable {
 dispose(): void
 ```
 
-リソースを解放します。イベント購読の場合は購読が解除されます。
+Releases the resource. For event subscriptions, calling `dispose()` unsubscribes the handler.
 
-**返り値:** `void`
+**Returns:** `void`
 
-## 使用例
+## Usage
 
 ```typescript
 import { router } from '@kairo-js/router'
 
-// subscribe の戻り値として Disposable を受け取る
+// Receive a Disposable from subscribe()
 const disposable = router.afterEvents.playerJoin.subscribe((ev) => {
-  console.log(`${ev.playerName} が参加しました`)
+  console.log(`${ev.playerName} joined`)
 })
 
-// 不要になったタイミングで dispose する
+// Dispose when the addon deactivates
 router.beforeEvents.addonDeactivate.subscribe(() => {
   disposable.dispose()
 })

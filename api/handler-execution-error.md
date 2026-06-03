@@ -4,16 +4,16 @@
 
 **extends** `Error`
 
-API ハンドラが例外をスローした場合にスローされます。`router.request()` の Promise が reject される形で呼び出し元に伝播します。
+Thrown when the API handler throws. Propagates to the caller as a rejected `router.request()` Promise.
 
-## コンストラクター
+## Constructor
 
 ```typescript
 constructor(cause?: unknown)
 ```
 
-**パラメーター**
+**Parameters**
 
 - **cause:** `unknown`
 
-  元となった例外（省略可能）。
+  The original exception that was thrown (optional).

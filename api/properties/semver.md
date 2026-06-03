@@ -2,7 +2,7 @@
 
 `import type { SemVer } from '@kairo-js/properties'`
 
-セマンティックバージョンを表すインターフェースです。`AddonHeader.version` フィールドに設定します。
+Semantic version object following the [Semantic Versioning 2.0.0](https://semver.org/) specification.
 
 ```typescript
 interface SemVer {
@@ -14,13 +14,13 @@ interface SemVer {
 }
 ```
 
-## フィールド
+## Fields
 
 ### major
 
 `readonly major: number`
 
-メジャーバージョン番号。
+The major version number. Incremented for incompatible API changes.
 
 ---
 
@@ -28,7 +28,7 @@ interface SemVer {
 
 `readonly minor: number`
 
-マイナーバージョン番号。
+The minor version number. Incremented for backward-compatible new functionality.
 
 ---
 
@@ -36,7 +36,7 @@ interface SemVer {
 
 `readonly patch: number`
 
-パッチバージョン番号。
+The patch version number. Incremented for backward-compatible bug fixes.
 
 ---
 
@@ -44,7 +44,7 @@ interface SemVer {
 
 `readonly prerelease?: string`
 
-プレリリース識別子（省略可能）。例: `"alpha.1"`、`"beta.2"`。
+An optional pre-release identifier (e.g. `"beta.1"`, `"alpha"`).
 
 ---
 
@@ -52,4 +52,4 @@ interface SemVer {
 
 `readonly build?: string`
 
-ビルドメタデータ（省略可能）。例: `"20231001"`。
+An optional build metadata string (e.g. `"20240101"`). Ignored when comparing versions.

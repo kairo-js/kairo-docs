@@ -1,6 +1,6 @@
 # @kairo-js/properties
 
-Minecraft アドオンのプロパティ・メタデータ定義に使用する型・定数を提供するパッケージです。`router.init()` に渡す `AddonProperties` オブジェクトの構築に使用します。
+Addon property definitions and type declarations for the kairo-js ecosystem. Provides the `AddonProperties` structure passed to `router.init()`, along with supporting interfaces, enums, and types.
 
 ## Available Versions
 

@@ -2,7 +2,7 @@
 
 `import type { Random } from '@kairo-js/utils'`
 
-乱数生成器のインターフェースです。[`SeedRandom`](/api/utils/seed-random) クラスがこのインターフェースを実装しています。
+Interface for random number generators. Implement this interface to provide a custom source of randomness.
 
 ```typescript
 interface Random {
@@ -10,16 +10,14 @@ interface Random {
 }
 ```
 
-## メソッド
+## Methods
 
-- [next](#next)
-
-### next {#next}
+### next()
 
 ```typescript
 next(): number
 ```
 
-0 以上 1 未満の乱数を返します。
+Returns the next random number.
 
-**返り値:** `number`
+**Returns:** `number` — A value in the range `[0, 1)`.

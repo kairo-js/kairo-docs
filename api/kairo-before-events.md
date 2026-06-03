@@ -2,37 +2,29 @@
 
 `import { router } from '@kairo-js/router'`
 
-`router.beforeEvents` からアクセスするクラスです。各プロパティは [`Subscribable<T>`](/api/subscribable) を実装しています。
+The class accessed via `router.beforeEvents`. Each property implements [`Subscribable<T>`](/api/subscribable).
 
-## プロパティ
+## Properties
 
-### kairo 独自イベント
+### Kairo-specific events
+
+### Minecraft ScriptAPI pass-through events
+
+Events corresponding to `WorldBeforeEvents` from `@minecraft/server`.
 
 ### addonDeactivate
 
 `readonly addonDeactivate: Subscribable<AddonDeactivateBeforeEvent>`
 
-アドオンが停止される前に発火。
+Fires before an addon is deactivated.
 
 ---
-
-### startup
-
-`readonly startup: Subscribable<KairoStartupBeforeEvent>`
-
-Minecraft の `worldLoad` より前に発火。API 宣言はここで行う。
-
----
-
-### Minecraft ScriptAPI pass-through イベント
-
-`@minecraft/server` の `WorldBeforeEvents` に対応するイベントです。
 
 ### effectAdd
 
 `readonly effectAdd: Subscribable<EffectAddBeforeEvent>`
 
-`@minecraft/server` の `WorldBeforeEvents.effectAdd` に対応します。
+Corresponds to `WorldBeforeEvents.effectAdd` in `@minecraft/server`.
 
 ---
 
@@ -40,7 +32,7 @@ Minecraft の `worldLoad` より前に発火。API 宣言はここで行う。
 
 `readonly entityHeal: Subscribable<EntityHealBeforeEvent>`
 
-`@minecraft/server` の `WorldBeforeEvents.entityHeal` に対応します。
+Corresponds to `WorldBeforeEvents.entityHeal` in `@minecraft/server`.
 
 ---
 
@@ -48,7 +40,7 @@ Minecraft の `worldLoad` より前に発火。API 宣言はここで行う。
 
 `readonly entityItemPickup: Subscribable<EntityItemPickupBeforeEvent>`
 
-`@minecraft/server` の `WorldBeforeEvents.entityItemPickup` に対応します。
+Corresponds to `WorldBeforeEvents.entityItemPickup` in `@minecraft/server`.
 
 ---
 
@@ -56,7 +48,7 @@ Minecraft の `worldLoad` より前に発火。API 宣言はここで行う。
 
 `readonly entityRemove: Subscribable<EntityRemoveBeforeEvent>`
 
-`@minecraft/server` の `WorldBeforeEvents.entityRemove` に対応します。
+Corresponds to `WorldBeforeEvents.entityRemove` in `@minecraft/server`.
 
 ---
 
@@ -64,7 +56,7 @@ Minecraft の `worldLoad` より前に発火。API 宣言はここで行う。
 
 `readonly explosion: Subscribable<ExplosionBeforeEvent>`
 
-`@minecraft/server` の `WorldBeforeEvents.explosion` に対応します。
+Corresponds to `WorldBeforeEvents.explosion` in `@minecraft/server`.
 
 ---
 
@@ -72,7 +64,7 @@ Minecraft の `worldLoad` より前に発火。API 宣言はここで行う。
 
 `readonly itemUse: Subscribable<ItemUseBeforeEvent>`
 
-`@minecraft/server` の `WorldBeforeEvents.itemUse` に対応します。
+Corresponds to `WorldBeforeEvents.itemUse` in `@minecraft/server`.
 
 ---
 
@@ -80,7 +72,7 @@ Minecraft の `worldLoad` より前に発火。API 宣言はここで行う。
 
 `readonly playerBreakBlock: Subscribable<PlayerBreakBlockBeforeEvent>`
 
-`@minecraft/server` の `WorldBeforeEvents.playerBreakBlock` に対応します。
+Corresponds to `WorldBeforeEvents.playerBreakBlock` in `@minecraft/server`.
 
 ---
 
@@ -88,7 +80,7 @@ Minecraft の `worldLoad` より前に発火。API 宣言はここで行う。
 
 `readonly playerGameModeChange: Subscribable<PlayerGameModeChangeBeforeEvent>`
 
-`@minecraft/server` の `WorldBeforeEvents.playerGameModeChange` に対応します。
+Corresponds to `WorldBeforeEvents.playerGameModeChange` in `@minecraft/server`.
 
 ---
 
@@ -96,7 +88,7 @@ Minecraft の `worldLoad` より前に発火。API 宣言はここで行う。
 
 `readonly playerInteractWithBlock: Subscribable<PlayerInteractWithBlockBeforeEvent>`
 
-`@minecraft/server` の `WorldBeforeEvents.playerInteractWithBlock` に対応します。
+Corresponds to `WorldBeforeEvents.playerInteractWithBlock` in `@minecraft/server`.
 
 ---
 
@@ -104,7 +96,7 @@ Minecraft の `worldLoad` より前に発火。API 宣言はここで行う。
 
 `readonly playerInteractWithEntity: Subscribable<PlayerInteractWithEntityBeforeEvent>`
 
-`@minecraft/server` の `WorldBeforeEvents.playerInteractWithEntity` に対応します。
+Corresponds to `WorldBeforeEvents.playerInteractWithEntity` in `@minecraft/server`.
 
 ---
 
@@ -112,7 +104,7 @@ Minecraft の `worldLoad` より前に発火。API 宣言はここで行う。
 
 `readonly playerLeave: Subscribable<PlayerLeaveBeforeEvent>`
 
-`@minecraft/server` の `WorldBeforeEvents.playerLeave` に対応します。
+Corresponds to `WorldBeforeEvents.playerLeave` in `@minecraft/server`.
 
 ---
 
@@ -120,7 +112,15 @@ Minecraft の `worldLoad` より前に発火。API 宣言はここで行う。
 
 `readonly shutdown: Subscribable<ShutdownBeforeEvent>`
 
-`@minecraft/server` の `WorldBeforeEvents.shutdown` に対応します。
+Corresponds to `WorldBeforeEvents.shutdown` in `@minecraft/server`.
+
+---
+
+### startup
+
+`readonly startup: Subscribable<KairoStartupBeforeEvent>`
+
+Fires before Minecraft's `worldLoad`. Declare all APIs here.
 
 ---
 
@@ -128,11 +128,11 @@ Minecraft の `worldLoad` より前に発火。API 宣言はここで行う。
 
 `readonly weatherChange: Subscribable<WeatherChangeBeforeEvent>`
 
-`@minecraft/server` の `WorldBeforeEvents.weatherChange` に対応します。
+Corresponds to `WorldBeforeEvents.weatherChange` in `@minecraft/server`.
 
 ---
 
-## 使用例
+## Usage
 
 ```typescript
 import { router } from '@kairo-js/router'
@@ -144,7 +144,7 @@ router.beforeEvents.startup.subscribe((ev) => {
 })
 
 router.beforeEvents.playerBreakBlock.subscribe((ev) => {
-  // ブロック破壊をキャンセルする例
+  // Cancel a block break
   ev.cancel()
 })
 ```

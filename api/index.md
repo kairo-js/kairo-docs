@@ -1,6 +1,6 @@
 # @kairo-js/router
 
-Minecraft Bedrock Edition のアドオン間通信フレームワーク。`router` オブジェクトと `KairoApiRegistry` を使って、複数のビヘイビアーパック間での API 呼び出し・フック・カスタムイベントを実現します。
+Inter-addon communication framework for Minecraft Bedrock Edition. Use the `router` object and `KairoApiRegistry` to enable API calls, hooks, and custom events across multiple behavior packs.
 
 ## Available Versions
 
@@ -48,6 +48,6 @@ Minecraft Bedrock Edition のアドオン間通信フレームワーク。`route
 
 `static readonly router: KairoRouter`
 
-アドオンのライフサイクル・API 通信・イベントを管理するクラスです。kairo-router パッケージのメインエントリーポイントです。
+Main class managing addon lifecycle, API communication, and events. This is the primary entry point of the kairo-router package.
 
-**型:** [`KairoRouter`](/api/kairo-router)
+**Type:** [`KairoRouter`](/api/kairo-router)

@@ -2,15 +2,15 @@
 
 `import { router } from '@kairo-js/router'`
 
-`router` シングルトンとして export されるクラスです。アドオンの初期化・API 呼び出し・イベント購読など、kairo-router の主要機能を提供します。
+The class exported as the `router` singleton. Provides the core functionality of kairo-router: addon initialization, API calls, event subscriptions, and more.
 
-## プロパティ
+## Properties
 
 ### afterEvents
 
 `readonly afterEvents: KairoAfterEvents`
 
-after イベントの購読。
+Subscribe to after events.
 
 ---
 
@@ -18,7 +18,7 @@ after イベントの購読。
 
 `readonly beforeEvents: KairoBeforeEvents`
 
-before イベントの購読。
+Subscribe to before events.
 
 ---
 
@@ -26,7 +26,7 @@ before イベントの購読。
 
 `readonly currentTick: number`
 
-現在の tick 数（getter）。
+Current tick count since activation (getter).
 
 ---
 
@@ -34,11 +34,11 @@ before イベントの購読。
 
 `readonly systemInfo: KairoContext`
 
-アドオンのコンテキスト情報（getter）。
+Addon context info (getter).
 
 ---
 
-## メソッド
+## Methods
 
 - [clearRun](#clearrun)
 - [emit](#emit)
@@ -56,15 +56,15 @@ before イベントの購読。
 clearRun(runId: number): void
 ```
 
-`runInterval()` または `runTimeout()` でスケジュールした実行をキャンセルします。
+Cancels a scheduled run created by `runInterval()` or `runTimeout()`.
 
-**パラメーター**
+**Parameters**
 
 - **runId:** `number`
 
-  キャンセルする実行の ID。
+  The ID of the run to cancel.
 
-**返り値:** `void`
+**Returns:** `void`
 
 ---
 
@@ -74,18 +74,18 @@ clearRun(runId: number): void
 emit(eventName: string, payload?: unknown): void
 ```
 
-カスタムイベントを送出します。`AddonEventRegistry.on()` で購読しているハンドラに配信されます。
+Emits a custom event. Delivered to handlers subscribed via `AddonEventRegistry.on()`.
 
-**パラメーター**
+**Parameters**
 
 - **eventName:** `string`
 
-  送出するイベント名。
+  The name of the event to emit.
 - **payload:** `unknown`
 
-  イベントに添付するデータ（省略可能）。
+  Data to attach to the event (optional).
 
-**返り値:** `void`
+**Returns:** `void`
 
 ---
 
@@ -95,9 +95,9 @@ emit(eventName: string, payload?: unknown): void
 getAddonId(): string | undefined
 ```
 
-自アドオンの addonId を返します。アドオンが登録される前は `undefined` を返します。
+Returns the addonId of this addon. Returns `undefined` before the addon is registered.
 
-**返り値:** `string | undefined`
+**Returns:** `string | undefined`
 
 ---
 
@@ -108,15 +108,15 @@ getAddonId(): string | undefined
 init(properties: AddonProperties): void
 ```
 
-アドオンを初期化します。
+Initializes the addon.
 
-**パラメーター**
+**Parameters**
 
 - **properties:** `AddonProperties`
 
-  アドオンの設定情報。
+  The addon's configuration.
 
-**返り値:** `void`
+**Returns:** `void`
 
 ---
 
@@ -131,24 +131,24 @@ request<TReturn>(
 ): Promise<TReturn | CancelledResult>
 ```
 
-結果を待つ形式で API を呼び出します。`timeout` は tick 単位で、デフォルトは 20 tick です。
+Calls an API and awaits the result. `timeout` is in ticks; default is 20 ticks.
 
-**パラメーター**
+**Parameters**
 
 - **targetAddonId:** `string`
 
-  呼び出し先アドオンの ID。
+  The ID of the target addon.
 - **apiName:** `string`
 
-  呼び出す API 名。
+  The name of the API to call.
 - **args:** `unknown`
 
-  API に渡す引数（省略可能）。
+  Arguments to pass to the API (optional).
 - **options.timeout:** `number`
 
-  タイムアウト（tick 単位、デフォルト 20）。
+  Timeout in ticks (default 20).
 
-**返り値:** `Promise<TReturn | CancelledResult>`
+**Returns:** `Promise<TReturn | CancelledResult>`
 
 ```typescript
 const result = await router.request<{ balance: number }>(
@@ -158,9 +158,9 @@ const result = await router.request<{ balance: number }>(
 )
 
 if ('cancelled' in result) {
-  console.warn('キャンセルされました:', result.reason)
+  console.warn('Request cancelled:', result.reason)
 } else {
-  console.log('残高:', result.balance)
+  console.log('Balance:', result.balance)
 }
 ```
 
@@ -172,18 +172,18 @@ if ('cancelled' in result) {
 runInterval(callback: () => void, tickInterval?: number): number
 ```
 
-指定した tick 間隔で callback を定期実行します。`clearRun()` に渡す runId を返します。
+Schedules a recurring callback at the given tick interval. Returns a runId to pass to `clearRun()`.
 
-**パラメーター**
+**Parameters**
 
 - **callback:** `() => void`
 
-  定期実行する処理。
+  The function to run repeatedly.
 - **tickInterval:** `number`
 
-  実行間隔（tick 単位、省略可能）。
+  Interval in ticks (optional).
 
-**返り値:** `number` — runId
+**Returns:** `number` — runId
 
 ---
 
@@ -193,18 +193,18 @@ runInterval(callback: () => void, tickInterval?: number): number
 runTimeout(callback: () => void, tickDelay?: number): number
 ```
 
-指定した tick 後に callback を 1 度だけ実行します。`clearRun()` に渡す runId を返します。
+Schedules a one-shot callback after the given tick delay. Returns a runId to pass to `clearRun()`.
 
-**パラメーター**
+**Parameters**
 
 - **callback:** `() => void`
 
-  遅延実行する処理。
+  The function to run once.
 - **tickDelay:** `number`
 
-  遅延時間（tick 単位、省略可能）。
+  Delay in ticks (optional).
 
-**返り値:** `number` — runId
+**Returns:** `number` — runId
 
 ---
 
@@ -214,21 +214,21 @@ runTimeout(callback: () => void, tickDelay?: number): number
 send(targetAddonId: string, apiName: string, args?: unknown): void
 ```
 
-fire-and-forget 形式で API を呼び出します。返答を待ちません。対象アドオンが存在しない・inactive であっても無視されます。
+Calls an API in fire-and-forget fashion. Does not wait for a response. Silently ignored if the target addon does not exist or is inactive.
 
-**パラメーター**
+**Parameters**
 
 - **targetAddonId:** `string`
 
-  呼び出し先アドオンの ID。
+  The ID of the target addon.
 - **apiName:** `string`
 
-  呼び出す API 名。
+  The name of the API to call.
 - **args:** `unknown`
 
-  API に渡す引数（省略可能）。
+  Arguments to pass to the API (optional).
 
-**返り値:** `void`
+**Returns:** `void`
 
 ```typescript
 router.send('economy-addon', 'onTransaction', { amount: 50 })
@@ -242,6 +242,6 @@ router.send('economy-addon', 'onTransaction', { amount: 50 })
 waitForWorldLoad(): Promise<void>
 ```
 
-ワールド読み込みが完了するまで待機します。
+Resolves when the world finishes loading.
 
-**返り値:** `Promise<void>`
+**Returns:** `Promise<void>`

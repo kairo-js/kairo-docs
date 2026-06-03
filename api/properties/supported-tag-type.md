@@ -2,8 +2,10 @@
 
 `import type { SupportedTagType } from '@kairo-js/properties'`
 
-アドオンのサポート状態を示すタグの union 型です。`AddonProperties.tags` フィールドの要素型として使用します。[`SupportedTag`](/api/properties/supported-tag) 列挙型の各メンバー値に対応します。
+A union type of all supported addon status tag strings. Derived from the values of the [`SupportedTag`](/api/properties/supported-tag) enum.
 
 ```typescript
 type SupportedTagType = "official" | "approved" | "stable" | "experimental"
 ```
+
+Use the [`SupportedTag`](/api/properties/supported-tag) enum constants as a convenience instead of writing the string literals directly.

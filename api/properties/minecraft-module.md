@@ -2,7 +2,7 @@
 
 `import { MinecraftModule } from '@kairo-js/properties'`
 
-Minecraft モジュール名の定数を定義する列挙型です。`MinecraftDependency.module_name` の値として使用できます。
+Constants for Minecraft module names. Use these values when declaring `minecraftDependencies` in `AddonProperties`.
 
 ```typescript
 enum MinecraftModule {
@@ -19,82 +19,82 @@ enum MinecraftModule {
 }
 ```
 
-## メンバー
+## Members
 
 ### Server
 
-値: `"@minecraft/server"`
+Value: `"@minecraft/server"`
 
-Minecraft サーバー API モジュール。
+The core Minecraft server scripting module.
 
 ---
 
 ### ServerUi
 
-値: `"@minecraft/server-ui"`
+Value: `"@minecraft/server-ui"`
 
-Minecraft サーバー UI モジュール。
+The Minecraft server UI scripting module.
 
 ---
 
 ### ServerGameTest
 
-値: `"@minecraft/server-gametest"`
+Value: `"@minecraft/server-gametest"`
 
-Minecraft GameTest フレームワークモジュール。
+The Minecraft GameTest framework module.
 
 ---
 
 ### ServerEditor
 
-値: `"@minecraft/server-editor"`
+Value: `"@minecraft/server-editor"`
 
-Minecraft エディター API モジュール。
+The Minecraft server editor module.
 
 ---
 
 ### ServerEditorPrivateBindings
 
-値: `"@minecraft/server-editor-private-bindings"`
+Value: `"@minecraft/server-editor-private-bindings"`
 
-Minecraft エディタープライベートバインディングモジュール。
+The Minecraft server editor private bindings module.
 
 ---
 
 ### ServerNet
 
-値: `"@minecraft/server-net"`
+Value: `"@minecraft/server-net"`
 
-Minecraft サーバーネットワークモジュール。
+The Minecraft server networking module.
 
 ---
 
 ### ServerAdmin
 
-値: `"@minecraft/server-admin"`
+Value: `"@minecraft/server-admin"`
 
-Minecraft サーバー管理モジュール。
+The Minecraft server administration module.
 
 ---
 
 ### DebugUtilities
 
-値: `"@minecraft/debug-utilities"`
+Value: `"@minecraft/debug-utilities"`
 
-Minecraft デバッグユーティリティモジュール。
+The Minecraft debug utilities module.
 
 ---
 
 ### Diagnostics
 
-値: `"@minecraft/diagnostics"`
+Value: `"@minecraft/diagnostics"`
 
-Minecraft 診断モジュール。
+The Minecraft diagnostics module.
 
 ---
 
 ### ServerGraphics
 
-値: `"@minecraft/server-graphics"`
+Value: `"@minecraft/server-graphics"`
 
-Minecraft サーバーグラフィクスモジュール。
+The Minecraft server graphics module.

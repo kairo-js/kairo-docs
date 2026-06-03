@@ -2,17 +2,17 @@
 
 `import { router } from '@kairo-js/router'`
 
-`router.beforeEvents.addonDeactivate` のイベントオブジェクトです。ユーザーが直接インスタンス化することはありません。
+The event object for `router.beforeEvents.addonDeactivate`. Not directly instantiable.
 
-アドオンが停止される前に発火します。リソースの解放やクリーンアップ処理をここで行います。
+Fires before an addon is deactivated. Use this handler to release resources and perform cleanup.
 
-## 使用例
+## Usage
 
 ```typescript
 import { router } from '@kairo-js/router'
 
 router.beforeEvents.addonDeactivate.subscribe((ev) => {
-  console.log('アドオンが停止されます')
-  // クリーンアップ処理
+  console.log('Addon is about to deactivate')
+  // Cleanup logic here
 })
 ```

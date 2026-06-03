@@ -2,7 +2,7 @@
 
 `import type { AddonHeader } from '@kairo-js/properties'`
 
-アドオンのヘッダー情報を定義するインターフェースです。`AddonProperties.header` フィールドに設定します。
+Addon header information. Contains the identity and version constraints for an addon, equivalent to the `header` block in a Minecraft behavior pack manifest.
 
 ```typescript
 interface AddonHeader {
@@ -13,13 +13,13 @@ interface AddonHeader {
 }
 ```
 
-## フィールド
+## Fields
 
 ### name
 
 `readonly name: string`
 
-アドオンの表示名。
+The display name of the addon.
 
 ---
 
@@ -27,7 +27,7 @@ interface AddonHeader {
 
 `readonly description: string`
 
-アドオンの説明文。
+A short description of the addon.
 
 ---
 
@@ -35,9 +35,7 @@ interface AddonHeader {
 
 `readonly version: SemVer`
 
-アドオンのバージョン。
-
-**型:** [`SemVer`](/api/properties/semver)
+The version of the addon. See [`SemVer`](/api/properties/semver).
 
 ---
 
@@ -45,6 +43,4 @@ interface AddonHeader {
 
 `readonly min_engine_version: EngineVersion`
 
-このアドオンが動作する Minecraft エンジンの最低バージョン。
-
-**型:** [`EngineVersion`](/api/properties/engine-version)
+The minimum Minecraft engine version required to run this addon. See [`EngineVersion`](/api/properties/engine-version).

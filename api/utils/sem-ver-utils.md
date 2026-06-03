@@ -2,9 +2,9 @@
 
 `import { SemVerUtils } from '@kairo-js/utils'`
 
-セマンティックバージョンのユーティリティクラスです。すべてのメソッドは `static` で、インスタンス化は不要です。
+Semantic version utility class. All methods are static. Provides comparison, formatting, and range-checking operations for [`SemVer`](/api/properties/semver) objects.
 
-## メソッド
+## Methods
 
 - [compare](#compare)
 - [equals](#equals)
@@ -19,18 +19,18 @@
 static compare(a: SemVer, b: SemVer): number
 ```
 
-2 つのバージョンを比較します。
+Compares two semantic versions.
 
-**パラメーター**
+**Parameters**
 
 - **a:** `SemVer`
 
-  比較元のバージョン。
+  The first version.
 - **b:** `SemVer`
 
-  比較先のバージョン。
+  The second version.
 
-**返り値:** `number` — `a < b` なら負の値、`a > b` なら正の値、等しければ `0`。
+**Returns:** `number` — A negative number if `a < b`, a positive number if `a > b`, or `0` if they are equal.
 
 ---
 
@@ -40,18 +40,18 @@ static compare(a: SemVer, b: SemVer): number
 static equals(a: SemVer, b: SemVer): boolean
 ```
 
-2 つのバージョンが等しいかを判定します。
+Checks whether two semantic versions are equal.
 
-**パラメーター**
+**Parameters**
 
 - **a:** `SemVer`
 
-  比較元のバージョン。
+  The first version.
 - **b:** `SemVer`
 
-  比較先のバージョン。
+  The second version.
 
-**返り値:** `boolean`
+**Returns:** `boolean` — `true` if `a` and `b` represent the same version, otherwise `false`.
 
 ---
 
@@ -61,15 +61,15 @@ static equals(a: SemVer, b: SemVer): boolean
 static format(version: SemVer): string
 ```
 
-`SemVer` オブジェクトをバージョン文字列に変換します。
+Converts a `SemVer` object to its string representation (e.g. `"1.2.3"` or `"1.2.3-beta.1"`).
 
-**パラメーター**
+**Parameters**
 
 - **version:** `SemVer`
 
-  変換するバージョン。
+  The version to format.
 
-**返り値:** `string` — 例: `"1.2.3"`、`"1.2.3-beta.1"`、`"1.2.3+build.20231001"`。
+**Returns:** `string` — The formatted version string.
 
 ---
 
@@ -79,15 +79,15 @@ static format(version: SemVer): string
 static isPrerelease(version: SemVer): boolean
 ```
 
-バージョンがプレリリースかどうかを返します。`SemVer.prerelease` フィールドが存在する場合に `true` を返します。
+Checks whether a version is a pre-release version.
 
-**パラメーター**
+**Parameters**
 
 - **version:** `SemVer`
 
-  検査するバージョン。
+  The version to check.
 
-**返り値:** `boolean`
+**Returns:** `boolean` — `true` if the version has a non-empty `prerelease` field, otherwise `false`.
 
 ---
 
@@ -97,18 +97,18 @@ static isPrerelease(version: SemVer): boolean
 static rcompare(a: SemVer, b: SemVer): number
 ```
 
-`compare` の逆順で比較します。降順ソートに使用します。
+Compares two semantic versions in reverse order. Equivalent to `compare(b, a)`. Useful for sorting a list of versions in descending order.
 
-**パラメーター**
+**Parameters**
 
 - **a:** `SemVer`
 
-  比較元のバージョン。
+  The first version.
 - **b:** `SemVer`
 
-  比較先のバージョン。
+  The second version.
 
-**返り値:** `number` — `a > b` なら負の値、`a < b` なら正の値、等しければ `0`。
+**Returns:** `number` — A positive number if `a < b`, a negative number if `a > b`, or `0` if they are equal.
 
 ---
 
@@ -118,33 +118,15 @@ static rcompare(a: SemVer, b: SemVer): number
 static satisfies(version: SemVer, range: string): boolean
 ```
 
-バージョンが指定したレンジを満たすかどうかを返します。
+Checks whether a version satisfies a semver range string.
 
-**パラメーター**
+**Parameters**
 
 - **version:** `SemVer`
 
-  検査するバージョン。
+  The version to test.
 - **range:** `string`
 
-  バージョンレンジ文字列。例: `">=1.0.0"`、`"^2.3.0"`、`"*"`。
+  A semver range string (e.g. `"^1.0.0"`, `">=2.1.0 <3.0.0"`).
 
-**返り値:** `boolean`
-
-## 使用例
-
-```typescript
-import { SemVerUtils } from '@kairo-js/utils'
-
-const v1 = { major: 1, minor: 2, patch: 3 }
-const v2 = { major: 2, minor: 0, patch: 0 }
-
-console.log(SemVerUtils.compare(v1, v2))    // 負の値
-console.log(SemVerUtils.equals(v1, v1))     // true
-console.log(SemVerUtils.format(v1))         // "1.2.3"
-console.log(SemVerUtils.isPrerelease(v1))   // false
-console.log(SemVerUtils.satisfies(v1, '>=1.0.0')) // true
-
-const versions = [v2, v1]
-versions.sort(SemVerUtils.rcompare) // 降順: [v2, v1]
-```
+**Returns:** `boolean` — `true` if `version` satisfies the given range, otherwise `false`.

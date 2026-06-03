@@ -2,7 +2,7 @@
 
 `import type { HookRollbackContext } from '@kairo-js/router'`
 
-rollback フックのコンテキストオブジェクトです。before フックが例外をスローした場合のみ発火します。`HookOptions.rollback` のハンドラに渡されます。
+The context object passed to `rollback` hook handlers (`HookOptions.rollback`). Only fires when a `before` hook throws.
 
 ```typescript
 type HookRollbackContext<TArgs> = {
@@ -12,13 +12,13 @@ type HookRollbackContext<TArgs> = {
 }
 ```
 
-## フィールド
+## Fields
 
 ### callerAddonId
 
 `readonly callerAddonId: string`
 
-呼び出し元アドオンの addonId（読み取り専用）。
+The addonId of the caller (read-only).
 
 ---
 
@@ -26,7 +26,7 @@ type HookRollbackContext<TArgs> = {
 
 `readonly currentArgsSnapshot: DeepReadonly<TArgs>`
 
-この rollback 実行時点の args のスナップショット。mutation 禁止。新しいオブジェクトとして返すこと。
+Snapshot of args at this rollback's execution point. Do not mutate. Return a new object instead.
 
 ---
 
@@ -34,18 +34,18 @@ type HookRollbackContext<TArgs> = {
 
 `readonly rollbackData: unknown`
 
-`setRollbackData()` で格納した値。未設定の場合は `undefined`。
+The value stored via `setRollbackData()`. `undefined` if not set.
 
 ---
 
-## 返り値について
+## Return value
 
-rollback 関数の返り値の型は `Promise<TArgs | void>` です。
+The rollback function's return type is `Promise<TArgs | void>`.
 
-- `TArgs` を返した場合: 後続の rollback ハンドラが `currentArgsSnapshot` としてその値を受け取ります。
-- `void` を返した場合: args に変更は加えられません。
+- Returning `TArgs`: subsequent rollback handlers receive that value as `currentArgsSnapshot`.
+- Returning `void`: no change is made to args.
 
-## 使用例
+## Usage
 
 ```typescript
 ev.api.hook('economy-addon', 'economy/deduct', {

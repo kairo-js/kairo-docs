@@ -2,7 +2,7 @@
 
 `import type { EngineVersion } from '@kairo-js/properties'`
 
-Minecraft エンジンの最低バージョンを表すインターフェースです。`AddonHeader.min_engine_version` フィールドに設定します。
+Minimum Minecraft engine version required by an addon. Corresponds to the `min_engine_version` field in a behavior pack manifest.
 
 ```typescript
 interface EngineVersion {
@@ -12,13 +12,13 @@ interface EngineVersion {
 }
 ```
 
-## フィールド
+## Fields
 
 ### major
 
 `readonly major: number`
 
-メジャーバージョン番号。
+The major version component.
 
 ---
 
@@ -26,7 +26,7 @@ interface EngineVersion {
 
 `readonly minor: number`
 
-マイナーバージョン番号。
+The minor version component.
 
 ---
 
@@ -34,4 +34,4 @@ interface EngineVersion {
 
 `readonly patch: number`
 
-パッチバージョン番号。
+The patch version component.

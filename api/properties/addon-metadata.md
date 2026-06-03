@@ -2,7 +2,7 @@
 
 `import type { AddonMetadata } from '@kairo-js/properties'`
 
-アドオンの任意メタデータを定義するインターフェースです。`AddonProperties.metadata` フィールドに設定します。すべてのフィールドは省略可能です。
+Optional metadata for an addon. Provides supplementary information such as authorship and licensing.
 
 ```typescript
 interface AddonMetadata {
@@ -12,13 +12,13 @@ interface AddonMetadata {
 }
 ```
 
-## フィールド
+## Fields
 
 ### authors
 
 `readonly authors?: string[]`
 
-アドオンの作者一覧（省略可能）。
+An optional list of author names.
 
 ---
 
@@ -26,7 +26,7 @@ interface AddonMetadata {
 
 `readonly url?: string`
 
-アドオンのリポジトリや公式ページの URL（省略可能）。
+An optional URL for the addon's homepage or repository.
 
 ---
 
@@ -34,4 +34,4 @@ interface AddonMetadata {
 
 `readonly license?: string`
 
-アドオンのライセンス名（省略可能）。例: `"MIT"`、`"Apache-2.0"`。
+An optional SPDX license identifier or license name.

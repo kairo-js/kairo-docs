@@ -2,7 +2,7 @@
 
 `import type { AddonProperties } from '@kairo-js/properties'`
 
-アドオン全体の定義を表すインターフェースです。`router.init()` に渡すオブジェクトの型として使用します。
+Full addon definition object. Pass an instance of this interface to `router.init()` to register your addon with the kairo-js router.
 
 ```typescript
 interface AddonProperties {
@@ -17,13 +17,13 @@ interface AddonProperties {
 }
 ```
 
-## フィールド
+## Fields
 
 ### id
 
 `readonly id: string`
 
-アドオンの一意な識別子。他のアドオンから参照する際に使用します。
+A unique identifier for this addon. Used as the routing key when other addons call `router.request()` or `router.send()`.
 
 ---
 
@@ -31,9 +31,7 @@ interface AddonProperties {
 
 `readonly metadata?: AddonMetadata`
 
-アドオンのメタデータ（省略可能）。作者情報・URL・ライセンスなどを含みます。
-
-**型:** [`AddonMetadata`](/api/properties/addon-metadata)
+Optional supplementary metadata such as authors, URL, and license. See [`AddonMetadata`](/api/properties/addon-metadata).
 
 ---
 
@@ -41,9 +39,7 @@ interface AddonProperties {
 
 `readonly header: AddonHeader`
 
-アドオンのヘッダー情報。名前・説明・バージョン・最低エンジンバージョンを含みます。
-
-**型:** [`AddonHeader`](/api/properties/addon-header)
+Required header information including name, description, version, and minimum engine version. See [`AddonHeader`](/api/properties/addon-header).
 
 ---
 
@@ -51,9 +47,7 @@ interface AddonProperties {
 
 `readonly minecraftDependencies?: MinecraftDependency[]`
 
-このアドオンが依存する Minecraft モジュールの一覧（省略可能）。
-
-**型:** [`MinecraftDependency[]`](/api/properties/minecraft-dependency)
+Optional list of Minecraft module dependencies this addon requires. See [`MinecraftDependency`](/api/properties/minecraft-dependency).
 
 ---
 
@@ -61,9 +55,7 @@ interface AddonProperties {
 
 `readonly dependencies?: AddonDependencies`
 
-このアドオンが必須とする他アドオンへの依存（省略可能）。指定したアドオンが存在しない場合は起動しません。
-
-**型:** [`AddonDependencies`](/api/properties/addon-dependencies)
+Required kairo-js addon dependencies. The router will not activate this addon until all listed addons are active. See [`AddonDependencies`](/api/properties/addon-dependencies).
 
 ---
 
@@ -71,9 +63,7 @@ interface AddonProperties {
 
 `readonly optionalDependencies?: AddonDependencies`
 
-任意の依存アドオン（省略可能）。指定したアドオンが存在しなくても起動します。
-
-**型:** [`AddonDependencies`](/api/properties/addon-dependencies)
+Optional kairo-js addon dependencies. The router activates this addon regardless of whether optional dependencies are present. See [`AddonDependencies`](/api/properties/addon-dependencies).
 
 ---
 
@@ -81,9 +71,7 @@ interface AddonProperties {
 
 `readonly peerDependencies?: AddonDependencies`
 
-ピア依存アドオン（省略可能）。依存するアドオンのバージョン互換性を宣言します。
-
-**型:** [`AddonDependencies`](/api/properties/addon-dependencies)
+Peer addon dependencies. Declares compatibility expectations without blocking activation. See [`AddonDependencies`](/api/properties/addon-dependencies).
 
 ---
 
@@ -91,6 +79,4 @@ interface AddonProperties {
 
 `readonly tags?: SupportedTagType[]`
 
-アドオンのサポート状態を示すタグの一覧（省略可能）。
-
-**型:** [`SupportedTagType[]`](/api/properties/supported-tag-type)
+Optional list of support status tags. See [`SupportedTagType`](/api/properties/supported-tag-type).

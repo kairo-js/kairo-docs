@@ -2,40 +2,35 @@
 
 `import { safeJsonParse } from '@kairo-js/utils'`
 
-`JSON.parse` をラップし、パース失敗時に指定したエラーをスローする関数です。
+Wraps `JSON.parse` with a structured error strategy. If parsing succeeds, the parsed value is returned. If parsing fails, the provided `error` factory is called and the resulting `Error` is thrown.
 
 ```typescript
 function safeJsonParse(message: string, error: () => Error): unknown
 ```
 
-**パラメーター**
+**Parameters**
 
 - **message:** `string`
 
-  パースする JSON 文字列。
+  The JSON string to parse.
 - **error:** `() => Error`
 
-  JSON パースに失敗した場合に呼び出されるエラーファクトリー関数。
+  A factory function that produces the `Error` to throw when parsing fails. Called only on failure.
 
-**返り値:** `unknown`
+**Returns:** `unknown` — The parsed value. Narrow the type with a validation function such as `compile()`.
 
-## 使用例
+## Usage
 
 ```typescript
-import { safeJsonParse } from '@kairo-js/utils'
+import { safeJsonParse, compile } from '@kairo-js/utils'
+import { Type } from '@sinclair/typebox'
 
-const json = '{"id":"abc","name":"Steve"}'
+const validate = compile(Type.Object({ id: Type.String() }))
 
-const data = safeJsonParse(
-  json,
-  () => new Error('JSON のパースに失敗しました'),
-)
+const raw = '{"id":"abc"}'
+const parsed = safeJsonParse(raw, () => new Error('Invalid JSON payload'))
 
-console.log(data) // { id: 'abc', name: 'Steve' }
-
-// パース失敗時はエラーがスローされる
-safeJsonParse(
-  'invalid json',
-  () => new TypeError('不正な JSON 形式です'),
-) // TypeError をスロー
+if (validate(parsed)) {
+  console.log(parsed.id)
+}
 ```

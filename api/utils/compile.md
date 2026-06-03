@@ -2,42 +2,37 @@
 
 `import { compile } from '@kairo-js/utils'`
 
-TypeBox スキーマから型ガード付き検証関数をコンパイルして返す関数です。
+Compiles a [TypeBox](https://github.com/sinclairzx81/typebox) schema into a typed validation function. The returned function acts as a TypeScript type guard for the inferred static type of the schema.
 
 ```typescript
 function compile<T extends TSchema>(schema: T): ValidateFunction<Static<T>>
 ```
 
-**パラメーター**
+**Parameters**
 
 - **schema:** `T`
 
-  コンパイルする TypeBox スキーマ。
+  A TypeBox schema (`TSchema` subtype). The static type `T` is inferred automatically.
 
-**返り値:** [`ValidateFunction<Static<T>>`](/api/utils/validate-function)
+**Returns:** [`ValidateFunction<Static<T>>`](/api/utils/validate-function) — A compiled type guard function. Call it with an `unknown` value to validate and narrow the type.
 
-## 使用例
+## Usage
 
 ```typescript
 import { compile } from '@kairo-js/utils'
-import { Type, Static } from '@sinclair/typebox'
+import { Type } from '@sinclair/typebox'
 
-const PlayerSchema = Type.Object({
-  id: Type.String(),
-  name: Type.String(),
-  level: Type.Number(),
+const schema = Type.Object({
+  playerId: Type.String(),
+  balance: Type.Number(),
 })
 
-type Player = Static<typeof PlayerSchema>
+const validate = compile(schema)
 
-const isPlayer = compile(PlayerSchema)
-
-function handleData(data: unknown): void {
-  if (!isPlayer(data)) {
-    console.error('不正なデータ:', isPlayer.errors)
-    return
-  }
-  // data は Player 型として使用できる
-  console.log(`${data.name} (Lv.${data.level})`)
+const data: unknown = JSON.parse(rawMessage)
+if (validate(data)) {
+  console.log(data.playerId, data.balance)
+} else {
+  console.error('Validation failed:', validate.errors)
 }
 ```

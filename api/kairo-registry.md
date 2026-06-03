@@ -2,7 +2,7 @@
 
 `import type { KairoRegistry } from '@kairo-js/router'`
 
-`router.systemInfo.kairoRegistry` から取得できる登録情報インターフェースです。
+The registration info interface accessible via `router.systemInfo.kairoRegistry`.
 
 ```typescript
 interface KairoRegistry {
@@ -22,13 +22,13 @@ interface KairoRegistry {
 }
 ```
 
-## フィールド
+## Fields
 
 ### addonId
 
 `readonly addonId: string`
 
-アドオンの識別子。
+The addon's identifier.
 
 ---
 
@@ -36,7 +36,7 @@ interface KairoRegistry {
 
 `readonly dependencies: DependencyMap`
 
-必須依存アドオンのマップ。
+Map of required addon dependencies.
 
 ---
 
@@ -44,7 +44,7 @@ interface KairoRegistry {
 
 `readonly description: string`
 
-アドオンの説明。
+A description of the addon.
 
 ---
 
@@ -52,7 +52,7 @@ interface KairoRegistry {
 
 `readonly kairoId: string`
 
-Kairo が割り当てた内部 ID。
+Internal ID assigned by Kairo.
 
 ---
 
@@ -60,7 +60,7 @@ Kairo が割り当てた内部 ID。
 
 `readonly metadata.authors: string[]`
 
-作者一覧。
+List of authors.
 
 ---
 
@@ -68,7 +68,7 @@ Kairo が割り当てた内部 ID。
 
 `readonly metadata.license: string | undefined`
 
-ライセンス（省略可能）。
+License identifier (optional).
 
 ---
 
@@ -76,7 +76,7 @@ Kairo が割り当てた内部 ID。
 
 `readonly metadata.url: string | undefined`
 
-アドオンの URL（省略可能）。
+URL for the addon (optional).
 
 ---
 
@@ -84,7 +84,7 @@ Kairo が割り当てた内部 ID。
 
 `readonly name: string`
 
-アドオンの表示名。
+The addon's display name.
 
 ---
 
@@ -92,7 +92,7 @@ Kairo が割り当てた内部 ID。
 
 `readonly optionalDependencies: DependencyMap`
 
-任意依存アドオンのマップ。
+Map of optional addon dependencies.
 
 ---
 
@@ -100,7 +100,7 @@ Kairo が割り当てた内部 ID。
 
 `readonly tags: string[]`
 
-アドオンのタグ一覧。
+Tags associated with the addon.
 
 ---
 
@@ -108,6 +108,6 @@ Kairo が割り当てた内部 ID。
 
 `readonly version: SemVer`
 
-アドオンのバージョン。
+The addon's version.
 
 ---

@@ -2,34 +2,29 @@
 
 `import { toError } from '@kairo-js/utils'`
 
-任意の値を `Error` オブジェクトに変換する関数です。すでに `Error` インスタンスの場合はそのまま返します。`catch` ブロックで受け取った値を安全に `Error` として扱う際に使用します。
+Converts any value to an `Error` object. If the value is already an `Error` instance it is returned unchanged. Otherwise, a new `Error` is created whose message is the string representation of the value.
 
 ```typescript
 function toError(e: unknown): Error
 ```
 
-**パラメーター**
+**Parameters**
 
 - **e:** `unknown`
 
-  `Error` に変換する値。
+  The value to convert. Typically the caught value from a `catch` clause.
 
-**返り値:** `Error`
+**Returns:** `Error` — The original value if it is already an `Error`, or a new `Error` wrapping the value otherwise.
 
-## 使用例
+## Usage
 
 ```typescript
 import { toError } from '@kairo-js/utils'
 
 try {
-  // 何らかの処理
+  riskyOperation()
 } catch (e) {
   const error = toError(e)
   console.error(error.message)
 }
-
-// Error でない値も変換される
-const err = toError('something went wrong')
-console.log(err instanceof Error) // true
-console.log(err.message)          // 'something went wrong'
 ```

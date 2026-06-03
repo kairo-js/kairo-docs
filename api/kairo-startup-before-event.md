@@ -2,17 +2,17 @@
 
 `import { router } from '@kairo-js/router'`
 
-`router.beforeEvents.startup` のイベントオブジェクトです。ユーザーが直接インスタンス化することはありません。
+The event object for `router.beforeEvents.startup`. Not directly instantiable.
 
-Minecraft の `worldLoad` より前に発火します。API の登録・フック宣言・カスタムコマンド登録・イベント購読登録は、このイベントハンドラ内でのみ有効です。
+Fires before Minecraft's `worldLoad`. Registering APIs, declaring hooks, registering custom commands, and subscribing to addon events are only valid inside this event handler.
 
-## プロパティ
+## Properties
 
 ### api
 
 `readonly api: KairoApiRegistry`
 
-API の登録・フック宣言に使用。
+Register APIs and hooks.
 
 ---
 
@@ -20,7 +20,7 @@ API の登録・フック宣言に使用。
 
 `readonly customCommandRegistry: KairoCustomCommandRegistry`
 
-カスタムコマンドの登録に使用。
+Register custom commands.
 
 ---
 
@@ -28,17 +28,17 @@ API の登録・フック宣言に使用。
 
 `readonly events: AddonEventRegistry`
 
-アドオン間イベントの購読登録に使用。
+Subscribe to addon events.
 
 ---
 
-## 使用例
+## Usage
 
 ```typescript
 import { router } from '@kairo-js/router'
 
 router.beforeEvents.startup.subscribe((ev) => {
-  // API の登録
+  // Register an API
   ev.api.register<{ playerId: string }, { balance: number }>(
     'economy/getBalance',
     async ({ playerId }) => {
@@ -46,12 +46,12 @@ router.beforeEvents.startup.subscribe((ev) => {
     },
   )
 
-  // 他アドオンのイベントを購読
+  // Subscribe to another addon's event
   ev.events.on('other-addon', 'someEvent', (payload) => {
-    console.log('イベントを受信:', payload)
+    console.log('Event received:', payload)
   })
 
-  // カスタムコマンドの登録
+  // Register a custom command
   ev.customCommandRegistry.registerCommand(
     { name: 'mycommand', description: 'My command' },
     (origin) => {

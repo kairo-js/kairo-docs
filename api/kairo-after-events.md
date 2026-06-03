@@ -2,29 +2,29 @@
 
 `import { router } from '@kairo-js/router'`
 
-`router.afterEvents` からアクセスするクラスです。各プロパティは [`Subscribable<T>`](/api/subscribable) を実装しています。
+The class accessed via `router.afterEvents`. Each property implements [`Subscribable<T>`](/api/subscribable).
 
-## プロパティ
+## Properties
 
-### kairo 独自イベント
+### Kairo-specific events
+
+### Minecraft ScriptAPI pass-through events
+
+Events corresponding to `WorldAfterEvents` from `@minecraft/server`.
 
 ### addonActivate
 
 `readonly addonActivate: Subscribable<AddonActivateAfterEvent>`
 
-アドオンが起動された後に発火。
+Fires after an addon is activated.
 
 ---
-
-### Minecraft ScriptAPI pass-through イベント
-
-`@minecraft/server` の `WorldAfterEvents` に対応するイベントです。
 
 ### blockExplode
 
 `readonly blockExplode: Subscribable<BlockExplodeAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.blockExplode` に対応します。
+Corresponds to `WorldAfterEvents.blockExplode` in `@minecraft/server`.
 
 ---
 
@@ -32,7 +32,7 @@
 
 `readonly buttonPush: Subscribable<ButtonPushAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.buttonPush` に対応します。
+Corresponds to `WorldAfterEvents.buttonPush` in `@minecraft/server`.
 
 ---
 
@@ -40,7 +40,7 @@
 
 `readonly dataDrivenEntityTrigger: Subscribable<DataDrivenEntityTriggerAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.dataDrivenEntityTrigger` に対応します。
+Corresponds to `WorldAfterEvents.dataDrivenEntityTrigger` in `@minecraft/server`.
 
 ---
 
@@ -48,7 +48,7 @@
 
 `readonly effectAdd: Subscribable<EffectAddAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.effectAdd` に対応します。
+Corresponds to `WorldAfterEvents.effectAdd` in `@minecraft/server`.
 
 ---
 
@@ -56,7 +56,7 @@
 
 `readonly entityDie: Subscribable<EntityDieAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.entityDie` に対応します。
+Corresponds to `WorldAfterEvents.entityDie` in `@minecraft/server`.
 
 ---
 
@@ -64,7 +64,7 @@
 
 `readonly entityHeal: Subscribable<EntityHealAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.entityHeal` に対応します。
+Corresponds to `WorldAfterEvents.entityHeal` in `@minecraft/server`.
 
 ---
 
@@ -72,7 +72,7 @@
 
 `readonly entityHealthChanged: Subscribable<EntityHealthChangedAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.entityHealthChanged` に対応します。
+Corresponds to `WorldAfterEvents.entityHealthChanged` in `@minecraft/server`.
 
 ---
 
@@ -80,7 +80,7 @@
 
 `readonly entityHitBlock: Subscribable<EntityHitBlockAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.entityHitBlock` に対応します。
+Corresponds to `WorldAfterEvents.entityHitBlock` in `@minecraft/server`.
 
 ---
 
@@ -88,7 +88,7 @@
 
 `readonly entityHitEntity: Subscribable<EntityHitEntityAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.entityHitEntity` に対応します。
+Corresponds to `WorldAfterEvents.entityHitEntity` in `@minecraft/server`.
 
 ---
 
@@ -96,7 +96,7 @@
 
 `readonly entityHurt: Subscribable<EntityHurtAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.entityHurt` に対応します。
+Corresponds to `WorldAfterEvents.entityHurt` in `@minecraft/server`.
 
 ---
 
@@ -104,7 +104,7 @@
 
 `readonly entityItemDrop: Subscribable<EntityItemDropAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.entityItemDrop` に対応します。
+Corresponds to `WorldAfterEvents.entityItemDrop` in `@minecraft/server`.
 
 ---
 
@@ -112,7 +112,7 @@
 
 `readonly entityItemPickup: Subscribable<EntityItemPickupAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.entityItemPickup` に対応します。
+Corresponds to `WorldAfterEvents.entityItemPickup` in `@minecraft/server`.
 
 ---
 
@@ -120,7 +120,7 @@
 
 `readonly entityLoad: Subscribable<EntityLoadAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.entityLoad` に対応します。
+Corresponds to `WorldAfterEvents.entityLoad` in `@minecraft/server`.
 
 ---
 
@@ -128,7 +128,7 @@
 
 `readonly entityRemove: Subscribable<EntityRemoveAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.entityRemove` に対応します。
+Corresponds to `WorldAfterEvents.entityRemove` in `@minecraft/server`.
 
 ---
 
@@ -136,7 +136,7 @@
 
 `readonly entitySpawn: Subscribable<EntitySpawnAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.entitySpawn` に対応します。
+Corresponds to `WorldAfterEvents.entitySpawn` in `@minecraft/server`.
 
 ---
 
@@ -144,7 +144,7 @@
 
 `readonly explosion: Subscribable<ExplosionAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.explosion` に対応します。
+Corresponds to `WorldAfterEvents.explosion` in `@minecraft/server`.
 
 ---
 
@@ -152,7 +152,7 @@
 
 `readonly gameRuleChange: Subscribable<GameRuleChangeAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.gameRuleChange` に対応します。
+Corresponds to `WorldAfterEvents.gameRuleChange` in `@minecraft/server`.
 
 ---
 
@@ -160,7 +160,7 @@
 
 `readonly itemCompleteUse: Subscribable<ItemCompleteUseAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.itemCompleteUse` に対応します。
+Corresponds to `WorldAfterEvents.itemCompleteUse` in `@minecraft/server`.
 
 ---
 
@@ -168,7 +168,7 @@
 
 `readonly itemReleaseUse: Subscribable<ItemReleaseUseAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.itemReleaseUse` に対応します。
+Corresponds to `WorldAfterEvents.itemReleaseUse` in `@minecraft/server`.
 
 ---
 
@@ -176,7 +176,7 @@
 
 `readonly itemStartUse: Subscribable<ItemStartUseAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.itemStartUse` に対応します。
+Corresponds to `WorldAfterEvents.itemStartUse` in `@minecraft/server`.
 
 ---
 
@@ -184,7 +184,7 @@
 
 `readonly itemStartUseOn: Subscribable<ItemStartUseOnAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.itemStartUseOn` に対応します。
+Corresponds to `WorldAfterEvents.itemStartUseOn` in `@minecraft/server`.
 
 ---
 
@@ -192,7 +192,7 @@
 
 `readonly itemStopUse: Subscribable<ItemStopUseAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.itemStopUse` に対応します。
+Corresponds to `WorldAfterEvents.itemStopUse` in `@minecraft/server`.
 
 ---
 
@@ -200,7 +200,7 @@
 
 `readonly itemStopUseOn: Subscribable<ItemStopUseOnAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.itemStopUseOn` に対応します。
+Corresponds to `WorldAfterEvents.itemStopUseOn` in `@minecraft/server`.
 
 ---
 
@@ -208,7 +208,7 @@
 
 `readonly itemUse: Subscribable<ItemUseAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.itemUse` に対応します。
+Corresponds to `WorldAfterEvents.itemUse` in `@minecraft/server`.
 
 ---
 
@@ -216,7 +216,7 @@
 
 `readonly leverAction: Subscribable<LeverActionAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.leverAction` に対応します。
+Corresponds to `WorldAfterEvents.leverAction` in `@minecraft/server`.
 
 ---
 
@@ -224,7 +224,7 @@
 
 `readonly pistonActivate: Subscribable<PistonActivateAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.pistonActivate` に対応します。
+Corresponds to `WorldAfterEvents.pistonActivate` in `@minecraft/server`.
 
 ---
 
@@ -232,7 +232,7 @@
 
 `readonly playerBreakBlock: Subscribable<PlayerBreakBlockAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.playerBreakBlock` に対応します。
+Corresponds to `WorldAfterEvents.playerBreakBlock` in `@minecraft/server`.
 
 ---
 
@@ -240,7 +240,7 @@
 
 `readonly playerButtonInput: Subscribable<PlayerButtonInputAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.playerButtonInput` に対応します。
+Corresponds to `WorldAfterEvents.playerButtonInput` in `@minecraft/server`.
 
 ---
 
@@ -248,7 +248,7 @@
 
 `readonly playerDimensionChange: Subscribable<PlayerDimensionChangeAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.playerDimensionChange` に対応します。
+Corresponds to `WorldAfterEvents.playerDimensionChange` in `@minecraft/server`.
 
 ---
 
@@ -256,7 +256,7 @@
 
 `readonly playerEmote: Subscribable<PlayerEmoteAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.playerEmote` に対応します。
+Corresponds to `WorldAfterEvents.playerEmote` in `@minecraft/server`.
 
 ---
 
@@ -264,7 +264,7 @@
 
 `readonly playerGameModeChange: Subscribable<PlayerGameModeChangeAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.playerGameModeChange` に対応します。
+Corresponds to `WorldAfterEvents.playerGameModeChange` in `@minecraft/server`.
 
 ---
 
@@ -272,7 +272,7 @@
 
 `readonly playerHotbarSelectedSlotChange: Subscribable<PlayerHotbarSelectedSlotChangeAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.playerHotbarSelectedSlotChange` に対応します。
+Corresponds to `WorldAfterEvents.playerHotbarSelectedSlotChange` in `@minecraft/server`.
 
 ---
 
@@ -280,7 +280,7 @@
 
 `readonly playerInputModeChange: Subscribable<PlayerInputModeChangeAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.playerInputModeChange` に対応します。
+Corresponds to `WorldAfterEvents.playerInputModeChange` in `@minecraft/server`.
 
 ---
 
@@ -288,7 +288,7 @@
 
 `readonly playerInputPermissionCategoryChange: Subscribable<PlayerInputPermissionCategoryChangeAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.playerInputPermissionCategoryChange` に対応します。
+Corresponds to `WorldAfterEvents.playerInputPermissionCategoryChange` in `@minecraft/server`.
 
 ---
 
@@ -296,7 +296,7 @@
 
 `readonly playerInteractWithBlock: Subscribable<PlayerInteractWithBlockAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.playerInteractWithBlock` に対応します。
+Corresponds to `WorldAfterEvents.playerInteractWithBlock` in `@minecraft/server`.
 
 ---
 
@@ -304,7 +304,7 @@
 
 `readonly playerInteractWithEntity: Subscribable<PlayerInteractWithEntityAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.playerInteractWithEntity` に対応します。
+Corresponds to `WorldAfterEvents.playerInteractWithEntity` in `@minecraft/server`.
 
 ---
 
@@ -312,7 +312,7 @@
 
 `readonly playerInventoryItemChange: Subscribable<PlayerInventoryItemChangeAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.playerInventoryItemChange` に対応します。
+Corresponds to `WorldAfterEvents.playerInventoryItemChange` in `@minecraft/server`.
 
 ---
 
@@ -320,7 +320,7 @@
 
 `readonly playerJoin: Subscribable<PlayerJoinAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.playerJoin` に対応します。
+Corresponds to `WorldAfterEvents.playerJoin` in `@minecraft/server`.
 
 ---
 
@@ -328,7 +328,7 @@
 
 `readonly playerLeave: Subscribable<PlayerLeaveAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.playerLeave` に対応します。
+Corresponds to `WorldAfterEvents.playerLeave` in `@minecraft/server`.
 
 ---
 
@@ -336,7 +336,7 @@
 
 `readonly playerPlaceBlock: Subscribable<PlayerPlaceBlockAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.playerPlaceBlock` に対応します。
+Corresponds to `WorldAfterEvents.playerPlaceBlock` in `@minecraft/server`.
 
 ---
 
@@ -344,7 +344,7 @@
 
 `readonly playerSpawn: Subscribable<PlayerSpawnAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.playerSpawn` に対応します。
+Corresponds to `WorldAfterEvents.playerSpawn` in `@minecraft/server`.
 
 ---
 
@@ -352,7 +352,7 @@
 
 `readonly playerSwingStart: Subscribable<PlayerSwingStartAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.playerSwingStart` に対応します。
+Corresponds to `WorldAfterEvents.playerSwingStart` in `@minecraft/server`.
 
 ---
 
@@ -360,7 +360,7 @@
 
 `readonly pressurePlatePop: Subscribable<PressurePlatePopAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.pressurePlatePop` に対応します。
+Corresponds to `WorldAfterEvents.pressurePlatePop` in `@minecraft/server`.
 
 ---
 
@@ -368,7 +368,7 @@
 
 `readonly pressurePlatePush: Subscribable<PressurePlatePushAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.pressurePlatePush` に対応します。
+Corresponds to `WorldAfterEvents.pressurePlatePush` in `@minecraft/server`.
 
 ---
 
@@ -376,7 +376,7 @@
 
 `readonly projectileHitBlock: Subscribable<ProjectileHitBlockAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.projectileHitBlock` に対応します。
+Corresponds to `WorldAfterEvents.projectileHitBlock` in `@minecraft/server`.
 
 ---
 
@@ -384,7 +384,7 @@
 
 `readonly projectileHitEntity: Subscribable<ProjectileHitEntityAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.projectileHitEntity` に対応します。
+Corresponds to `WorldAfterEvents.projectileHitEntity` in `@minecraft/server`.
 
 ---
 
@@ -392,7 +392,7 @@
 
 `readonly scriptEventReceive: Subscribable<ScriptEventCommandMessageAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.scriptEventReceive` に対応します。
+Corresponds to `WorldAfterEvents.scriptEventReceive` in `@minecraft/server`.
 
 ---
 
@@ -400,7 +400,7 @@
 
 `readonly targetBlockHit: Subscribable<TargetBlockHitAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.targetBlockHit` に対応します。
+Corresponds to `WorldAfterEvents.targetBlockHit` in `@minecraft/server`.
 
 ---
 
@@ -408,7 +408,7 @@
 
 `readonly tripWireTrip: Subscribable<TripWireTripAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.tripWireTrip` に対応します。
+Corresponds to `WorldAfterEvents.tripWireTrip` in `@minecraft/server`.
 
 ---
 
@@ -416,16 +416,16 @@
 
 `readonly weatherChange: Subscribable<WeatherChangeAfterEvent>`
 
-`@minecraft/server` の `WorldAfterEvents.weatherChange` に対応します。
+Corresponds to `WorldAfterEvents.weatherChange` in `@minecraft/server`.
 
 ---
 
-## 使用例
+## Usage
 
 ```typescript
 import { router } from '@kairo-js/router'
 
 router.afterEvents.playerJoin.subscribe((ev) => {
-  console.log(`${ev.playerName} が参加しました`)
+  console.log(`${ev.playerName} joined`)
 })
 ```

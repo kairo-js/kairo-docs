@@ -1,6 +1,6 @@
 # @kairo-js/utils
 
-Minecraft アドオン開発で汎用的に使用するユーティリティを提供するパッケージです。乱数生成・バージョン比較・スキーマ検証・JSON パースなどの機能を含みます。
+General-purpose utilities for the kairo-js ecosystem. Provides schema validation, semantic version comparison, seeded random number generation, and other helper functions.
 
 ## Available Versions
 

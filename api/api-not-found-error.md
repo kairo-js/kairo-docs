@@ -4,16 +4,16 @@
 
 **extends** `Error`
 
-API 名がルーティングテーブルに存在しない場合にスローされます。`router.request()` の呼び出し先アドオンに指定した `apiName` が登録されていない場合に発生します。
+Thrown when the specified API name does not exist in the routing table. Occurs when the `apiName` passed to `router.request()` is not registered on the target addon.
 
-## コンストラクター
+## Constructor
 
 ```typescript
 constructor(apiName?: string)
 ```
 
-**パラメーター**
+**Parameters**
 
 - **apiName:** `string`
 
-  見つからなかった API 名（省略可能）。
+  The API name that was not found (optional).

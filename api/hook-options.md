@@ -2,7 +2,7 @@
 
 `import type { HookOptions } from '@kairo-js/router'`
 
-`ev.api.hook()` に渡すオプションオブジェクトです。
+The options object passed to `ev.api.hook()`.
 
 ```typescript
 type HookOptions<TArgs, TReturn> = {
@@ -14,13 +14,13 @@ type HookOptions<TArgs, TReturn> = {
 }
 ```
 
-## フィールド
+## Fields
 
 ### after
 
 `after?: (ctx: AfterHookContext<TArgs, TReturn>) => Promise<void>`
 
-ハンドラ実行後に呼ばれる（`request` のみ）。result の改ざんが可能。pure transform のみを行うこと。
+Runs after the handler (`request` only). Can mutate result. Perform pure transforms only.
 
 ---
 
@@ -28,7 +28,7 @@ type HookOptions<TArgs, TReturn> = {
 
 `before?: (ctx: BeforeHookContext<TArgs, TReturn>) => Promise<void>`
 
-ハンドラ実行前に呼ばれる。args の改ざん・cancel が可能。
+Runs before the handler. Can mutate args or cancel the call.
 
 ---
 
@@ -36,7 +36,7 @@ type HookOptions<TArgs, TReturn> = {
 
 `modes?: ReadonlyArray<'send' | 'request'>`
 
-フックを適用する呼び出し種別。省略かつ `after` が存在する場合は `["request"]`。省略かつ `before` のみの場合は `["send", "request"]`。
+Call types to apply this hook to. Defaults to `["request"]` if `after` is present; `["send", "request"]` if `before` only.
 
 ---
 
@@ -44,7 +44,7 @@ type HookOptions<TArgs, TReturn> = {
 
 `priority?: number`
 
-実行順序。小さいほど先に実行される。デフォルト `0`。32-bit 符号付き整数。
+Execution order; lower = earlier. Default `0`. 32-bit signed integer.
 
 ---
 
@@ -52,23 +52,23 @@ type HookOptions<TArgs, TReturn> = {
 
 `rollback?: (ctx: HookRollbackContext<TArgs>) => Promise<TArgs | void>`
 
-before フックが例外をスローした場合のみ呼ばれる。省略可能。
+Runs only when a `before` hook throws. Optional.
 
 ---
 
 ::: warning
-`before` と `after` は少なくとも片方が必須です。両方を省略するとエラーになります。
+At least one of `before` or `after` is required. Omitting both throws immediately.
 :::
 
-## 実行順序（オニオンモデル）
+## Execution order (onion model)
 
 ```
 before: -10 → 0(B) → 0(C) → 5 → [handler] → after: 5 → 0(C) → 0(B) → -10
 ```
 
-`after` の実行順は `before` の実際の実行順の完全逆順です。
+`after` runs in the exact reverse order of `before` execution.
 
-## 使用例
+## Usage
 
 ```typescript
 ev.api.hook<{ playerId: string }, { balance: number }>(

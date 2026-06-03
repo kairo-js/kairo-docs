@@ -2,7 +2,7 @@
 
 `import type { Subscribable } from '@kairo-js/router'`
 
-`KairoBeforeEvents` および `KairoAfterEvents` の各プロパティの型です。イベントの購読・購読解除を提供します。
+The type of each property on `KairoBeforeEvents` and `KairoAfterEvents`. Provides event subscription and unsubscription.
 
 ```typescript
 interface Subscribable<T> {
@@ -11,7 +11,7 @@ interface Subscribable<T> {
 }
 ```
 
-## メソッド
+## Methods
 
 ### subscribe()
 
@@ -19,15 +19,15 @@ interface Subscribable<T> {
 subscribe(fn: (arg: T) => void): Disposable
 ```
 
-イベントハンドラを登録します。戻り値の [`Disposable`](/api/disposable) を使って後から購読を解除できます。
+Registers an event handler. The returned [`Disposable`](/api/disposable) can be used to unsubscribe later.
 
-**パラメーター**
+**Parameters**
 
 - **fn:** `(arg: T) => void`
 
-  イベント発火時に呼ばれるハンドラ。
+  The handler to invoke when the event fires.
 
-**返り値:** [`Disposable`](/api/disposable)
+**Returns:** [`Disposable`](/api/disposable)
 
 ---
 
@@ -37,32 +37,32 @@ subscribe(fn: (arg: T) => void): Disposable
 unsubscribe(fn: (arg: T) => void): void
 ```
 
-登録済みのイベントハンドラを解除します。`subscribe()` に渡した関数の参照を指定します。
+Removes a previously registered event handler. Pass the same function reference that was passed to `subscribe()`.
 
-**パラメーター**
+**Parameters**
 
 - **fn:** `(arg: T) => void`
 
-  解除するハンドラ。
+  The handler to remove.
 
-**返り値:** `void`
+**Returns:** `void`
 
-## 使用例
+## Usage
 
 ```typescript
 import { router } from '@kairo-js/router'
 
-// subscribe して Disposable を保持する
+// Subscribe and hold the Disposable
 const disposable = router.afterEvents.playerJoin.subscribe((ev) => {
-  console.log(`${ev.playerName} が参加しました`)
+  console.log(`${ev.playerName} joined`)
 })
 
-// 不要になったら dispose で解除する
+// Dispose when no longer needed
 disposable.dispose()
 
-// または unsubscribe に関数参照を渡して解除する
+// Alternatively, unsubscribe by function reference
 const handler = (ev: PlayerJoinAfterEvent) => {
-  console.log(`${ev.playerName} が参加しました`)
+  console.log(`${ev.playerName} joined`)
 }
 router.afterEvents.playerJoin.subscribe(handler)
 router.afterEvents.playerJoin.unsubscribe(handler)

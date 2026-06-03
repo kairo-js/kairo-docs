@@ -2,30 +2,25 @@
 
 `import { SeedRandom } from '@kairo-js/utils'`
 
-[`Random`](/api/utils/random) インターフェースを実装した、シード付き疑似乱数生成器クラスです。同じシードを与えると常に同じ乱数列を生成します。
+A seeded pseudo-random number generator. Implements the [`Random`](/api/utils/random) interface. Produces a deterministic sequence of numbers when constructed with the same seed.
+
+**Implements:** [`Random`](/api/utils/random)
+
+## Constructor
 
 ```typescript
-class SeedRandom implements Random {
-  constructor(seed?: string)
-  next(): number
-}
+constructor(seed?: string)
 ```
 
-## コンストラクター
+Creates a new `SeedRandom` instance. If `seed` is omitted, a time-based seed is used and the sequence will vary between runs.
 
-```typescript
-new SeedRandom(seed?: string)
-```
-
-`SeedRandom` のインスタンスを生成します。
-
-**パラメーター**
+**Parameters**
 
 - **seed:** `string`
 
-  乱数生成のシード文字列（省略可能）。省略した場合は現在時刻ベースのシードを使用します。
+  An optional seed string. Providing the same seed produces the same sequence of numbers.
 
-## メソッド
+## Methods
 
 - [next](#next)
 
@@ -35,20 +30,16 @@ new SeedRandom(seed?: string)
 next(): number
 ```
 
-0 以上 1 未満の疑似乱数を返します。同じシードで生成したインスタンスは毎回同じ順序で値を返します。
+Returns the next pseudo-random number in the sequence.
 
-**返り値:** `number`
+**Returns:** `number` — A value in the range `[0, 1)`.
 
-## 使用例
+## Usage
 
 ```typescript
 import { SeedRandom } from '@kairo-js/utils'
 
 const rng = new SeedRandom('my-seed')
-console.log(rng.next()) // 常に同じ値
-console.log(rng.next()) // 常に同じ値（2番目）
-
-// シードなし（現在時刻ベース）
-const rng2 = new SeedRandom()
-console.log(rng2.next())
+console.log(rng.next()) // deterministic value
+console.log(rng.next()) // next value in the sequence
 ```

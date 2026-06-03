@@ -1,8 +1,8 @@
-# ValidateFunction
+# ValidateFunction\<T\>
 
 `import type { ValidateFunction } from '@kairo-js/utils'`
 
-型ガード関数のインターフェースです。[`compile`](/api/utils/compile) 関数の返り値型として使用します。
+A type guard function interface used to validate unknown values against a known type. Produced by `compile()`.
 
 ```typescript
 interface ValidateFunction<T> {
@@ -11,34 +11,27 @@ interface ValidateFunction<T> {
 }
 ```
 
-## フィールド
+## Fields
 
 ### errors
 
 `errors?: readonly string[]`
 
-検証失敗時のエラーメッセージ一覧（省略可能）。検証に失敗した場合にエラーの詳細を参照できます。検証が成功した場合は `undefined` または空配列になります。
+An optional list of human-readable error messages describing why the most recent validation failed. Only populated after a call that returned `false`.
 
----
-
-## 使用例
+## Usage
 
 ```typescript
 import { compile } from '@kairo-js/utils'
 import { Type } from '@sinclair/typebox'
 
-const PlayerSchema = Type.Object({
-  id: Type.String(),
-  name: Type.String(),
-})
+const schema = Type.Object({ name: Type.String() })
+const validate = compile(schema)
 
-const isPlayer = compile(PlayerSchema)
-
-const data: unknown = { id: 'abc', name: 'Steve' }
-
-if (isPlayer(data)) {
-  console.log(data.name) // TypeScript で型が絞り込まれる
+const input: unknown = { name: 'hello' }
+if (validate(input)) {
+  console.log(input.name) // typed as string
 } else {
-  console.error('検証失敗:', isPlayer.errors)
+  console.error(validate.errors)
 }
 ```

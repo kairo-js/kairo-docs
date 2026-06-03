@@ -4,9 +4,9 @@
 
 **extends** `Error`
 
-`router.request()` が指定した tick 数以内に応答を受け取れなかった場合にスローされます。デフォルトのタイムアウトは 20 tick です。
+Thrown when `router.request()` does not receive a response within the specified number of ticks. The default timeout is 20 ticks.
 
-## コンストラクター
+## Constructor
 
 ```typescript
 constructor()
