@@ -1,5 +1,14 @@
 # はじめに
 
+## 対応 Minecraft Script API バージョン
+
+Kairo は Minecraft の**安定版** Script API を必要とします:
+
+- `@minecraft/server` **2.0.0 以降**
+- `@minecraft/server-ui` **2.0.0 以降**
+
+2.0.0 より前のバージョンは初期化モデルが異なり（例: `WorldLoad` の代わりに `WorldInitialize` が使われていた）、サポートされません。
+
 ## kairo のインストール
 
 **kairo** ビヘイビアーパックをワールドに追加します。これが他のすべてのアドオン間の通信を仲介します。
@@ -74,3 +83,19 @@ export const properties: AddonProperties = {
 `router.init()` に `{ standalone: true }` を渡すと standalone 起動が有効になります。kairo がインストールされていない場合、必須 dependencies が `kairo` と `kairo-database` のみであれば自動的に起動します。kairo のライフサイクル管理をオプションとして利用したい単体アドオンに便利です。
 
 詳細は [`RouterInitOptions`](/ja/api/router-init-options) を参照してください。
+
+## 初期化タイミング
+
+ワールドロード後、kairo は Discovery・Registration・Activation という独自の初期化フローを実行してから `addonActivate` を発火します。インストールされているアドオン数にもよりますが、**概ね 30〜50 tick** の遅延が発生します。
+
+この遅延は意図的なものです。Minecraft Script API 2.0.0+ では WorldLoad 完了前に world 系のメソッドを呼ぶとエラーになる仕様がありますが、`addonActivate` はその代わりとなる安全シグナルです。`addonActivate` 以降であれば、world 系メソッドの呼び出しやアドオン間 API の利用が可能です。
+
+```typescript
+router.afterEvents.addonActivate.subscribe(() => {
+  // ここから world 系メソッドの呼び出し・他アドオンの API 呼び出しが安全
+})
+```
+
+::: tip
+バニラの Script API アドオンに慣れている方は、`addonActivate` を `WorldLoad` の代わりとして捉えてください。追加の tick は kairo のハンドシェイクコストであり、無駄な待機ではありません。
+:::

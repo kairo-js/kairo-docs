@@ -1,5 +1,14 @@
 # Getting Started
 
+## Supported Minecraft Script API versions
+
+Kairo requires the **stable** Minecraft Script API:
+
+- `@minecraft/server` **2.0.0 or higher**
+- `@minecraft/server-ui` **2.0.0 or higher**
+
+Versions prior to 2.0.0 used a different initialization model (e.g. `WorldInitialize` instead of `WorldLoad`) and are not supported.
+
 ## Install kairo
 
 Add the **kairo** behavior pack to your world. It acts as the communication hub between all your addons.
@@ -74,3 +83,19 @@ export const properties: AddonProperties = {
 Pass `{ standalone: true }` to `router.init()` to enable standalone activation. When kairo is not installed, the addon activates automatically — but only if its required dependencies contain nothing beyond `kairo` and `kairo-database`. This is useful for self-contained addons that optionally integrate with kairo's lifecycle management.
 
 See [`RouterInitOptions`](/api/router-init-options) for full details.
+
+## Initialization timing
+
+After world load, kairo runs its own initialization — Discovery, Registration, and Activation — before firing `addonActivate`. This takes roughly **30–50 ticks** depending on the number of addons installed.
+
+This delay is intentional and mirrors Minecraft's own constraint: the Script API 2.0.0+ throws if you call world-related methods before `WorldLoad` completes. `addonActivate` serves the same purpose — it is your safe signal that the world is ready and all cross-addon APIs are available.
+
+```typescript
+router.afterEvents.addonActivate.subscribe(() => {
+  // Safe to use world methods and call other addons' APIs here
+})
+```
+
+::: tip
+If you are familiar with writing vanilla Script API addons, think of `addonActivate` as your `WorldLoad`. The extra ticks are kairo's handshake cost, not wasted time.
+:::
